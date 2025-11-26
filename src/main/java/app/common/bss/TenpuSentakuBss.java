@@ -20,11 +20,11 @@ import common.util.Function;
 import common.util.Log;
 import common.util.TempFile;
 import common.util.TempFileList;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.upload.FormFile;
+import common.struts.adapter.action.ActionMapping;
+import common.struts.adapter.upload.FormFile;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.BufferedInputStream;
 import java.io.FileOutputStream;
 import java.io.OutputStream;

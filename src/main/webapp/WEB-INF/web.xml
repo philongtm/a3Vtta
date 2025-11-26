@@ -1,108 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
 
-<web-app>
+    <!-- フィルター -->
+    <filter>
+        <filter-name>AppFilter</filter-name>
+        <filter-class>common.AppFilter</filter-class>
+        <init-param>
+            <param-name>usefilter</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>encording</param-name>
+            <param-value>Windows-31J</param-value>
+            <!--<param-value>Shift_JIS</param-value>-->
+        </init-param>
+    </filter>
 
-	<!-- フィルター -->
-	<filter>
-		<filter-name>AppFilter</filter-name>
-		<filter-class>common.AppFilter</filter-class>
-		<init-param>
-			<param-name>usefilter</param-name>
-			<param-value>true</param-value>
-		</init-param>
-		<init-param>
-			<param-name>encording</param-name>
-			<param-value>Windows-31J</param-value>
-			<!--<param-value>Shift_JIS</param-value>-->
-		</init-param>
-	</filter>
+    <filter-mapping>
+        <filter-name>AppFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
-	<filter-mapping>
-		<filter-name>AppFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+    <filter>
+        <filter-name>AppActionFilter</filter-name>
+        <filter-class>config.filter.AppActionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AppActionFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
-	<!-- サーブレット -->
-	<servlet>
-		<servlet-name>action</servlet-name>
-        <servlet-class>common.struts.AppActionServlet</servlet-class>
-		<init-param>
-			<param-name>config</param-name>
-			<param-value>
-				/WEB-INF/struts-config.xml,
-				/WEB-INF/struts-config/config-head.xml,
-				/WEB-INF/struts-config/config-00-login.xml,
-				/WEB-INF/struts-config/config-01-tairyu.xml,
-				/WEB-INF/struts-config/config-02-satei.xml,
-				/WEB-INF/struts-config/config-03-syokai.xml,
-				/WEB-INF/struts-config/config-04-kanjyo.xml,
-				/WEB-INF/struts-config/config-04-user.xml,
-				/WEB-INF/struts-config/config-04-cyusyutujyoken.xml,
-				/WEB-INF/struts-config/config-04-kureemu.xml,
-				/WEB-INF/struts-config/config-04-daiko.xml,
-				/WEB-INF/struts-config/config-04-champion.xml,
-				/WEB-INF/struts-config/config-04-golf.xml,
-				/WEB-INF/struts-config/config-04-renketu.xml,
-				/WEB-INF/struts-config/config-05-common.xml,
-				/WEB-INF/struts-config/config-06-hikiate.xml,
-				/WEB-INF/struts-config/config-04-workflow.xml,
-				/WEB-INF/struts-config/config-04-sateikaisya.xml,
-				/WEB-INF/struts-config/config-04-download.xml,
-				/WEB-INF/struts-config/config-tail.xml
-			</param-value>
-		</init-param>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
 
-	<!-- サーブレットマッピング -->
-	<servlet-mapping>
-		<servlet-name>action</servlet-name>
-		<url-pattern>*.do</url-pattern>
-	</servlet-mapping>
+    <!-- サーブレット -->
+    <servlet>
+        <servlet-name>spring</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 
-	<!-- 通常のウエルカムファイルリスト -->
-	<welcome-file-list>
-		<welcome-file>/index.html</welcome-file>
-	</welcome-file-list>
+        <init-param>
+            <param-name>contextClass</param-name>
+            <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+        </init-param>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>config.WebConfig</param-value>
+        </init-param>
 
-<!--
-	<error-page>
-		<error-code>404</error-code>
-		<location>/error.jsp</location>
-	</error-page>
--->
+        <load-on-startup>0</load-on-startup>
+    </servlet>
 
-	<!-- Strutsタグライブラリ記述子 -->
-	<taglib>
-		<taglib-uri>/tags/struts-html</taglib-uri>
-		<taglib-location>/WEB-INF/tld/struts-html.tld</taglib-location>
-	</taglib>
+    <!-- サーブレットマッピング -->
+    <servlet-mapping>
+        <servlet-name>spring</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
 
-	<taglib>
-		<taglib-uri>/tags/struts-logic</taglib-uri>
-		<taglib-location>/WEB-INF/tld/struts-logic.tld</taglib-location>
-	</taglib>
-
-	<taglib>
-		<taglib-uri>/tags/struts-bean</taglib-uri>
-		<taglib-location>/WEB-INF/tld/struts-bean.tld</taglib-location>
-	</taglib>
-
-	<taglib>
-		<taglib-uri>/tags/struts-tiles</taglib-uri>
-		<taglib-location>/WEB-INF/tld/struts-tiles.tld</taglib-location>
-	</taglib>
-
-	<taglib>
-		<taglib-uri>/tags/struts-nested</taglib-uri>
-		<taglib-location>/WEB-INF/tld/struts-nested.tld</taglib-location>
-	</taglib>
-
-	<taglib>
-		<taglib-uri>/tags/common</taglib-uri>
-		<taglib-location>/WEB-INF/tld/common.tld</taglib-location>
-	</taglib>
-
+    <!-- 通常のウエルカムファイルリスト -->
+    <welcome-file-list>
+        <welcome-file>/index.html</welcome-file>
+    </welcome-file-list>
 </web-app>

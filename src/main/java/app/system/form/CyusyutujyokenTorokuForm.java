@@ -9,9 +9,9 @@ package app.system.form;
 
 import common.global.GS;
 import common.struts.AppPagerActionForm;
-import org.apache.struts.action.ActionMapping;
+import common.struts.adapter.action.ActionMapping;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.LinkedHashMap;
 
 /**
@@ -537,7 +537,7 @@ public class CyusyutujyokenTorokuForm extends AppPagerActionForm {
 	}
 	
     /* (non-Javadoc)
-     * @see org.apache.struts.action.ActionForm#reset(org.apache.struts.action.ActionMapping, javax.servlet.http.HttpServletRequest)
+     * @see common.struts.adapter.action.ActionForm#reset(common.struts.adapter.action.ActionMapping, jakarta.servlet.http.HttpServletRequest)
      */
     public void reset(ActionMapping mapping, HttpServletRequest request){
     	// é¿é{ëÿóØîªíËëŒè€

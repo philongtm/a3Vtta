@@ -17,8 +17,8 @@ import common.util.SplitPath;
 import common.util.TempFile;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

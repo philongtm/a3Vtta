@@ -145,7 +145,7 @@ public interface GS {
 	/************************************************************************************
 	 * セッションキー名
 	 ***********************************************************************************/
-    public static final String LOCALE   = "org.apache.struts.action.LOCALE";
+    public static final String LOCALE   = "common.struts.adapter.action.LOCALE";
     public static final String APP_SESSION   = "app.SessionData";
     public static final String LOGINFORM   = "00LoginForm";
     public static final String MENUFORM   = "00MenuForm";
@@ -432,8 +432,8 @@ public interface GS {
 	/************************************************************************************
 	 * 設定ファイル名
 	 ***********************************************************************************/
-	public static final String PROPERTY_WEBSYSTEM	= "resources.application";
-	public static final String PROPERTY_ERRORMSG	= "resources.message";
+	public static final String PROPERTY_WEBSYSTEM	= "application";
+	public static final String PROPERTY_ERRORMSG	= "message";
 
 	/************************************************************************************
 	 * アプリケーションフォルダ定義

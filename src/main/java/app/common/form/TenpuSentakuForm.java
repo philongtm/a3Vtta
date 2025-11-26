@@ -14,8 +14,8 @@ import app.system.form.KureemuMeisaiForm;
 import app.system.form.KureemuSyosaiForm;
 import app.tairyu.form.SyoninsyosaiForm;
 import app.tairyu.form.SyosaiForm;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.upload.FormFile;
+import common.struts.adapter.action.ActionForm;
+import common.struts.adapter.upload.FormFile;
 
 import java.io.File;
 import java.util.ArrayList;

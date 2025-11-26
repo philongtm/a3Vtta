@@ -8,7 +8,7 @@ package common.util;
 
 import common.global.GS;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 import java.util.ResourceBundle;
 
 /**

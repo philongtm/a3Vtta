@@ -13,7 +13,7 @@ import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

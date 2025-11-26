@@ -813,13 +813,13 @@ public class ExCallableStatement {
 							bean.setParamValue(cstmt.getString(bean.getIndex()));
 							break;
 						case java.sql.Types.INTEGER:
-							bean.setParamValue(new Integer(cstmt.getInt(bean.getIndex())));
+							bean.setParamValue(cstmt.getInt(bean.getIndex()));
 							break;
 						case java.sql.Types.BIGINT:
-							bean.setParamValue(new Long(cstmt.getLong(bean.getIndex())));
+							bean.setParamValue(cstmt.getLong(bean.getIndex()));
 							break;
 						case java.sql.Types.DOUBLE:
-							bean.setParamValue(new Double(cstmt.getDouble(bean.getIndex())));
+							bean.setParamValue(cstmt.getDouble(bean.getIndex()));
 							break;
 						case java.sql.Types.TIMESTAMP:
 							bean.setParamValue(cstmt.getTimestamp(bean.getIndex()));

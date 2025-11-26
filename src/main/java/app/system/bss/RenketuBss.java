@@ -22,11 +22,11 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.upload.FormFile;
+import common.struts.adapter.action.ActionMapping;
+import common.struts.adapter.upload.FormFile;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -383,7 +383,7 @@ public class RenketuBss {
             
             for (int i=0; i<4; i++ ) {
             	cellHd[i] = row[0].createCell((short)i);
-                cellHd[i].setEncoding(HSSFCell.ENCODING_UTF_16);
+                // cellHd[i].setEncoding(HSSFCell.ENCODING_UTF_16);
             }
             
             // セルに値を設定する
@@ -406,7 +406,7 @@ public class RenketuBss {
 	            
 	            for (int i=0; i<4; i++ ) {
 	            	cellData[i] = row[j].createCell((short)i);
-	            	cellData[i].setEncoding(HSSFCell.ENCODING_UTF_16);
+	            	// cellData[i].setEncoding(HSSFCell.ENCODING_UTF_16);
 	            }
 	            				
 	            cellData[0].setCellValue( (String)map.get("kikan_tori_cd") );	// 基幹取引先コード

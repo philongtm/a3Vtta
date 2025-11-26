@@ -10,7 +10,7 @@ package app.tairyu.form;
 
 import common.global.GS;
 import common.struts.AppPagerActionForm;
-import org.apache.struts.upload.FormFile;
+import common.struts.adapter.upload.FormFile;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

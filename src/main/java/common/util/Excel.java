@@ -293,7 +293,8 @@ public class Excel {
 		if(wb.getSheetAt(index) == null){
 			return FALSE;
 		}
-		wb.setSheetName(index,name,HSSFWorkbook.ENCODING_UTF_16);
+		// wb.setSheetName(index,name);
+		wb.setSheetName(index,name);
 		return TRUE;
 	}
 
@@ -524,7 +525,7 @@ public class Excel {
 	 * カレントセルに値を設定する
 	 */
 	public void setCellValue(String str) {
-		cell.setEncoding(HSSFCell.ENCODING_UTF_16);
+		// cell.setEncoding(HSSFCell.ENCODING_UTF_16);
 		cell.setCellValue(str);
 	}
 	

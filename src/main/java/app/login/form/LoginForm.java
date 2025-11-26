@@ -9,9 +9,9 @@ package app.login.form;
 
 import common.global.GS;
 import common.struts.AppActionForm;
-import org.apache.struts.action.ActionMapping;
+import common.struts.adapter.action.ActionMapping;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 /**
  * OS1101_ログイン アクションフォームクラス

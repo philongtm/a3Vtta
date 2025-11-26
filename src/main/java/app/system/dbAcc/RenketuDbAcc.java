@@ -13,7 +13,7 @@ import common.db.CommonDbAcc;
 import common.db.SqlExecuter;
 import common.util.Log;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

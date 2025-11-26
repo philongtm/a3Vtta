@@ -7,7 +7,7 @@ No		日付			修正者			修正内容
 ******************************************************************************/
 package app.commonZen.form;
 
-import org.apache.struts.action.ActionForm;
+import common.struts.adapter.action.ActionForm;
 
 /**
  * 取引先区分判定タブFormクラス

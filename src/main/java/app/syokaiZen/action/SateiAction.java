@@ -21,8 +21,8 @@ import common.struts.AppMenuAction;
 import common.util.Function;
 import common.util.SaikenExcelD;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

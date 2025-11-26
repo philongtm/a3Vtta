@@ -27,10 +27,10 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-import org.apache.struts.action.ActionMapping;
+import common.struts.adapter.action.ActionMapping;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -275,7 +275,7 @@ public class TairyuExcelDbAcc extends CommonDbAcc {
 			HSSFRow rowD = sheetD.getRow(i) ;
 			sheetD.removeRow(rowD) ; 
 		}
-		wb.setSheetName(1,"sheet1",HSSFWorkbook.ENCODING_UTF_16);    
+		wb.setSheetName(1,"sheet1");    
        
 		FileOutputStream fileOut = null;
 		
@@ -313,7 +313,7 @@ public class TairyuExcelDbAcc extends CommonDbAcc {
 			
 			fileOut = new FileOutputStream( tmpExcel.getAbsolutePath() );
 			// ワークシートを変更する
-			wb.setSheetName(0,sname,HSSFWorkbook.ENCODING_UTF_16);    
+			wb.setSheetName(0,sname);    
           
 			// セルオブジェクトの作成（セル番号は0スタート）
 			// ヘッダ部分の作成(1行目は項目名称)
@@ -348,7 +348,7 @@ public class TairyuExcelDbAcc extends CommonDbAcc {
 			if(ankenCell == null){
 				ankenCell = ankenRow.createCell((short)hiddenIdx);
 			}
-			ankenCell.setEncoding(HSSFCell.ENCODING_UTF_16);
+			// ankenCell.setEncoding(HSSFCell.ENCODING_UTF_16);
 			ankenCell.setCellValue(cmnData.getSatei_anken_no());
 			counta++;
 			while (rsTairyujdg.next()) {
@@ -360,7 +360,7 @@ public class TairyuExcelDbAcc extends CommonDbAcc {
 				if(tairyuCell == null){
 					tairyuCell = tairyuRow.createCell((short)hiddenIdx);
 				}
-				tairyuCell.setEncoding(HSSFCell.ENCODING_UTF_16);
+				// tairyuCell.setEncoding(HSSFCell.ENCODING_UTF_16);
 				tairyuCell.setCellValue(Function.trim(rsTairyujdg.getString("kbn_hyouji_val")));
 				counta++;
 			}
@@ -373,10 +373,11 @@ public class TairyuExcelDbAcc extends CommonDbAcc {
 	               	
 						for (int j=0; j<19; j++ ) {
 							cellHd[j] = row.getCell((short)j);
+                            /*
 							if(cellHd[j] != null){
 								cellHd[j].setEncoding(HSSFCell.ENCODING_UTF_16);
-	
 							}
+                            */
 						}
 					}
 	
@@ -601,7 +602,7 @@ public class TairyuExcelDbAcc extends CommonDbAcc {
 				for (int i=0; i<20; i++ ) {
 				// 修正完了
 					cellData[i] = rowM[j].createCell((short)i);
-					cellData[i].setEncoding(HSSFCell.ENCODING_UTF_16);
+					// cellData[i].setEncoding(HSSFCell.ENCODING_UTF_16);
 					
 					// 課題No.27 国内フォント統一対応
 					// 追加開始

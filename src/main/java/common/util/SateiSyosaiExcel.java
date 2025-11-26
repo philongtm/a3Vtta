@@ -21,7 +21,7 @@ import app.commonZen.form.TorihikisakiKubunHanteiSyokaiForm;
 import common.AppContext;
 import common.db.SqlExecuter;
 import common.global.GS;
-import org.apache.struts.action.ActionForm;
+import common.struts.adapter.action.ActionForm;
 
 import java.util.ArrayList;
 

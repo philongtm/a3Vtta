@@ -24,10 +24,10 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-import org.apache.struts.action.ActionMapping;
+import common.struts.adapter.action.ActionMapping;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -169,13 +169,15 @@ public class SaikenExcelDDbAcc extends CommonDbAcc {
 			HSSFRow rowD = sheetD.getRow(i) ;
 			sheetD.removeRow(rowD) ; 
 		}
-		wb.setSheetName(0,"sheet1",HSSFWorkbook.ENCODING_UTF_16);    
-      
+        // wb.setSheetName(0,"sheet1");
+		wb.setSheetName(0,"sheet1");
+
 		FileOutputStream fileOut = null;
 		fileOut = new FileOutputStream( tmpExcel.getAbsolutePath() );
         
 		// ワークシートを変更する
-		wb.setSheetName(1,sname,HSSFWorkbook.ENCODING_UTF_16);    
+		// wb.setSheetName(1,sname);
+		wb.setSheetName(1,sname);
 
 		// セルオブジェクトの作成（セル番号は0スタート）
 		// ヘッダ部分の作成(1行目は項目名称)
@@ -333,10 +335,11 @@ public class SaikenExcelDDbAcc extends CommonDbAcc {
 						for (int ii=0; ii<20; ii++ ) {
 						// 追加完了
 							cellHd[ii] = row.getCell((short)ii);
+                            /*
 							if(cellHd[ii] != null){
 								cellHd[ii].setEncoding(HSSFCell.ENCODING_UTF_16);
-	
 							}
+                            */
 						}
 					}
 			
@@ -497,7 +500,7 @@ public class SaikenExcelDDbAcc extends CommonDbAcc {
 	            
            		for (int i=0; i<19; i++ ) {
            			cellData[i] = rowM[0].createCell((short)i);
-           			cellData[i].setEncoding(HSSFCell.ENCODING_UTF_16);
+           			// cellData[i].setEncoding(HSSFCell.ENCODING_UTF_16);
 					// 課題No.27
 					// 追加開始
 					// スタイルの設定

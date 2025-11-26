@@ -10,13 +10,13 @@ import common.AppContext;
 import common.global.GS;
 import common.util.Function;
 import common.util.InputCheck;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
+import common.struts.adapter.action.ActionErrors;
+import common.struts.adapter.action.ActionForm;
+import common.struts.adapter.action.ActionMapping;
+import common.struts.adapter.action.ActionMessage;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.util.List;
 

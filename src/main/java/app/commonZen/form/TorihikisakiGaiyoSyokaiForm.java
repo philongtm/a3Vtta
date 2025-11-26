@@ -7,7 +7,7 @@ No		ì˙ït			èCê≥é“			èCê≥ì‡óe
 ******************************************************************************/
 package app.commonZen.form;
 
-import org.apache.struts.action.ActionForm;
+import common.struts.adapter.action.ActionForm;
 
 import java.util.ArrayList;
 

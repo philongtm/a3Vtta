@@ -9,8 +9,8 @@ package common.struts;
 
 import common.global.GS;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import java.util.Locale;
 import java.util.ResourceBundle;
 

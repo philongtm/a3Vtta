@@ -11,6 +11,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.SQLException;
 
+/**
+ * Convert from file AppExceptionHandler.
+ * ref:
+ * 拡張RequestProcessorクラス
+ * サーブレットリクエストに対するstrutsコントローラが実行するロジック。
+ * SessionBean関係の処理をここで行う。
+ */
 @ControllerAdvice
 public class AppExceptionHandler {
 

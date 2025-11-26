@@ -26,7 +26,7 @@ import common.util.Function;
 import common.util.HikiatekinExcel;
 import common.util.InputCheck;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;

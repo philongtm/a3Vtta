@@ -11,9 +11,9 @@ import app.MeisaisyosaiBean;
 import common.global.GS;
 import common.struts.AppPagerActionForm;
 import common.util.Function;
-import org.apache.struts.action.ActionMapping;
+import common.struts.adapter.action.ActionMapping;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;

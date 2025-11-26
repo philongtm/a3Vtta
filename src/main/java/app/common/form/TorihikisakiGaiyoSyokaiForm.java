@@ -7,7 +7,7 @@ No		“ú•t			C³Ò			C³“à—e
 ******************************************************************************/
 package app.common.form;
 
-import org.apache.struts.action.ActionForm;
+import common.struts.adapter.action.ActionForm;
 
 import java.util.List;
 

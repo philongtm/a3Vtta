@@ -32,7 +32,7 @@ import common.global.GS;
 import common.struts.AppMenuAction;
 import common.util.InputCheck;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 

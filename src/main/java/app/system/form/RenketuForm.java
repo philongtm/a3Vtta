@@ -7,7 +7,7 @@ No		“ú•t			C³Ò			C³“à—e
 package app.system.form;
 
 import common.struts.AppPagerActionForm;
-import org.apache.struts.upload.FormFile;
+import common.struts.adapter.upload.FormFile;
 
 
 

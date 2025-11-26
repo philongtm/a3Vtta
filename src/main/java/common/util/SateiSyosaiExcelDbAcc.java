@@ -33,10 +33,10 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
-import org.apache.struts.action.ActionMapping;
+import common.struts.adapter.action.ActionMapping;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -250,11 +250,11 @@ public class SateiSyosaiExcelDbAcc extends CommonDbAcc {
 			fileOut = new FileOutputStream( tmpExcel.getAbsolutePath() );
 			
 			// ワークシートを変更する
-			wb.setSheetName(0,sname0,HSSFWorkbook.ENCODING_UTF_16);    
+			wb.setSheetName(0,sname0);    
 			// ワークシートを変更する
-			wb.setSheetName(1,sname1,HSSFWorkbook.ENCODING_UTF_16);
+			wb.setSheetName(1,sname1);
 			// ワークシートを変更する
-			wb.setSheetName(2,sname2,HSSFWorkbook.ENCODING_UTF_16);
+			wb.setSheetName(2,sname2);
 			
 			// セルオブジェクトの作成（セル番号は0スタート）
 			// ヘッダ部分の作成(1行目は項目名称)
@@ -268,7 +268,7 @@ public class SateiSyosaiExcelDbAcc extends CommonDbAcc {
 			HSSFSheet sheetW2 = wb.getSheetAt(2);
 			
 			if (ryuhoSaimuList == null || ryuhoSaimuList.size() == 0) {
-				wb.setSheetName(2,"sheet2",HSSFWorkbook.ENCODING_UTF_16);
+				wb.setSheetName(2,"sheet2");
 				ryuhoFlag = true;
 			}
 			
@@ -286,9 +286,11 @@ public class SateiSyosaiExcelDbAcc extends CommonDbAcc {
 						
 						for (int j=0; j<60; j++ ) {
 							cellHd[j] = row.getCell((short)j);
+                            /*
 							if(cellHd[j] != null){
 								cellHd[j].setEncoding(HSSFCell.ENCODING_UTF_16);
 							}
+                            */
 						}
 					}
 					
@@ -1766,10 +1768,11 @@ public class SateiSyosaiExcelDbAcc extends CommonDbAcc {
 							for (int j=0; j<20; j++ ) {
 							// 追加完了
 								cellHd1[j] = row1.getCell((short)j);
+                                /*
 								if(cellHd1[j] != null){
 									cellHd1[j].setEncoding(HSSFCell.ENCODING_UTF_16);
-									
 								}
+                                */
 							}
 						}
 						
@@ -1958,10 +1961,11 @@ public class SateiSyosaiExcelDbAcc extends CommonDbAcc {
 							
 							for (int j=0; j<19; j++ ) {
 								cellHd1[j] = row1.getCell((short)j);
+                                /*
 								if(cellHd1[j] != null){
 									cellHd1[j].setEncoding(HSSFCell.ENCODING_UTF_16);
-									
 								}
+                                */
 							}
 						}
 						
@@ -2141,7 +2145,7 @@ public class SateiSyosaiExcelDbAcc extends CommonDbAcc {
 						
 						for (int i=0; i<19; i++ ) {
 							cellData[i] = rowM[j].createCell((short)i);
-							cellData[i].setEncoding(HSSFCell.ENCODING_UTF_16);
+							// cellData[i].setEncoding(HSSFCell.ENCODING_UTF_16);
 							
 							// 課題No.27
 							// 追加開始
@@ -2237,9 +2241,11 @@ public class SateiSyosaiExcelDbAcc extends CommonDbAcc {
 						if(row3 != null){
 							for (int j=0; j<19; j++ ) {
 								cellHd2[j] = row3.getCell((short)j);
+                                /*
 								if(cellHd2[j] != null){
 									cellHd2[j].setEncoding(HSSFCell.ENCODING_UTF_16);
 								}
+                                */
 							}
 						}
 						
@@ -2454,7 +2460,7 @@ public class SateiSyosaiExcelDbAcc extends CommonDbAcc {
 						
 						for (int i=0; i<16; i++ ) {
 							cellData[i] = rowM2[j].createCell((short)i);
-							cellData[i].setEncoding(HSSFCell.ENCODING_UTF_16);
+							// cellData[i].setEncoding(HSSFCell.ENCODING_UTF_16);
 							
 							// 課題No.27
 							// 追加開始

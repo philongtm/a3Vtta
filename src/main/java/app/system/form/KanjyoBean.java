@@ -8,9 +8,9 @@ No		“ú•t			C³Ò			C³“à—e
 package app.system.form;
 
 import common.global.GS;
-import org.apache.struts.action.ActionMapping;
+import common.struts.adapter.action.ActionMapping;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.LinkedHashMap;
 
 /**
