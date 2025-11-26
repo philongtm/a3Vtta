@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<!DOCTYPE struts-config PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	
+	<form-beans>
+		<form-bean name="04CyusyutujyokenForm" type="app.system.form.CyusyutujyokenHqForm"></form-bean>
+		<form-bean name="10CyusyutujyokenForm" type="app.system.form.CyusyutujyokenForm"></form-bean>
+		<form-bean name="11CyusyutujyokenTorokuForm" type="app.system.form.CyusyutujyokenTorokuForm"></form-bean>
+	</form-beans>
+
+	<action-mappings>		
+		<action
+			path="/system/cyusyutujyoken"
+			name="10CyusyutujyokenForm"
+			type="app.system.action.CyusyutujyokenAction"
+			scope="session">
+			
+			<forward name="OS7111" path="/system/cyusyutujyoken_mt.jsp"/>
+		</action>
+		
+		<action
+			path="/system/cyusyutujyoken_hq"
+			name="04CyusyutujyokenForm"
+			type="app.system.action.CyusyutujyokenHqAction"
+			scope="session">
+			<forward name="OS7114" path="/system/cyusyutujyoken_hq_m.jsp"/>
+		</action>
+		
+		<action
+			path="/system/cyusyutujyokenToroku"
+			name="11CyusyutujyokenTorokuForm"
+			type="app.system.action.CyusyutujyokenTorokuAction"
+			scope="session">
+			
+			<forward name="OS7111" path="/system/cyusyutujyoken_mt.jsp"/>
+		</action>
+	</action-mappings>
+</struts-config>

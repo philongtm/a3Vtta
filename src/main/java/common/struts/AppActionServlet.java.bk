@@ -1,0 +1,110 @@
+/******************************************************************************
+著作権情報				:
+使用JDK バージョン		: 1.4.2.05
+更新履歴
+No		日付			修正者			修正内容
+******************************************************************************/
+package common.struts;
+
+import common.AppContext;
+import common.db.PooledConnection;
+import common.global.GS;
+import common.util.Function;
+import common.util.Log;
+import common.struts.ActionServlet;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.IOException;
+
+/**
+ * 拡張アクションサーブレットクラス
+ * 全てのstrutsアプリケーションのバックボーン
+ * 
+ */
+public class AppActionServlet extends ActionServlet {
+
+	private static final long serialVersionUID = 11; 
+
+	/**
+	 * GETリクエストの最初の処理
+	 * 
+	 * @param request
+	 * 				HTTPリクエストオブジェクト
+	 * @param response
+	 * 				HTTPレスポンスオブジェクト
+	 */
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+		execute(request,response,true);
+	}
+
+	/**
+	 * POSTリクエストの最初の処理
+	 * 
+	 * @param request
+	 * 				HTTPリクエストオブジェクト
+	 * @param response
+	 * 				HTTPレスポンスオブジェクト
+	 */
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+		execute(request,response,false);
+	}
+
+	public void execute(HttpServletRequest request, HttpServletResponse response, boolean get)
+				throws IOException, ServletException {
+
+		// セッション毎の排他処理
+		synchronized(request.getSession()) {
+			// ＡＰＰコンテキスト作成
+			AppContext appContext = (AppContext)request.getAttribute(GS.APPCONTEXT);
+			if(appContext==null){
+				appContext = new AppContext(this.getServletContext(), request,response);
+				request.setAttribute(GS.APPCONTEXT,appContext);
+			}
+
+			appContext.getLog().write(GS.LOG_INF,getClass().getName(),
+					"CharacterEncoding=" + request.getCharacterEncoding() +
+					" ContentLength=" + request.getContentLength() +
+					" ContentType=" + request.getContentType()
+			);
+
+			if(get){
+				appContext.getLog().write(GS.LOG_INF,getClass().getName(),"<<doGet 1>>"+request.getRequestURI());
+				super.doGet(request,response);
+				appContext.getLog().write(GS.LOG_INF,getClass().getName(),"<<doGet 2>>"+request.getRequestURI());
+			} else {
+				appContext.getLog().write(GS.LOG_INF,getClass().getName(),"<<doPost 1>>"+request.getRequestURI());
+				super.doPost(request,response);
+				appContext.getLog().write(GS.LOG_INF,getClass().getName(),"<<doPost 2>>"+request.getRequestURI());
+			}
+		
+			// ＡＰＰコンテキスト破棄
+			appContext.destroy();
+			request.removeAttribute(GS.APPCONTEXT);
+			appContext= null;
+		}
+	}
+
+	/**
+	 * アプリケーションの最初の処理
+	 */
+	public void init() throws ServletException {
+		super.init();
+
+		String part[] = Function.StrSplitToken(super.getServletContext().getRealPath(""),File.separator);
+		PooledConnection.setRootDir(part[part.length-1]);
+		Log.open(super.getServletContext().getRealPath(GS.LOGDIR));
+	}
+
+	/**
+	 * アプリケーションの最後の処理
+	 */
+	public void destroy() {
+		super.destroy();
+		Log.close();
+	}	
+}

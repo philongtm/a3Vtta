@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<!DOCTYPE struts-config PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	
+	<form-beans>
+		<form-bean name="04KureemuForm" type="app.system.form.KureemuForm"></form-bean>
+		<form-bean name="04KureemuMeisaiForm" type="app.system.form.KureemuMeisaiForm"></form-bean>
+		<form-bean name="04KureemSyosai" type="app.system.form.KureemuSyosaiForm"></form-bean>
+		<form-bean name="04KureemuSyoninForm" type="app.system.form.KureemuSyoninForm"></form-bean>
+		<form-bean name="04KureemuSyoninSyosaiForm" type="app.system.form.KureemuSyoninSyosaiForm"></form-bean>
+	</form-beans>
+	
+	<action-mappings>
+		<!-- OS3101_クレーム債権_対象先一覧 -->			
+		<action
+			path="/system/kureemu"
+			name="04KureemuForm"
+			type="app.system.action.KureemuAction"
+			scope="session">
+			<forward name="OS3102" path="/system/kureemu_meisai.jsp"/>
+		</action>
+		<!-- OS3102_クレーム債権再設定_明細一覧 -->
+		<action
+			path="/system/kureemuMeisai"
+			name="04KureemuMeisaiForm"
+			type="app.system.action.KureemuMeisaiAction"
+			scope="session">
+			<forward name="OS3101" path="/system/kureemu_m.jsp"/>
+			<forward name="OS3102" path="/system/kureemu_meisai.jsp"/>
+			<forward name="OS3103" path="/system/kureemu_syosai.jsp"/>
+			<forward name="OZ2101" path="/common/sashimodoshi.jsp"/>
+			<forward name="OZ3101" path="/common/tensou.jsp"/>
+			<forward name="OZ4101" path="/common/sashimodoshiComment.jsp"/>	
+			<forward name="OZ1101" path="/common/tenpu_sentaku.jsp"/>		
+		</action>
+		<!-- OS3103_クレーム債権再設定_明細詳細 -->
+		<action
+			path="/kureemu/KureemuSyosai"
+			name="04KureemSyosai"
+			type="app.system.action.KureemuSyosaiAction"
+			scope="session">
+			<forward name="OS3102" path="/system/kureemu_meisai.jsp"/>
+			<forward name="OS3103" path="/system/kureemu_syosai.jsp"/>
+			<forward name="OZ1101" path="/common/tenpu_sentaku.jsp"/>
+		</action>
+		<!-- OS3104_クレーム債権再設定_承認一覧 -->		
+		<action
+			path="/system/kureemusyonin"
+			name="04KureemuSyoninForm"
+			type="app.system.action.KureemuSyoninAction"
+			scope="session">
+			<forward name="OS3104" path="/system/kureemu_syonin.jsp"/>
+			<forward name="OS3105" path="/system/kureemu_syoninsyosai.jsp"/>
+		</action>
+		<!-- OS3105_クレーム債権再設定_承認 -->		
+		<action
+			path="/system/kureemusyoninSyosai"
+			name="04KureemuSyoninSyosaiForm"
+			type="app.system.action.KureemuSyoninSyosaiAction"
+			scope="session">
+			<forward name="OS3104" path="/system/kureemu_syonin.jsp"/>
+			<forward name="OS3105" path="/system/kureemu_syoninsyosai.jsp"/>
+			<forward name="OZ1102" path="/common/tenpu_syokai.jsp"/>
+			<forward name="OZ2101" path="/common/sashimodoshi.jsp"/>
+		</action>	
+	</action-mappings>
+</struts-config>

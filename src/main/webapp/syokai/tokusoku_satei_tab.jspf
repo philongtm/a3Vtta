@@ -1,0 +1,104 @@
+<%@ page pageEncoding="Windows-31J" %>
+
+<script>
+	function syosaiCom(event,id) {
+		<%--ボタン連打ブロック--%>
+		if(blockSubmit()==false) return;
+		form = document.forms[0];
+		form.elements["id"].value = id;
+		action = form.action;
+		form.target = "_top";
+		form.action += "?<%=GS.EVENT%>=" + event;
+		form.submit();
+	}
+
+
+</script>
+
+<%--コンテンツ部分--%>
+<DIV id="tagcontents"  style="overflow-y:scroll; clear:left; width: 95%;height: 200px; border: inset 2px;" >
+
+	<DIV id="list" style="margin: 0 10 0 10">
+			<html:hidden property="id" />
+			<DIV class="mainlist" >
+				<TABLE border=0 cellSpacing=0 cellPadding=0 >
+					<THEAD>
+						<TR>
+							<%-- 選択 --%>
+							<TH width="5%" >
+								<%=i18n.get(GL.OS6105_SENTAKU)%>
+							</TH>
+
+							<%-- フェーズ --%>
+							<TH width="13%">
+								<%=i18n.get(GL.OS6105_PHASE)%>
+							</TH>
+							<%-- 汎用１タイトル --%>
+							<TH width="6%">
+								<%=SESSION_DATA_APP.getLbl_nm1()%>
+							</TH>
+							<%-- 組織 --%>
+							<TH width="35%">
+								<%=i18n.get(GL.OS6105_SOSHIKI)%>
+							</TH>
+							<%-- 担当者 --%>
+							<TH width="17%">
+								<%=i18n.get(GL.OS6105_TANTO)%>
+							</TH>
+							<%-- 処理 --%>
+							<TH width="13%">
+								<%=i18n.get(GL.OS6105_SYORI)%>
+							</TH>
+							<%-- 処理日時 --%>
+							<TH width="16%">
+								<%=i18n.get(GL.OS6105_SYORI_NITIZI)%><br/>
+								<bean:write name="TokusokumailForm" property="syouri_dt_t" />
+							</TH>
+						</TR>
+					</THEAD>
+					<TBODY>
+						<nested:notEmpty property="ar_sinchoku">
+							<nested:iterate property="ar_sinchoku" indexId="idx">
+								<TR>
+									<%
+										String rId = String.valueOf(idx);
+									%>
+									<%-- 選択 --%>
+									<TD>
+										<html:radio name="TokusokumailForm"  property="radio_id"  value="<%=rId%>" />
+									</TD>
+									<%-- フェーズ --%>
+									<TD width="12%">
+										<nested:write property="phase" />&nbsp;
+									</TD>
+									<%-- 汎用１ --%>
+									<TD width="6%">
+										<nested:write property="hanyou1" />&nbsp;
+									</TD>
+									<%-- 組織 --%>
+									<TD width="35%">
+										<nested:write property="soshiki" />&nbsp;
+									</TD>
+									<%-- 担当者 --%>
+									<TD width="18%">
+										<nested:write property="tantou" />&nbsp;
+									</TD>
+									<%-- 処理 --%>
+									<TD width="13%">
+										<nested:equal property="link_flg" value="1">
+											<a href="#" onClick="syosaiCom('comment','<nested:write property="id" />')"><nested:write property="syori" /></a>
+										</nested:equal>
+										<nested:equal property="link_flg" value="0"><nested:write property="syori" /></nested:equal>&nbsp;</TD>
+									</TD>
+									<%-- 処理日時 --%>
+									<TD width="16%">
+										<nested:write property="syori_dt" />&nbsp;
+									</TD>
+								</TR>
+							</nested:iterate>
+						</nested:notEmpty>
+					</TBODY>
+				</TABLE>
+			</DIV>
+	</DIV>
+</DIV>

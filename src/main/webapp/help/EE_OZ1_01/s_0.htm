@@ -1,0 +1,90 @@
+﻿<html xmlns:v="urn:schemas-microsoft-com:vml" oncontextmenu ="return false;">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Dojo</title>
+		<meta http-equiv="imagetoolbar" content="no">
+<script language = "JavaScript">
+var boolFinished = false;
+var iIntervalID="";
+var iTimeoutID="";
+
+var notePosition = new Array();
+var imageObjects = new Array();
+var actions = new parent.Actions();
+var notes = new Array();
+var acImgs = new Array();
+var boolPointCount =true;
+var boolEnableModeAuto = true;
+var boolEnableModeExercise = true;
+var boolEnableModeLecture = true;
+var boolEnableModeTeachme = true;
+var boolEnableMode = true ; 
+var intItemIndex = 0 ; 
+var strUrlCurrent = 's_0.htm' ;
+var nStepIndex = 0;
+var strStepName = "1";
+imageObjects[0] = new parent.ImageObject(0,0,769,563,"0","i0000001.png");
+boolEnableMode = true ; 
+if(boolEnableMode==true)
+{
+   actions.items[intItemIndex]=new parent.Action(intItemIndex,0,0,4,4,0,"-1","s_1.htm","","","W","EN",false);
+   intItemIndex=intItemIndex+1;
+}
+boolEnableMode = true ; 
+if(boolEnableMode==true)
+{
+   actions.items[intItemIndex]=new parent.Action(intItemIndex,631,143,48,17,1,"ff0000","s_1.htm","[1]","Left Click","M","EN",false);
+   intItemIndex=intItemIndex+1;
+}
+boolEnableModeAuto = false;
+boolEnableModeExercise = false;
+boolEnableModeLecture = false;
+boolEnableModeTeachme = false;
+var keyhelp=new Array();
+var intKeyItemIndex = 0;
+var boolKeyHelp = true;
+notes[0] = new parent.LineCallout(0,new parent.RECT(395,279,225,45),new Array(628,564,564,629),new Array(149,150,280,150),new parent.RECT(395,279,225,45),new parent.RECT(402,287,212,32),"ＭＳ ゴシック",1,0,1,"<FONT face=\"ＭＳ Ｐゴシック\" color=#ff8000><STRONG><P><FONT face=Arial><STRONG><FONT color=#ff8000>Import&nbsp;the&nbsp;attached&nbsp;file.<BR></FONT><FONT color=#ff8000>Click&nbsp;[Browse]&nbsp;button.</FONT></STRONG></FONT></P></STRONG></FONT>","#c2fcc2","#009300","#000000",2,100,0,0,9,4,"633976112436042204.png");
+notes[1] = new parent.LineCallout(1,new parent.RECT(122,368,600,61),new Array(272,273,273,273),new Array(234,235,368,235),new parent.RECT(122,368,600,61),new parent.RECT(128,373,591,52),"ＭＳ ゴシック",1,0,1,"<FONT face=\"ＭＳ Ｐゴシック\" color=#ff0000><STRONG><FONT face=Arial>If&nbsp;there&nbsp;is&nbsp;some&nbsp;attached&nbsp;file&nbsp;that&nbsp;relates&nbsp;to&nbsp;the&nbsp;same&nbsp;Cust.&nbsp;Code&nbsp;item&nbsp;and&nbsp;attached&nbsp;within&nbsp;a&nbsp;year,&nbsp;<BR>such&nbsp;file&nbsp;is&nbsp;displayed&nbsp;primarily&nbsp;(the&nbsp;background&nbsp;color&nbsp;is&nbsp;white.).</FONT>&nbsp;&nbsp;&nbsp;</STRONG></FONT>","#c2fcc2","#009300","#000000",2,100,0,2,6,1,"633976112436198482.png");
+var AdvanceTime = 1800;
+self.name="course";
+var skn = null;
+var strRNeighbor = "s_1.htm";
+var strLNeighbor = "s_0.htm";
+var strNextWaitPageUrl = 's_1.htm';
+		var strPreUrl='s_0.htm';
+
+var gone = false;
+
+if(parent.arResult[0] != null)
+{
+    parent.arResult[0][3]=0;
+}
+
+
+function pagestart() {
+}
+</script>
+		<style> v\:* { behavior: url(#default#VML); }</style>
+
+<style type='text/css'>
+input {font-family:'ＭＳ ゴシック'}
+.text {font-weight:bold; font-size:10pt}
+.popper{position : absolute;visibility : hidden;z-index:10000;}
+</style>
+</head>
+<body bgcolor="999999" >
+<div id="topdeck" class="popper" style="width:1px; height:1px;z-index:10000;position:absolute;">&nbsp;</div>
+<script language = "JavaScript"  src="s_I_draw.js"></script>
+<script language = "JavaScript"  src="audioPlay.js"></script>
+<script language = "JavaScript">
+</script>
+
+
+
+<script src="s_I_do.js" language=javascript type="text/javascript"></script>
+<script src="s_F_do.js" language=javascript type="text/javascript"></script>
+<script src="s_I_process.js" language=javascript type="text/javascript"></script>
+<script src="s_F_event.js" language=javascript type="text/javascript"></script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title> Save Report as HTML  </title>
+<meta http-equiv="Content-Type" content="text/html; charset='utf-8'">
+<style type="text/css">
+	body {background-color: #D4D0C8}
+	p {margin-left: 20px}
+</style>
+
+<script language="javascript">
+<!--
+var mailInfo = window.dialogArguments;
+var UILanguage = mailInfo.UILanguage;
+-->
+</script>
+</head>
+
+<body  lang = "ja" >
+
+<script language="javascript">
+<!--
+	function Continue()
+	{
+		window.returnValue = "Continue";
+		window.close();
+		return;
+	}
+	String.prototype.format = function()
+	{
+		var str = this;
+		for(var i=0;i<arguments.length;i++)
+		{
+			var re = new RegExp('\\{' + (i) + '\\}','gm');
+			str = str.replace(re, arguments[i]);
+		}
+		return str;
+	}
+		document.title = 'Report Submission';
+	var strHTML;
+	strHTML = "<table  lang = 'ja'  height=\"99%\"><tr><td>";
+	strHTML = "<br><p>" + 'Save the XML file.' + "</p>";
+	
+	var strEmailAddr = mailInfo.strTo;
+	var strGuide2 = 'After saving file, the email sending screen will be displayed. Attach the file saved and send to {0}.'.format(strEmailAddr);
+	strHTML += "<p>" + strGuide2 + "</p>";
+	strHTML += "</td></tr>";
+
+	strHTML += "<tr height=\"10%\"><td valign=\"bottom\">";
+	strHTML += "<br><br><br><div align=center>"
+				+ "<input type=\"button\" value='      OK      ' onclick=\"javascript:Continue();\">"
+				+ "&nbsp;&nbsp;&nbsp;"
+				+ "<input type=\"button\" value='   Cancel   ' onclick=\"javascript:window.close();\">"
+				+ "</div>";
+	strHTML += "</td></tr></table>";
+
+	document.writeln(strHTML);
+-->
+</script>
+</body>
+</html>

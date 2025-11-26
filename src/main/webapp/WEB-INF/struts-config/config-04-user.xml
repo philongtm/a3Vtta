@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<!DOCTYPE struts-config PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	
+	<form-beans>
+		<form-bean name="06UserIchiranForm" type="app.system.form.UserIchiranForm"></form-bean>
+		<form-bean name="07UserTorokuForm" type="app.system.form.UserTorokuForm"></form-bean>
+		<form-bean name="07MailSoushinSentakuForm" type="app.system.form.MailSoushinSentakuForm"></form-bean>
+		<form-bean name="07TantoSoshikiSentakuForm" type="app.system.form.TantoSoshikiSentakuForm"></form-bean>
+	</form-beans>
+
+
+	<action-mappings>		
+		<action
+			path="/system/userIchiran"
+			name="06UserIchiranForm"
+			type="app.system.action.UserIchiranAction"
+			scope="session">
+			<forward name="OS7107" path="/system/user_mt.jsp"/>
+		</action>
+	
+		<action
+			path="/system/usertoroku"
+			name="07UserTorokuForm"
+			type="app.system.action.UserTorokuAction"
+			scope="session">
+			<forward name="OS7107" path="/system/user_mt.jsp"/>
+		</action>
+
+		<action
+			path="/system/mailsoushin_sentaku"
+			name="07MailSoushinSentakuForm"
+			type="app.system.action.MailSoushinSentakuAction"
+			scope="session">
+			<forward name="OS7115" path="/system/mailsoushin_sentaku.jsp"/>
+		</action>
+
+		<action
+			path="/system/tantososhiki_sentaku"
+			name="07TantoSoshikiSentakuForm"
+			type="app.system.action.TantoSoshikiSentakuAction"
+			scope="session">
+			<forward name="OS7116" path="/system/tantososhiki_sentaku.jsp"/>
+		</action>
+
+	</action-mappings>
+</struts-config>

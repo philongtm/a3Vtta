@@ -1,0 +1,96 @@
+﻿<html xmlns:v="urn:schemas-microsoft-com:vml" oncontextmenu ="return false;">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Dojo</title>
+		<meta http-equiv="imagetoolbar" content="no">
+<script language = "JavaScript">
+var boolFinished = false;
+var iIntervalID="";
+var iTimeoutID="";
+
+var notePosition = new Array();
+var imageObjects = new Array();
+var actions = new parent.Actions();
+var notes = new Array();
+var acImgs = new Array();
+var boolPointCount =true;
+var boolEnableModeAuto = true;
+var boolEnableModeExercise = true;
+var boolEnableModeLecture = true;
+var boolEnableModeTeachme = true;
+var boolEnableMode = true ; 
+var intItemIndex = 0 ; 
+var strUrlCurrent = 's_4.htm' ;
+var nStepIndex = 24;
+var strStepName = "5";
+imageObjects[0] = new parent.ImageObject(2,2,766,560,"0","i0000009.png");
+boolEnableMode = true ; 
+if(boolEnableMode==true)
+{
+   actions.items[intItemIndex]=new parent.Action(intItemIndex,2,2,4,4,0,"-1","s_5.htm","","","W","EN",false);
+   intItemIndex=intItemIndex+1;
+}
+boolEnableMode = true ; 
+if(boolEnableMode==true)
+{
+   actions.items[intItemIndex]=new parent.Action(intItemIndex,305,266,13,13,1,"ff0000","s_5.htm","[1]","Left Click","M","EN",false);
+   intItemIndex=intItemIndex+1;
+}
+boolEnableMode = true ; 
+if(boolEnableMode==true)
+{
+   actions.items[intItemIndex]=new parent.Action(intItemIndex,680,77,62,15,0,"ff0000","s_3.htm","[1]","Left Click","M","EN",false);
+   intItemIndex=intItemIndex+1;
+}
+boolEnableModeAuto = false;
+boolEnableModeExercise = false;
+boolEnableModeLecture = false;
+boolEnableModeTeachme = false;
+var keyhelp=new Array();
+var intKeyItemIndex = 0;
+var boolKeyHelp = true;
+notes[0] = new parent.LineCallout(0,new parent.RECT(329,198,338,45),new Array(317,414,414,317),new Array(272,272,244,272),new parent.RECT(329,198,338,45),new parent.RECT(337,206,324,32),"ＭＳ ゴシック",1,0,1,"<P><FONT face=\"ＭＳ Ｐゴシック\" color=#ff8000><STRONG>滞留判定を選択します<BR>滞留判定項目のプルダウンボタンをクリックします</STRONG></FONT></P>","#c2fcc2","#009300","#000000",2,100,0,0,9,1,"633985443360967254.png");
+notes[1] = new parent.LineCallout(1,new parent.RECT(317,101,375,45),new Array(711,712,692,712),new Array(95,113,113,95),new parent.RECT(317,101,375,45),new parent.RECT(324,109,362,32),"ＭＳ ゴシック",1,0,1,"<P><FONT face=\"ＭＳ Ｐゴシック\" color=#ff8000><STRONG>入力を取りやめる場合には[戻る]ボタンをクリックします<BR>※入力内容は保存されません</STRONG></FONT></P>","#c2fcc2","#009300","#000000",2,100,0,0,9,0,"633985443360967255.png");
+var AdvanceTime = 1800;
+self.name="course";
+var skn = null;
+var strRNeighbor = "s_5.htm";
+var strLNeighbor = "s_3.htm";
+var strNextWaitPageUrl = 's_5.htm';
+		var strPreUrl='s_3.htm';
+
+var gone = false;
+
+if(parent.arResult[24] != null)
+{
+    parent.arResult[24][3]=0;
+}
+
+
+function pagestart() {
+}
+</script>
+		<style> v\:* { behavior: url(#default#VML); }</style>
+
+<style type='text/css'>
+input {font-family:'ＭＳ ゴシック'}
+.text {font-weight:bold; font-size:10pt}
+.popper{position : absolute;visibility : hidden;z-index:10000;}
+</style>
+</head>
+<body bgcolor="999999" >
+<div id="topdeck" class="popper" style="width:1px; height:1px;z-index:10000;position:absolute;">&nbsp;</div>
+<script language = "JavaScript"  src="s_I_draw.js"></script>
+<script language = "JavaScript"  src="audioPlay.js"></script>
+<script language = "JavaScript">
+</script>
+
+
+
+<script src="s_I_do.js" language=javascript type="text/javascript"></script>
+<script src="s_F_do.js" language=javascript type="text/javascript"></script>
+<script src="s_I_process.js" language=javascript type="text/javascript"></script>
+<script src="s_F_event.js" language=javascript type="text/javascript"></script>
+
+</body>
+</html>

@@ -1,0 +1,301 @@
+<%
+	InputCheck inpChk = new InputCheck();
+	
+	// 実質滞留判定登録フラグ
+	String Tairyu_hantei_t_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComTairyu_hantei_t_flg())) {
+		Tairyu_hantei_t_flg = SESSION_DATA_APP.getUser_bean().getComTairyu_hantei_t_flg();
+	}	
+	// 実質滞留判定承認フラグ
+	String Tairyu_hantei_s_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComTairyu_hantei_s_flg())) {
+		Tairyu_hantei_s_flg = SESSION_DATA_APP.getUser_bean().getComTairyu_hantei_s_flg();
+	}	
+	// 実質滞留検証登録フラグ
+	String Tairyu_kensho_t_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComTairyu_kensho_t_flg())) {
+		Tairyu_kensho_t_flg = SESSION_DATA_APP.getUser_bean().getComTairyu_kensho_t_flg();
+	}		
+	// 実質滞留検証承認フラグ
+	String Tairyu_kensho_s_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComTairyu_kensho_s_flg())) {
+		Tairyu_kensho_s_flg = SESSION_DATA_APP.getUser_bean().getComTairyu_kensho_s_flg();
+	}		
+	// 対象先選定登録フラグ 
+	String Taishosaki_sentei_t_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComTaishosaki_sentei_t_flg())) {
+		Taishosaki_sentei_t_flg = SESSION_DATA_APP.getUser_bean().getComTaishosaki_sentei_t_flg();
+	}		
+	// 対象先選定承認フラグ
+	String Taishosaki_sentei_s_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComTaishosaki_sentei_s_flg())) {
+		Taishosaki_sentei_s_flg = SESSION_DATA_APP.getUser_bean().getComTaishosaki_sentei_s_flg();
+	}
+	// 一次査定登録フラグ
+	String Ichiji_satei_t_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComIchiji_satei_t_flg())) {
+		Ichiji_satei_t_flg = SESSION_DATA_APP.getUser_bean().getComIchiji_satei_t_flg();
+	}		
+	// 一次査定承認フラグ 
+	String Ichiji_satei_s_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComIchiji_satei_s_flg())) {
+		Ichiji_satei_s_flg = SESSION_DATA_APP.getUser_bean().getComIchiji_satei_s_flg(); 
+	}		
+	// 一次査定検証登録フラグ
+	String Ichiji_sateikensyo_t_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComIchiji_sateikensyo_t_flg())) {
+		Ichiji_sateikensyo_t_flg = SESSION_DATA_APP.getUser_bean().getComIchiji_sateikensyo_t_flg();
+	}		
+	// 一次査定検証承認フラグ  
+	String Ichiji_sateikensyo_s_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComIchiji_sateikensyo_s_flg())) {
+		Ichiji_sateikensyo_s_flg = SESSION_DATA_APP.getUser_bean().getComIchiji_sateikensyo_s_flg();
+	}		
+	// 二次査定登録フラグ  
+	String Niji_satei_t_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComNiji_satei_t_flg())) {
+		Niji_satei_t_flg = SESSION_DATA_APP.getUser_bean().getComNiji_satei_t_flg(); 
+	}		
+	// 二次査定承認フラグ  
+	String Niji_satei_s_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComNiji_satei_s_flg())) {
+		Niji_satei_s_flg = SESSION_DATA_APP.getUser_bean().getComNiji_satei_s_flg(); 
+	}		
+	// 引当金検証登録フラグ 
+	String Hikiatekin_kensyo_t_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComHikiatekin_kensyo_t_flg())) {
+		Hikiatekin_kensyo_t_flg = SESSION_DATA_APP.getUser_bean().getComHikiatekin_kensyo_t_flg(); 
+	}		
+	// 引当金検証承認フラグ 
+	String Hikiatekin_kensyo_s_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComHikiatekin_kensyo_s_flg())) {
+		Hikiatekin_kensyo_s_flg = SESSION_DATA_APP.getUser_bean().getComHikiatekin_kensyo_s_flg(); 
+	}		
+	// 引当金確認登録フラグ 
+	String Hikiatekin_kakunin_t_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComHikiatekin_kakunin_t_flg())) {
+		Hikiatekin_kakunin_t_flg = SESSION_DATA_APP.getUser_bean().getComHikiatekin_kakunin_t_flg(); 
+	}		
+	// 引当金確認承認フラグ 
+	String Hikiatekin_kakunin_s_flg  = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComHikiatekin_kakunin_s_flg())) {
+		Hikiatekin_kakunin_s_flg = SESSION_DATA_APP.getUser_bean().getComHikiatekin_kakunin_s_flg(); 
+	}		
+	// クレーム債権再設定登録フラグ  
+	String Claim_reset_t_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComClaim_reset_t_flg())) {
+		Claim_reset_t_flg = SESSION_DATA_APP.getUser_bean().getComClaim_reset_t_flg(); 
+	}		
+	// クレーム債権再設定承認フラグ  
+	String Claim_reset_s_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComClaim_reset_s_flg())) {
+		Claim_reset_s_flg = SESSION_DATA_APP.getUser_bean().getComClaim_reset_s_flg(); 
+	}		
+	// 代行設定フラグ 
+	String Daikoset_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComDaikoset_flg())) {
+		Daikoset_flg = SESSION_DATA_APP.getUser_bean().getComDaikoset_flg(); 
+	}		
+	// 査定会社メンテナンスフラグフラグ  
+	String Sateikasya_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComSateikasya_flg())) {
+		Sateikasya_flg = SESSION_DATA_APP.getUser_bean().getComSateikasya_flg(); 
+	}		
+	// 業務フローパターンメンテナンスフラグ 
+	String Workflow_pattern_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComWorkflow_pattern_flg())) {
+		Workflow_pattern_flg = SESSION_DATA_APP.getUser_bean().getComWorkflow_pattern_flg(); 
+	}		
+	// ユーザマスタメンテナンスフラグ   
+	String User_master_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComUser_master_flg())) {
+		User_master_flg = SESSION_DATA_APP.getUser_bean().getComUser_master_flg(); 
+	}	
+	// 勘定科目マスタメンテナンスフラグ  
+	String Kanjo_master_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComKanjo_master_flg())) {
+		Kanjo_master_flg = SESSION_DATA_APP.getUser_bean().getComKanjo_master_flg(); 
+	}		
+	// 抽出条件マスタメンテナンス（国内）フラグ
+	String Joken_master_hq_flg = "2"; 
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComJoken_master_hq_flg())) {
+		Joken_master_hq_flg = SESSION_DATA_APP.getUser_bean().getComJoken_master_hq_flg(); 
+	}		
+	// 抽出条件マスタメンテナンスフラグ 
+	String Joken_master_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComJoken_master_flg())) {
+		Joken_master_flg = SESSION_DATA_APP.getUser_bean().getComJoken_master_flg(); 
+	}		
+	// チャンピオン部メンテナンスフラグ 
+	String Champion_bu_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComChampion_bu_flg())) {
+		Champion_bu_flg = SESSION_DATA_APP.getUser_bean().getComChampion_bu_flg(); 
+	}		
+	// ゴルフ会員権メンテナンスフラグ   
+	String Golf_kaiinken_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComGolf_kaiinken_flg())) {
+		Golf_kaiinken_flg = SESSION_DATA_APP.getUser_bean().getComGolf_kaiinken_flg(); 
+	}		
+	// 連結区分マスタUPLOADフラグ 
+	String Renketsu_upload_flg = "2";
+	if (!inpChk.isNullBlank(SESSION_DATA_APP.getUser_bean().getComRenketsu_upload_flg())) {
+		Renketsu_upload_flg = SESSION_DATA_APP.getUser_bean().getComRenketsu_upload_flg(); 
+	}		
+	// 代行ユーザID
+	String Daiko_user_id = SESSION_DATA_APP.getUser_bean().getComDaiko_userId();
+	String Daiko_flg = "1";
+	// ログインユーザ情報.代行ユーザIDがNOT NULLの場合、「代行設定リンクメニュー」非表示とする
+	if (!inpChk.isNullBlank(Daiko_user_id)) {
+		Daiko_flg = "2";
+	}
+%>
+
+<UL>
+
+	<%-- 滞留部 --%>
+	<LI class="title"><%=i18n.get(GL.LINK_TAIRYU)%></LI>
+	
+		<%-- 判定登録リンクメニュー --%>
+		<% if(Tairyu_hantei_t_flg.equals("1") || Tairyu_kensho_t_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOB1101')"><%=i18n.get(GL.LINK_OB1101)%></a></LI>
+		<%}%>
+	
+		<%-- 判定承認リンクメニュー --%>
+		<% if(Tairyu_hantei_s_flg.equals("1") || Tairyu_kensho_s_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOB1104')"><%=i18n.get(GL.LINK_OB1104)%></a></LI>
+		<%}%>
+		
+		<%-- 対象先選定リンクメニュー --%>
+		<% if(Taishosaki_sentei_t_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOB2101')"><%=i18n.get(GL.LINK_OB2101)%></a></LI>
+		<%}%>
+	
+		<%-- 対象先選定承認リンクメニュー --%>
+		<% if(Taishosaki_sentei_s_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOB2104')"><%=i18n.get(GL.LINK_OB2104)%></a></LI>	
+		<%}%>
+
+	<%-- 一次査定部 --%>
+	<LI class="title"><%=i18n.get(GL.LINK_SATEI1)%></LI>
+
+		<%-- 査定登録リンクメニュー --%>
+		<% if(Ichiji_satei_t_flg.equals("1") || Ichiji_sateikensyo_t_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOC1101A')"><%=i18n.get(GL.LINK_OC1101)%></a></LI>
+		<%}%>
+	
+		<%-- 査定承認リンクメニュー --%>
+		<% if(Ichiji_satei_s_flg.equals("1") || Ichiji_sateikensyo_s_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOC1106A')"><%=i18n.get(GL.LINK_OC1106)%></a></LI>
+		<%}%>
+
+	<%-- 二次査定部 --%>
+	<LI class="title"><%=i18n.get(GL.LINK_SATEI2)%></LI>
+	
+		<%-- 査定登録リンクメニュー --%>
+		<% if(Niji_satei_t_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOC1101B')"><%=i18n.get(GL.LINK_OC1101)%></a></LI>
+		<%}%>
+	
+		<%-- 査定承認リンクメニュー --%>
+		<% if(Niji_satei_s_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOC1106B')"><%=i18n.get(GL.LINK_OC1106)%></a></LI>
+		<%}%>
+	
+	<%-- 引当金検証/確認部 --%>
+	<LI class="title"><%=i18n.get(GL.LINK_HIKIATEKENSYO_KAKUNIN)%></LI>
+	
+		<%-- 引当金検証リンクメニュー --%>
+		<% if(Hikiatekin_kensyo_t_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOD1101')"><%=i18n.get(GL.LINK_HIKIATEKENSYO)%></a></LI>
+		<%}%>
+		
+		<%-- 引当金確認リンクメニュー --%>		
+		<% if(Hikiatekin_kakunin_t_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOD1101')"><%=i18n.get(GL.LINK_OD1101)%></a></LI>
+		<%}%>
+		
+		<%-- 引当金承認リンクメニュー --%>		
+		<% if(Hikiatekin_kakunin_s_flg.equals("1") || Hikiatekin_kensyo_s_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOD1103')"><%=i18n.get(GL.LINK_OD1103)%></a></LI>
+		<%}%>
+		
+	<%-- 照会部 --%>
+	<LI class="title"><%=i18n.get(GL.LINK_SYOUKAI)%></LI>
+		<%-- 査定内容照会リンクメニュー --%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOS6101')"><%=i18n.get(GL.LINK_OS6101)%></a></LI>
+		
+		<%-- 進捗状況照会リンクメニュー --%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOS6103')"><%=i18n.get(GL.LINK_OS6103)%></a></LI>
+			
+	<%-- 帳票部 --%>
+	<LI class="title"><%=i18n.get(GL.LINK_TYOHYO)%></LI>
+		<%-- 帳票ダウンロードリンクメニュー --%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOS8101')"><%=i18n.get(GL.LINK_OS8101)%></a></LI>
+			
+	<%-- システム管理部 --%>
+	<LI class="title"><%=i18n.get(GL.LINK_SYSTEM)%></LI>
+			
+		<%-- クレーム債権再設定リンクメニュー --%>							
+		<% if(Claim_reset_t_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOS3101')"><%=i18n.get(GL.LINK_OS3101)%></a></LI>
+		<%}%>
+		
+		<%-- クレーム債権再設定承認リンクメニュー --%>			
+		<% if(Claim_reset_s_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOS3104')"><%=i18n.get(GL.LINK_OS3104)%></a></LI>
+		<%}%>
+					
+		<%-- 代行設定リンクメニュー --%>			
+		<% if(Daikoset_flg.equals("1") && Daiko_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOS7101')"><%=i18n.get(GL.LINK_OS7101)%></a></LI>
+		<%}%>	
+		
+		<%-- 査定会社メンテナンスリンクメニュー --%>			
+		<% if(Sateikasya_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOS7102')"><%=i18n.get(GL.LINK_OS7102)%></a></LI>
+		<%}%>
+		
+		<%-- 業務フローパターンメンテナンスリンクメニュー --%>	
+		<% if(Workflow_pattern_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOS7104')"><%=i18n.get(GL.LINK_OS7104)%></a></LI>
+		<%}%>
+			
+		<%-- ユーザマスタメンテナンスリンクメニュー --%>							
+		<% if(User_master_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOS7106')"><%=i18n.get(GL.LINK_OS7106)%></a></LI>
+		<%}%>	
+		
+		<%-- 勘定科目マスタメンテナンスリンクメニュー --%>			
+		<% if(Kanjo_master_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOS7108')"><%=i18n.get(GL.LINK_OS7108)%></a></LI>
+		<%}%>
+			
+		<%-- 抽出条件メンテナンス（本社）リンクメニュー --%>			
+		<% if(Joken_master_hq_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOS7114')"><%=i18n.get(GL.LINK_TYUSYUTUJOKEN)%></a></LI>
+		<%}%>
+							
+		<%-- 抽出条件メンテナンスリンクメニュー --%>			
+		<% if(Joken_master_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOS7110')"><%=i18n.get(GL.LINK_OS7110)%></a></LI>
+		<%}%>
+									
+		<%-- チャンピオン部メンテナンスリンクメニュー --%>			
+		<% if(Champion_bu_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOS5101')"><%=i18n.get(GL.LINK_CHAMPION)%></a></LI>
+		<%}%>
+											
+		<%-- ゴルフ会員権メンテナンスリンクメニュー --%>			
+		<% if(Golf_kaiinken_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOS4101')"><%=i18n.get(GL.LINK_OS4101)%></a></LI>
+		<%}%>
+													
+		<%-- 連結区分マスタUPLOADリンクメニュー --%>			
+		<% if(Renketsu_upload_flg.equals("1")){%>
+			<LI><a href="#" onClick="JavaScript:doSubmit('menuLinkOS7113')"><%=i18n.get(GL.LINK_RENKETU)%></a></LI>
+		<%}%>
+		
+	<%-- ログオフ --%>
+	<LI class="title"><a href="#" onClick="JavaScript:doSubmit('menuLinkOS1101')"><%=i18n.get(GL.LINK_OS1101)%></a></LI>
+	
+</UL>

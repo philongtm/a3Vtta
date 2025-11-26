@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<!DOCTYPE struts-config PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="01IchiranForm" type="app.tairyu.form.IchiranForm"></form-bean>
+		<form-bean name="01TorokuForm" type="app.tairyu.form.TorokuForm"></form-bean>
+		<form-bean name="01SyosaiForm" type="app.tairyu.form.SyosaiForm"></form-bean>
+		<form-bean name="01SyoninForm" type="app.tairyu.form.SyoninForm"></form-bean>
+		<form-bean name="01SyoninsyosaiForm" type="app.tairyu.form.SyoninsyosaiForm"></form-bean>
+		<form-bean name="01SenteiForm" type="app.tairyu.form.SenteiForm"></form-bean>
+		<form-bean name="01SenteisyosaiForm" type="app.tairyu.form.SenteisyosaiForm"></form-bean>
+		<form-bean name="01SenteituikaForm" type="app.tairyu.form.SenteituikaForm"></form-bean>
+		<form-bean name="01SenteisyoninForm" type="app.tairyu.form.SenteisyoninForm"></form-bean>
+		<form-bean name="01KarikijuntuikaForm" type="app.tairyu.form.KarikijuntuikaForm"></form-bean>
+	</form-beans>
+	
+	<action-mappings>		
+		<action
+			path="/tairyu/ichiran"
+			name="01IchiranForm"
+			type="app.tairyu.action.IchiranAction"
+			scope="session">
+			<forward name="OB1102" path="/tairyu/toroku.jsp"/>
+		</action>
+		<action
+			path="/tairyu/toroku"
+			name="01TorokuForm"
+			type="app.tairyu.action.TorokuAction"
+			scope="session">
+			<forward name="OB1102" path="/tairyu/toroku.jsp"/>
+			<forward name="OB1103" path="/tairyu/syosai.jsp"/>
+			<forward name="OZ2101" path="/common/sashimodoshi.jsp"/>
+			<forward name="OZ3101" path="/common/tensou.jsp"/>
+			<forward name="OZ4101" path="/common/sashimodoshiComment.jsp"/>
+		</action>
+		<action
+			path="/tairyu/syosai"
+			name="01SyosaiForm"
+			type="app.tairyu.action.SyosaiAction"
+			scope="session">
+			<forward name="OB1103" path="/tairyu/syosai.jsp"/>
+			<forward name="OB1102" path="/tairyu/toroku.jsp"/>
+			<forward name="OZ1101" path="/common/tenpu_sentaku.jsp"/>
+		</action>
+		<action
+			path="/tairyu/syonin"
+			name="01SyoninForm"
+			type="app.tairyu.action.SyoninAction"
+			scope="session">
+			<forward name="OB1105" path="/tairyu/syoninsyosai.jsp"/>
+		</action>
+		<action
+			path="/tairyu/syoninsyosai"
+			name="01SyoninsyosaiForm"
+			type="app.tairyu.action.SyoninsyosaiAction"
+			scope="session">
+			<forward name="OB1105" path="/tairyu/syoninsyosai.jsp"/>
+			<forward name="OZ2101" path="/common/sashimodoshi.jsp"/>
+			<forward name="OZ1101" path="/common/tenpu_sentaku.jsp"/>
+		</action>
+		<action
+			path="/tairyu/sentei"
+			name="01SenteiForm"
+			type="app.tairyu.action.SenteiAction"
+			scope="session">
+			<forward name="OB2103" path="/tairyu/senteituika.jsp"/>
+			<forward name="OB2102" path="/tairyu/senteisyosai.jsp"/>
+			<forward name="OB2105" path="/tairyu/karikijuntuika.jsp"/>
+		</action>
+		<action
+			path="/tairyu/senteituika"
+			name="01SenteituikaForm"
+			type="app.tairyu.action.SenteituikaAction"
+			scope="session">
+			<forward name="OB2103" path="/tairyu/senteituika.jsp"/>
+			<forward name="OB2102" path="/tairyu/senteisyosai.jsp"/>
+		</action>
+		<action
+			path="/tairyu/senteisyosai"
+			name="01SenteisyosaiForm"
+			type="app.tairyu.action.SenteisyosaiAction"
+			scope="session">
+			<forward name="OB2102" path="/tairyu/senteisyosai.jsp"/>
+			<forward name="OB2103" path="/tairyu/senteituika.jsp"/>
+			<forward name="OZ2101" path="/common/sashimodoshi.jsp"/>
+			<forward name="OZ4101" path="/common/sashimodoshiComment.jsp"/>
+			<forward name="OB2105" path="/tairyu/karikijuntuika.jsp"/>
+		</action>
+		<action
+			path="/tairyu/senteisyonin"
+			name="01SenteisyoninForm"
+			type="app.tairyu.action.SenteisyoninAction"
+			scope="session">
+			<forward name="OB2102" path="/tairyu/senteisyosai.jsp"/>
+		</action>
+		<action
+			path="/tairyu/karikijuntuika"
+			name="01KarikijuntuikaForm"
+			type="app.tairyu.action.KarikijuntuikaAction"
+			scope="session">
+			<forward name="OB2105" path="/tairyu/karikijuntuika.jsp"/>
+			<forward name="OB2102" path="/tairyu/senteisyosai.jsp"/>
+			<forward name="OZ4101" path="/common/sashimodoshiComment.jsp"/>
+		</action>
+	</action-mappings>
+</struts-config>

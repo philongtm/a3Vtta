@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<!DOCTYPE struts-config PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	
+	<form-beans>
+		<form-bean name="04RenketuForm" type="app.system.form.RenketuForm"></form-bean>
+	</form-beans>
+
+
+	<action-mappings>		
+		<action
+			path="/system/renketu"
+			name="04RenketuForm"
+			type="app.system.action.RenketuAction"
+			scope="session">
+		</action>
+			
+	</action-mappings>
+</struts-config>

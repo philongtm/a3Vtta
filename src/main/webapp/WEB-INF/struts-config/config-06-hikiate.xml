@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<!DOCTYPE struts-config PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	
+	<form-beans>
+		<form-bean name="02HikiatekinKensyoForm" type="app.hikiate.form.KensyoForm"></form-bean>
+		<form-bean name="06IchiranForm" type="app.hikiate.form.IchiranForm"></form-bean>
+		<form-bean name="06KakuninForm" type="app.hikiate.form.KakuninForm"></form-bean>
+		<form-bean name="06HikiateSyoninForm" type="app.hikiate.form.HikiateSyoninForm"></form-bean>
+		<form-bean name="06HikiateSyoninSyosaiForm" type="app.hikiate.form.HikiateSyoninSyosaiForm"></form-bean>
+	</form-beans>
+	
+	<action-mappings>	
+		<action
+			path="/hikiate/ichiran"
+			name="06IchiranForm"
+			type="app.hikiate.action.IchiranAction"
+			scope="session">
+			<forward name="OD1102" path="/hikiate/kakunin.jsp"/>
+			<forward name="OD1105" path="/hikiate/kensyo.jsp"/>
+		</action>
+		<action
+			path="/hikiate/kakunin"
+			name="06KakuninForm"
+			type="app.hikiate.action.KakuninAction"
+			scope="session">
+			
+			<forward name="OD1102" path="/hikiate/kakunin.jsp"/>
+			<forward name="OZ2101" path="/common/sashimodoshi.jsp"/>
+			<forward name="OZ3101" path="/common/tensou.jsp"/>
+			<forward name="OZ1101" path="/common/tenpu_sentaku.jsp"/>
+			<forward name="OZ4101" path="/common/sashimodoshiComment.jsp"/>
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+		</action>
+		<action
+			path="/hikiate/syonin_ichiran"
+			name="06HikiateSyoninForm"
+			type="app.hikiate.action.HikiateSyoninAction"
+			scope="session">
+			
+			<forward name="OD1104" path="/hikiate/syonin_syosai.jsp"/>
+			<forward name="OD1102" path="/hikiate/kakunin.jsp"/>
+		</action>
+		<action
+			path="/hikiate/hikiate_syonin_syosai"
+			name="06HikiateSyoninSyosaiForm"
+			type="app.hikiate.action.HikiateSyoninSyosaiAction"
+			scope="session">
+			
+			<forward name="OD1104" path="/hikiate/syonin_syosai.jsp"/>
+			<forward name="OZ2101" path="/common/sashimodoshi.jsp"/>
+			<forward name="OZ1102" path="/common/tenpu_syokai.jsp"/>
+		</action>
+		<action
+			path="/hikiate/kensyo"
+			name="02HikiatekinKensyoForm"
+			type="app.hikiate.action.KensyoAction"
+			scope="session">
+			<forward name="OD1105" path="/hikiate/kensyo.jsp"/>
+			<forward name="OD1101" path="/hikiate/ichiran.jsp"/>
+			<forward name="OZ1101" path="/common/tenpu_sentaku.jsp"/>
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+			<forward name="OZ3101" path="/common/tensou.jsp"/>
+			<forward name="OZ4101" path="/common/sashimodoshiComment.jsp"/>
+		</action>
+	</action-mappings>
+</struts-config>

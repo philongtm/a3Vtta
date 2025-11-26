@@ -1,0 +1,71 @@
+/******************************************************************************
+著作権情報				:
+使用JDK バージョン		: 1.4.2.05
+更新履歴
+No		日付			修正者			修正内容
+001		09/10/21		SSC				課題No.65 パスワードログ出力削除
+******************************************************************************/
+package common.struts;
+
+import common.global.GS;
+import common.util.Log;
+import org.apache.struts.action.RequestProcessor;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Enumeration;
+
+/**
+ * 拡張RequestProcessorクラス
+ * サーブレットリクエストに対するstrutsコントローラが実行するロジック。
+ * SessionBean関係の処理をここで行う。
+ * 
+ */
+public class AppRequestProcessor extends RequestProcessor {
+
+	private String PASSWORD = "password";
+	private String CLASSNAME = getClass().getName();
+	private Log log = new Log();
+
+	/**
+	 * Action.execute()メソッドの前処理
+	 * 
+	 * @param request
+	 * 				HTTPリクエストオブジェクト
+	 * @param response
+	 * 				HTTPレスポンスオブジェクト
+	 * @return 処理の続行
+	 * 				true/処理続行 false/処理中止
+	 */
+	public boolean processPreprocess(HttpServletRequest request,
+			HttpServletResponse response) 
+	{
+		Enumeration params = request.getParameterNames();
+		
+		String param = null;
+		String value = null;
+		
+		// パラメータを表示
+		while(params.hasMoreElements() ){
+			param = (String)params.nextElement();
+			//課題No.65
+			//追加開始
+			if(PASSWORD.equals(param)){
+				continue;
+			}
+			//追加完了
+			value = request.getParameter(param);
+			log.write(GS.LOG_DBG,CLASSNAME,"param : " + param + " = \"" + value + "\"");
+		}
+
+		// クッキーを表示
+		javax.servlet.http.Cookie cookies[] = request.getCookies();
+		if( cookies != null ){
+			for( int i=0; i<cookies.length; i++ ){
+				System.out.println("cookie : " + cookies[i].getName() + " = " + cookies[i].getValue());
+			}
+		}
+
+		return true;
+	}
+}

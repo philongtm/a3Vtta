@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<!DOCTYPE struts-config PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	
+	<global-exceptions>
+		<exception 
+			type="java.lang.Exception" 
+			key="errors.sys" 
+			handler="common.struts.AppExceptionHandler" 
+			path="/include/servletException.jsp" />
+	</global-exceptions>
+ 
+
+	<action-mappings>		
+			
+		<action 
+			path="/download" 
+			type="common.struts.AppDownloadAction" >
+		</action>
+			
+		<action 
+			path="/excel" 
+			type="common.struts.AppExcelAction" >
+		</action>
+	
+	</action-mappings>
+
+</struts-config>

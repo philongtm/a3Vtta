@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=shift_jis">
+		<meta http-equiv="imagetoolbar" content="no">
+		<title>代行設定</title>
+		
+		
+		
+<script src = "p_s_I_bean.js"></script>
+<script type="text/javascript" src="wz_jsgraphics.js"></script>
+<script type="text/javascript" src="md5.js"></script>
+		<script language="JavaScript" src="treeMenuCode.js"></script>
+		<script language="JavaScript" src="createTree.js"></script>
+
+		
+		<script src = "playback_bean.js"></script>
+		<script src = "playback_parameter.js"></script>
+		<script src = "playback_config.js"></script>
+		<script src="playback_logic.js" language=javascript type="text/javascript"></script>
+		
+	    <script src="playback_do.js" language=javascript type="text/javascript"></script>
+       
+
+		
+		
+		<script src = "p_s_I_parameter.js"></script>
+		<script src="p_s_I_do.js" language=javascript type="text/javascript"></script>
+		<script src="p_s_I_process.js" language=javascript type="text/javascript"></script>
+		
+
+</head>
+
+		
+<script>
+		
+function loadFinished()
+{
+try{
+var timeOver = 0; 
+if(boolFinished == true)
+{
+		var stepFrameStyle;
+
+		if((isAutoDemonstration() && (stepFramePositionInAutoDemonstration == "None"))||
+			
+			(isOperationLecture() && (stepFramePositionInOperationLecture == "None"))||isPractice()||isOperationExercise())
+		{
+			stepFrameStyle = " src = \"stepContainer.htm\" scrolling=\"auto\" noresize=\"true\" ";
+		}
+		else
+		{
+			stepFrameStyle = " src = \"stepContainer.htm\" scrolling=\"auto\"";
+		}
+		document.writeln("<frameset id=\"parentFrame\" "+frameStructure+"  >");
+		document.writeln("<frame id=\"contentFrame\" scrolling=\"auto\" src="+activePageURL+"  >");
+		document.writeln("<frame id=\"stepFrame\""+stepFrameStyle+">");
+		
+		if(!isIE){
+			window.captureEvents(Event.RESIZE);
+			window.onresize = nsRefresh;
+		}
+}
+else
+{
+   timeOver++;
+   if(timeOver<30)
+   {
+       setTimeout("loadFinished()",1000);
+   }
+   else
+   {
+   	alert("time out ,net connected problem ,check your network please.");
+   }
+}
+}
+catch(e)
+{}
+}
+loadFinished();
+</script>
+	
+	
+<script src="playback_event.js" language=javascript type="text/javascript"></script>
+
+	
+	<noframes>
+		<body>
+			<p>This page uses frames, but your browser doesn't support them.</p>
+		</body>
+	</noframes>
+	</frameset>
+</html>

@@ -1,0 +1,92 @@
+#login #loginMain{
+	/* width: 980px; */
+	text-align: center;
+}
+
+#login #loginMain #head .headR{
+	float: right;
+	margin:20px 10px 0 0;
+}
+
+#login #loginMain #head .headL .IMG1{
+	width: 89px;
+	height: 52px;
+}
+
+#login #loginMain #head .headL .IMG2{
+	height: 54px;
+}
+
+#login #loginMain #loginContents{
+	margin: 0 10px 10px 10px;
+	/* width: 790px; */
+	width: 100%;
+}
+
+#login #loginMain #loginContents DIV#loginList {
+			clear: both;
+}
+
+#login TABLE {
+	border: 0;
+}
+
+#login input {
+	ime-mode:disabled;
+	margin: 0;
+	padding: 0;
+	font-family: "‚l‚r ‚oƒSƒVƒbƒN",Arial;
+	font-size: 9pt;
+	background: #FFFFFF;
+	background-image: url(bgImage.png);
+}
+
+#login TD {
+	border: 0;
+}
+
+#login .button {
+	padding: 2px 0 0 0;
+	width: 70px;
+	background: #CCCCCC;
+}
+
+#menu TABLE {
+	border-style: none;
+}
+	#menu .none_b {
+		background: #FFFFFF;
+		border: none;
+	}
+
+	#menu .none {
+		background: #FFFFFF;
+		color: #000000;
+		border: none;
+		font-weight: normal;
+	}
+
+	#menu .thlb{
+		border-left: solid 1px #888;
+		border-top-style: solid 1px #888;
+	}
+	#menu .tdlb {
+		border-left-style: solid;
+		border-left-width: 1px;
+		border-left-color: #AAA;
+	}
+
+#menu .title02 {
+	float: left;
+	padding: 0;
+	font-size: 13pt; 
+	text-decoration: underline;
+	font-weight: bold; 
+	text-align: left;
+}
+
+#menu .come {
+	float: right;
+	color: #333333;
+	font-size: 8pt;
+}

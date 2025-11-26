@@ -1,0 +1,18 @@
+.title {
+	font-family: tahoma;
+	font-size: 16px;
+	font-weight: bolder;
+	color: #2C47EE;
+}
+.texttitle {
+	font-family: tahoma;
+	font-size: 13px;
+	font-weight: bold;
+	color: 7A6A6A;
+}
+.text {
+	font-family: tahoma;
+	font-size: 13px;
+	font-weight: bold;
+	color: #84A7E1;
+}

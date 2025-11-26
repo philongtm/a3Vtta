@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="Shift_JIS" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+
+<struts-config>
+<!-- ================================================ Form Bean Definitions -->
+	<form-beans>
+	</form-beans>
+
+<!-- =========================================== Global Forwards Definitions -->
+	<global-forwards>
+		<forward name="OS2101" path="/login/menu.jsp"/>
+		<forward name="OB1101" path="/tairyu/ichiran.jsp"/>
+		<forward name="OB1104" path="/tairyu/syonin.jsp"/>
+		<forward name="OB2101" path="/tairyu/sentei.jsp"/>
+		<forward name="OB2104" path="/tairyu/senteisyonin.jsp"/>
+		<forward name="OC1101" path="/satei/ichiran.jsp"/>
+		<forward name="OC1106" path="/satei/syonin.jsp"/>
+		<forward name="OD1101" path="/hikiate/ichiran.jsp"/>
+		<forward name="OD1103" path="/hikiate/syonin_ichiran.jsp"/>
+		<forward name="OS3101" path="/system/kureemu_m.jsp"/>
+		<forward name="OS3104" path="/system/kureemu_syonin.jsp"/>
+		<forward name="OS4101" path="/system/golf_m.jsp"/>
+		<forward name="OS5101" path="/system/champion_m.jsp"/>
+		<forward name="OS6101" path="/syokai/satei.jsp"/>
+		<forward name="OS6103" path="/syokai/sincyoku.jsp"/>
+		<forward name="OS7101" path="/system/daiko_m.jsp"/>
+		<forward name="OS7102" path="/system/sateikaisya_m.jsp"/>
+		<forward name="OS7104" path="/system/workflow_m.jsp"/>
+		<forward name="OS7106" path="/system/user_m.jsp"/>
+		<forward name="OS7108" path="/system/kanjyo_m.jsp"/>
+		<forward name="OS7110" path="/system/cyusyutujyoken_m.jsp"/>
+		<forward name="OS8101" path="/system/download.jsp"/>
+		<forward name="OS7114" path="/system/cyusyutujyoken_hq_m.jsp"/>
+		<forward name="OS1101" path="/login/login.jsp"/>
+		<forward name="OS7113" path="/system/renketu_m.jsp"/>
+	</global-forwards>
+
+<!-- =========================================== Action Mapping Definitions -->
+	<action-mappings>
+	</action-mappings>
+
+<!-- =============================================== Plug Ins Configuration -->
+<!-- =================================================== Validator plugin -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+	<set-property
+		property="pathnames"
+		value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+	</plug-in>
+
+</struts-config>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<!DOCTYPE struts-config PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<form-beans>
+		<form-bean name="03SateiForm" type="app.syokai.form.SateiForm"></form-bean>
+		<form-bean name="03SateisyosaiForm" type="app.syokai.form.SateisyosaiForm"></form-bean>
+		<form-bean name="03SincyokuForm" type="app.syokai.form.SincyokuForm"></form-bean>
+		<form-bean name="03SincyokusyosaiForm" type="app.syokai.form.SincyokusyosaiForm"></form-bean>
+		<form-bean name="03TokusokumailForm" type="app.syokai.form.TokusokumailForm"></form-bean>
+	</form-beans>
+
+
+	<action-mappings>
+		<action
+			path="/syokai/satei"
+			name="03SateiForm"
+			type="app.syokai.action.SateiAction"
+			scope="session" >
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+		</action>
+
+		<action
+			path="/syokai/sateisyosai"
+			name="03SateisyosaiForm"
+			type="app.syokai.action.SateisyosaiAction"
+			scope="session">
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+			<forward name="OZ2101" path="/common/sashimodoshi.jsp"/>
+			<forward name="OZ1102" path="/common/tenpu_syokai.jsp"/>
+			<forward name="OZ4101" path="/common/sashimodoshiComment.jsp"/>
+			<forward name="OD1102" path="/hikiate/kakunin.jsp"/>
+			<forward name="OC1104" path="/satei/hikiate.jsp"/>
+			<forward name="OS5101" path="/system/champion_m.jsp"/>
+			<forward name="OD1105" path="/hikiate/kensyo.jsp"/>
+		</action>
+
+		<action
+			path="/syokai/sincyoku"
+			name="03SincyokuForm"
+			type="app.syokai.action.SincyokuAction"
+			scope="session" >
+
+			<forward name="OS6104" path="/syokai/sincyoku_syosai.jsp"/>
+		</action>
+
+		<action
+			path="/syokai/sincyokusyosai"
+			name="03SincyokusyosaiForm"
+			type="app.syokai.action.SincyokusyosaiAction"
+			scope="session">
+			<forward name="OS6103" path="/syokai/sincyoku.jsp"/>
+			<forward name="OS6104" path="/syokai/sincyoku_syosai.jsp"/>
+			<forward name="OS6105" path="/syokai/tokusokumail.jsp"/>
+
+		</action>
+
+		<action
+			path="/syokai/tokusokumail"
+			name="03TokusokumailForm"
+			type="app.syokai.action.TokusokumailAction"
+			scope="session">
+
+			<forward name="OS6104" path="/syokai/sincyoku_syosai.jsp"/>
+			<forward name="OS6105" path="/syokai/tokusokumail.jsp"/>
+			<forward name="OZ4101" path="/common/sashimodoshiComment.jsp"/>
+
+		</action>
+	</action-mappings>
+</struts-config>

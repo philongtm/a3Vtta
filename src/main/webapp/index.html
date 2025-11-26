@@ -1,0 +1,29 @@
+<html>
+<head>
+	<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=shift_jis">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="Sat, 31 Aug 2002 17:35:42 GMT">
+</head>
+<body>
+<form>
+</form>
+</body>
+</html>
+<script language="Javascript">
+	setTimeout("jump()",100);
+  function jump() {
+// 		loginURL = 'login/login.jsp';
+		loginURL = 'login/login.do';
+		loginURL += '?event=login';
+    win = window.open(loginURL, 'SAIKEN',
+        'toolbar=no,status=yes,menubar=no,scrollbars=yes,resizable=yes,directories=no,location=no,width=1013,height=689,left=0,top=0');
+        window.opener=win;
+        window.open("", "_top"); // 対応策用の追加コード
+      if(window.name!="SAIKEN"){
+          win.focus();
+          window.close();
+      }
+  }
+</script>

@@ -1,0 +1,90 @@
+﻿<html xmlns:v="urn:schemas-microsoft-com:vml" oncontextmenu ="return false;">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Dojo</title>
+		<meta http-equiv="imagetoolbar" content="no">
+<script language = "JavaScript">
+var boolFinished = false;
+var iIntervalID="";
+var iTimeoutID="";
+
+var notePosition = new Array();
+var imageObjects = new Array();
+var actions = new parent.Actions();
+var notes = new Array();
+var acImgs = new Array();
+var boolPointCount =true;
+var boolEnableModeAuto = true;
+var boolEnableModeExercise = true;
+var boolEnableModeLecture = true;
+var boolEnableModeTeachme = true;
+var boolEnableMode = true ; 
+var intItemIndex = 0 ; 
+var strUrlCurrent = 's_1.htm' ;
+var nStepIndex = 1;
+var strStepName = "2";
+imageObjects[0] = new parent.ImageObject(0,0,769,555,"0","i0000152.png");
+boolEnableMode = true ; 
+if(boolEnableMode==true)
+{
+   actions.items[intItemIndex]=new parent.Action(intItemIndex,0,0,4,4,0,"-1","s_2.htm","","","W","EN",false);
+   intItemIndex=intItemIndex+1;
+}
+boolEnableMode = true ; 
+if(boolEnableMode==true)
+{
+   actions.items[intItemIndex]=new parent.Action(intItemIndex,177,100,61,13,1,"00ffff","s_2.htm","<textbegin>200902<textend><actionbegin>s_2.htm<actionend>","","E","JP",true);
+   intItemIndex=intItemIndex+1;
+}
+boolEnableModeAuto = false;
+boolEnableModeExercise = false;
+boolEnableModeLecture = false;
+boolEnableModeTeachme = false;
+var keyhelp=new Array();
+var intKeyItemIndex = 0;
+var boolKeyHelp = true;
+notes[0] = new parent.LineCallout(0,new parent.RECT(203,130,338,45),new Array(240,288,288,241),new Array(101,101,131,101),new parent.RECT(203,130,338,45),new parent.RECT(210,137,324,32),"ＭＳ ゴシック",1,0,1,"<P><FONT face=Arial><STRONG><FONT color=#ff8000>Input&nbsp;Month/Year.<BR></FONT><FONT color=#ff8000>Push&nbsp;[Enter]&nbsp;key&nbsp;to&nbsp;move&nbsp;to&nbsp;next&nbsp;step</FONT></STRONG></FONT></P>","#c2fcc2","#009300","#000000",2,100,0,0,9,1,"633972612663442613.png");
+notes[1] = new parent.LineCallout(1,new parent.RECT(176,355,450,45),null,null,new parent.RECT(176,355,450,45),new parent.RECT(184,362,437,32),"ＭＳ ゴシック",1,0,1,"<P><FONT face=Arial color=#ff0000><STRONG>N.B.&nbsp;We&nbsp;are&nbsp;input&nbsp;all&nbsp;of&nbsp;&nbsp;search&nbsp;box&nbsp;when&nbsp;search&nbsp;the&nbsp;details&nbsp;in&nbsp;here&nbsp;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;but&nbsp;you&nbsp;can&nbsp;use&nbsp;that&nbsp;just&nbsp;input&nbsp;some&nbsp;search&nbsp;box&nbsp;you&nbsp;need.</STRONG></FONT></P>","#c2fcc2","#009300","#000000",2,100,0,0,9,4,"633972612663598863.png");
+var AdvanceTime = 1800;
+self.name="course";
+var skn = null;
+var strRNeighbor = "s_2.htm";
+var strLNeighbor = "s_0.htm";
+var strNextWaitPageUrl = 's_2.htm';
+		var strPreUrl='s_0.htm';
+
+var gone = false;
+
+if(parent.arResult[1] != null)
+{
+    parent.arResult[1][3]=0;
+}
+
+
+function pagestart() {
+}
+</script>
+		<style> v\:* { behavior: url(#default#VML); }</style>
+
+<style type='text/css'>
+input {font-family:'ＭＳ ゴシック'}
+.text {font-weight:bold; font-size:10pt}
+.popper{position : absolute;visibility : hidden;z-index:10000;}
+</style>
+</head>
+<body bgcolor="999999" >
+<div id="topdeck" class="popper" style="width:1px; height:1px;z-index:10000;position:absolute;">&nbsp;</div>
+<script language = "JavaScript"  src="s_I_draw.js"></script>
+<script language = "JavaScript"  src="audioPlay.js"></script>
+<script language = "JavaScript">
+</script>
+
+
+
+<script src="s_I_do.js" language=javascript type="text/javascript"></script>
+<script src="s_F_do.js" language=javascript type="text/javascript"></script>
+<script src="s_I_process.js" language=javascript type="text/javascript"></script>
+<script src="s_F_event.js" language=javascript type="text/javascript"></script>
+
+</body>
+</html>

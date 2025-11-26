@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<!DOCTYPE struts-config PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	
+	<form-beans>
+		<form-bean name="02SyoninForm" type="app.satei.form.SyoninForm"></form-bean>
+		<form-bean name="02SyoninSyosaiForm" type="app.satei.form.SyoninSyosaiForm"></form-bean>
+		<form-bean name="02IchiranForm" type="app.satei.form.IchiranForm"></form-bean>
+		<form-bean name="02TorokuForm" type="app.satei.form.TorokuForm"></form-bean>
+		<form-bean name="02KubunForm" type="app.satei.form.KubunForm"></form-bean>
+		<form-bean name="02HikiateForm" type="app.satei.form.HikiateForm"></form-bean>
+		<form-bean name="02RyuhosaimuForm" type="app.satei.form.RyuhosaimuForm"></form-bean>
+	</form-beans>
+	
+	<action-mappings>	
+		<action
+			path="/satei/syonin"
+			name="02SyoninForm"
+			type="app.satei.action.SyoninAction"
+			scope="session">
+			<forward name="OC1107" path="/satei/syonin_syosai.jsp"/>
+		</action>
+		<action
+			path="/satei/syonin_syosai"
+			name="02SyoninSyosaiForm"
+			type="app.satei.action.SyoninSyosaiAction"
+			scope="session">
+			<forward name="OC1107" path="/satei/syonin_syosai.jsp"/>
+			<forward name="OZ2101" path="/common/sashimodoshi.jsp"/>
+			<forward name="OZ1102" path="/common/tenpu_syokai.jsp"/>
+		</action>
+		<action
+			path="/satei/ichiran"
+			name="02IchiranForm"
+			type="app.satei.action.IchiranAction"
+			scope="session">
+			<forward name="OC1102" path="/satei/toroku.jsp"/>
+			<forward name="OC1103" path="/satei/kubun.jsp"/>
+			<forward name="OC1104" path="/satei/hikiate.jsp"/>
+		</action>
+		
+		<action
+			path="/satei/toroku"
+			name="02TorokuForm"
+			type="app.satei.action.TorokuAction"
+			scope="session">
+			<forward name="OZ3101" path="/common/tensou.jsp"/>
+			<forward name="OZ2101" path="/common/sashimodoshi.jsp"/>
+			<forward name="OC1102" path="/satei/toroku.jsp"/>
+			<forward name="OC1103" path="/satei/kubun.jsp"/>
+			<forward name="OZ4101" path="/common/sashimodoshiComment.jsp"/>
+		</action>
+		
+		<action
+			path="/satei/kubun"
+			name="02KubunForm"
+			type="app.satei.action.KubunAction"
+			scope="session">
+			<forward name="OC1102" path="/satei/toroku.jsp"/>
+			<forward name="OZ3101" path="/common/tensou.jsp"/>
+			<forward name="OZ2101" path="/common/sashimodoshi.jsp"/>
+			<forward name="OC1104" path="/satei/hikiate.jsp"/>
+			<forward name="OC1103" path="/satei/kubun.jsp"/>
+		</action>
+		
+		<action
+			path="/satei/hikiate"
+			name="02HikiateForm"
+			type="app.satei.action.HikiateAction"
+			scope="session">
+			<forward name="OC1102" path="/satei/toroku.jsp"/>
+			<forward name="OZ3101" path="/common/tensou.jsp"/>
+			<forward name="OZ2101" path="/common/sashimodoshi.jsp"/>
+			<forward name="OC1103" path="/satei/kubun.jsp"/>
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+			<forward name="OC1105" path="/satei/ryuhosaimu.jsp"/>
+			<forward name="OZ1101" path="/common/tenpu_sentaku.jsp"/>
+			<forward name="OC1104" path="/satei/hikiate.jsp"/>
+		</action>
+		
+		<action
+			path="/satei/ryuhosaimu"
+			name="02RyuhosaimuForm"
+			type="app.satei.action.RyuhosaimuAction"
+			scope="session">
+			<forward name="OC1104" path="/satei/hikiate.jsp"/>
+			<forward name="OC1105" path="/satei/ryuhosaimu.jsp"/>
+		</action>
+		
+	</action-mappings>
+</struts-config>

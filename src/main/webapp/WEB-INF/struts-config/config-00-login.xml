@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<!DOCTYPE struts-config PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="00LoginForm" type="app.login.form.LoginForm"></form-bean>
+		<form-bean name="00MenuForm" type="app.login.form.MenuForm"></form-bean>
+	</form-beans>
+	
+	<action-mappings>		
+		<action 
+			path="/login/login" 
+			name="00LoginForm" 
+			type="app.login.action.LoginAction"
+			scope="session">
+		</action>
+		<action 
+			path="/login/menu" 
+			name="00MenuForm" 
+			type="app.login.action.MenuAction"
+			scope="session">
+		</action>
+	</action-mappings>
+		
+</struts-config>

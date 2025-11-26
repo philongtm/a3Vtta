@@ -1,0 +1,17 @@
+/* No862, 2008/06/16, SJA渡辺, 言語モードによりIMEコントロールを切り替えるように修正 */
+INPUT {
+	ime-mode:disabled;
+}
+
+INPUT.doubleByte {
+	ime-mode:inactive;
+}
+
+TEXTAREA {
+	ime-mode:inactive;
+}
+
+/* No862, 2008/06/16, SJA渡辺, 初期値が英数字入力モード追加 */
+INPUT.singleByte {
+	ime-mode:inactive;
+}

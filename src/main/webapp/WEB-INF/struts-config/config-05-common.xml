@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<!DOCTYPE struts-config PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<form-beans>
+		<form-bean name="05SashimodoshiForm" type="app.common.form.SashimodoshiForm"></form-bean>
+		<form-bean name="05SashimodoshiCommentForm" type="app.common.form.SashimodoshiCommentForm"></form-bean>
+		<form-bean name="05TairyuMeisaiForm" type="app.common.form.TairyuMeisaiForm"></form-bean>
+		<form-bean name="05TenpuSyokaiForm" type="app.common.form.TenpuSyokaiForm"></form-bean>
+		<form-bean name="05TensouForm" type="app.common.form.TensouForm"></form-bean>
+		<form-bean name="TenpuSentakuForm" type="app.common.form.TenpuSentakuForm"></form-bean>
+		<form-bean name="SaikenMeisaiSyokaiForm" type="app.common.form.SaikenMeisaiSyokaiForm"></form-bean>
+		<form-bean name="TorihikisakiGaiyoSyokaiForm" type="app.common.form.TorihikisakiGaiyoSyokaiForm"></form-bean>
+		<form-bean name="TorihikisakiKubunHanteiSyokaiForm" type="app.common.form.TorihikisakiKubunHanteiSyokaiForm"></form-bean>
+		<form-bean name="HikiatekinHanteiSyokaiForm" type="app.common.form.HikiatekinHanteiSyokaiForm"></form-bean>
+		<form-bean name="RyuhoSaimuSyokaiForm" type="app.common.form.RyuhoSaimuSyokaiForm"></form-bean>
+		<form-bean name="HikiatekinKensyoSyokaiForm" type="app.common.form.HikiatekinKensyoSyokaiForm"></form-bean>
+		<form-bean name="KihonJohoSyokaiForm" type="app.common.form.KihonJohoSyokaiForm"></form-bean>
+		<form-bean name="05sateiSincyokuForm" type="app.common.form.SateiSincyokuForm"></form-bean>
+		<form-bean name="05tairyuSincyokuForm" type="app.common.form.TairyuSincyokuForm"></form-bean>
+		<form-bean name="KakuninSyokaiForm" type="app.common.form.KakuninSyokaiForm"></form-bean>
+		<form-bean name="HikiatekinKensyoSyokaiForm" type="app.common.form.KensyoSyokaiForm"></form-bean>
+	</form-beans>
+
+	<action-mappings>
+		<action
+			path="/common/kensyo"
+			name="HikiatekinKensyoSyokaiForm"
+			type="app.common.action.KensyoSyokaiAction"
+			scope="session">
+			<forward name="OD1105" path="/hikiate/kensyo.jsp"/>
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+			<forward name="OD1104" path="/hikiate/syonin_syosai.jsp"/>
+		</action>
+		<action
+			path="/common/tensou"
+			name="05TensouForm"
+			type="app.common.action.TensouAction"
+			scope="session">
+			<forward name="OZ3101" path="/common/tensou.jsp"/>
+			<forward name="OB1102" path="/tairyu/toroku.jsp"/>
+			<forward name="OC1102" path="/satei/toroku.jsp"/>
+			<forward name="OC1103" path="/satei/kubun.jsp"/>
+			<forward name="OC1104" path="/satei/hikiate.jsp"/>
+			<forward name="OD1102" path="/hikiate/kakunin.jsp"/>
+			<forward name="OD1105" path="/hikiate/kensyo.jsp"/>
+		</action>
+		<action
+			path="/common/sashimodoshi"
+			name="05SashimodoshiForm"
+			type="app.common.action.SashimodoshiAction"
+			scope="session">
+			<forward name="OZ2101" path="/common/sashimodoshi.jsp"/>
+			<forward name="OB1102" path="/tairyu/toroku.jsp"/>
+			<forward name="OB1105" path="/tairyu/syoninsyosai.jsp"/>
+			<forward name="OB2102" path="/tairyu/senteisyosai.jsp"/>
+			<forward name="OC1102" path="/satei/toroku.jsp"/>
+			<forward name="OC1103" path="/satei/kubun.jsp"/>
+			<forward name="OC1104" path="/satei/hikiate.jsp"/>
+			<forward name="OC1107" path="/satei/syonin_syosai.jsp"/>
+			<forward name="OD1102" path="/hikiate/kakunin.jsp"/>
+			<forward name="OD1104" path="/hikiate/syonin_syosai.jsp"/>
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+			<forward name="OS3105" path="/system/kureemu_syoninsyosai.jsp"/>
+		</action>
+		<action
+			path="/common/sashimodoshiComment"
+			name="05SashimodoshiCommentForm"
+			type="app.common.action.SashimodoshiCommentAction"
+			scope="session">
+			<forward name="OZ4101" path="/common/sashimodoshiComment.jsp"/>
+			<forward name="OB1102" path="/tairyu/toroku.jsp"/>
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+			<forward name="OD1102" path="/hikiate/kakunin.jsp"/>
+			<forward name="OS6104" path="/syokai/sincyoku_syosai.jsp"/>
+			<forward name="OS6105" path="/syokai/tokusokumail.jsp"/>
+			<forward name="OC1102" path="/satei/toroku.jsp"/>
+			<forward name="OS3102" path="/system/kureemu_meisai.jsp"/>
+			<forward name="OD1105" path="/hikiate/kensyo.jsp"/>
+			<forward name="OB2102" path="/tairyu/senteisyosai.jsp"/>
+			<forward name="OB2105" path="/tairyu/karikijuntuika.jsp"/>
+		</action>
+		<action
+			path="/common/tairyu_meisai"
+			name="05TairyuMeisaiForm"
+			type="app.common.action.TairyuMeisaiAction"
+			scope="session">
+			<forward name="OB1105" path="/tairyu/syoninsyosai.jsp"/>
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+			<forward name="OZ1102" path="/common/tenpu_syokai.jsp"/>
+		</action>
+		<action
+			path="/common/tenpu_syokai"
+			name="05TenpuSyokaiForm"
+			type="app.common.action.TenpuSyokaiAction"
+			scope="session">
+			<forward name="OD1104" path="/hikiate/syonin_syosai.jsp"/>
+			<forward name="OB1105" path="/tairyu/syoninsyosai.jsp"/>
+			<forward name="OC1107" path="/satei/syonin_syosai.jsp"/>
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+			<forward name="OB2102" path="/tairyu/senteisyosai.jsp"/>
+			<forward name="OZ1102" path="/common/tenpu_syokai.jsp"/>
+			<forward name="OS3105" path="/system/kureemu_syoninsyosai.jsp"/>
+
+		</action>
+		<action
+			path="/common/tenpu_sentaku"
+			name="TenpuSentakuForm"
+			type="app.common.action.TenpuSentakuAction"
+			scope="session">
+			<forward name="OZ1101" path="/common/tenpu_sentaku.jsp"/>
+			<forward name="OC1104" path="/satei/hikiate.jsp"/>
+			<forward name="OD1102" path="/hikiate/kakunin.jsp"/>
+			<forward name="OD1105" path="/hikiate/kensyo.jsp"/>
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+			<forward name="OB1103" path="/tairyu/syosai.jsp"/>
+			<forward name="OB1105" path="/tairyu/syoninsyosai.jsp"/>
+			<forward name="OS3102" path="/system/kureemu_meisai.jsp"/>
+			<forward name="OS3103" path="/system/kureemu_syosai.jsp"/>
+		</action>
+		<action
+			path="/common/saiken_meisai"
+			name="SaikenMeisaiSyokaiForm"
+			type="app.common.action.SaikenMeisaiSyokaiAction"
+			scope="session">
+			<forward name="OC1107" path="/satei/syonin_syosai.jsp"/>
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+			<forward name="OB2102" path="/tairyu/senteisyosai.jsp"/>
+			<forward name="OZ1102" path="/common/tenpu_syokai.jsp"/>
+			<forward name="OS3105" path="/system/kureemu_syoninsyosai.jsp"/>
+		</action>
+		<action
+			path="/common/torihikisaki_gaiyo"
+			name="TorihikisakiGaiyoSyokaiForm"
+			type="app.common.action.TorihikisakiGaiyoSyokaiAction"
+			scope="session">
+			<forward name="OC1107" path="/satei/syonin_syosai.jsp"/>
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+		</action>
+		<action
+			path="/common/torihikisaki_kubun_hantei"
+			name="TorihikisakiKubunHanteiSyokaiForm"
+			type="app.common.action.TorihikisakiKubunHanteiSyokaiAction"
+			scope="session">
+			<forward name="OC1107" path="/satei/syonin_syosai.jsp"/>
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+		</action>
+		<action
+			path="/common/hikiatekin_hantei"
+			name="HikiatekinHanteiSyokaiForm"
+			type="app.common.action.HikiatekinHanteiSyokaiAction"
+			scope="session">
+			<forward name="OC1107" path="/satei/syonin_syosai.jsp"/>
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+		</action>
+		<action
+			path="/common/ryuho_saimu"
+			name="RyuhoSaimuSyokaiForm"
+			type="app.common.action.RyuhoSaimuSyokaiAction"
+			scope="session">
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+			<forward name="OC1107" path="/satei/syonin_syosai.jsp"/>
+			<forward name="OS6102" path="/syokai/syosai.jsp"/>
+			<forward name="OB2102" path="/tairyu/senteisyosai.jsp"/>
+		</action>
+		<action
+			path="/common/kihon_joho"
+			name="KihonJohoSyokaiForm"
+			type="app.common.action.KihonJohoSyokaiAction"
+			scope="session">
+			<forward name="OB2102" path="/tairyu/senteisyosai.jsp"/>
+		</action>
+		<!-- 2009/4/25 CNC OZ6109_査定進捗照会タブ用 -->
+		<action
+			path="/common/Satei_sincyoku"
+			name="05sateiSincyokuForm"
+			type="app.common.action.SateiSincyokuAction"
+			scope="session">
+			<forward name="OS6104" path="/syokai/sincyoku_syosai.jsp"/>
+			<forward name="OS6105" path="/syokai/tokusokumail.jsp"/>
+			<forward name="OZ4101" path="/common/sashimodoshiComment.jsp"/>
+		</action>
+		<action
+			path="/common/tairyu_sincyoku"
+			name="05tairyuSincyokuForm"
+			type="app.common.action.TairyuSincyokuAction"
+			scope="session">
+			<forward name="OS6104" path="/syokai/sincyoku_syosai.jsp"/>
+			<forward name="OS6105" path="/syokai/tokusokumail.jsp"/>
+			<forward name="OZ4101" path="/common/sashimodoshiComment.jsp"/>
+		</action>
+		<action
+			path="/common/kakunin"
+			name="KakuninSyokaiForm"
+			type="app.common.action.KakuninSyokaiAction"
+			scope="session">
+			<forward name="OZ6106" path="/common/kakunin.jsp"/>
+		</action>
+
+	</action-mappings>
+</struts-config>

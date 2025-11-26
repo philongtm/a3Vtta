@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+
+<!DOCTYPE struts-config PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	
+	<controller 
+		processorClass="common.struts.AppRequestProcessor"
+		maxFileSize="100M"
+	/>	
+
+	
+	<message-resources parameter="resources.applicaion"/>
+	
+</struts-config>
