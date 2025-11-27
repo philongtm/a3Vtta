@@ -21,11 +21,11 @@ import common.util.Function;
 import common.util.Log;
 import common.util.SetteiDbAcc;
 import common.util.TempFile;
-import common.struts.adapter.action.Action;
-import common.struts.adapter.action.ActionForm;
-import common.struts.adapter.action.ActionForward;
-import common.struts.adapter.action.ActionMapping;
-import common.struts.adapter.upload.FormFile;
+import config.adapter.struts.action.Action;
+import config.adapter.struts.action.ActionForm;
+import config.adapter.struts.action.ActionForward;
+import config.adapter.struts.action.ActionMapping;
+import config.adapter.struts.upload.FormFile;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

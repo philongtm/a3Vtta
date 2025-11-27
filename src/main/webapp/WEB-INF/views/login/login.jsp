@@ -1,22 +1,22 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 
 <HTML>
 <HEAD>
 <%@ include file = "../include/jspHeader.jsp" %>
 <%@ include file = "../include/jspUtil.jsp" %>
-<link rel="stylesheet" href="../../../css/Login.css" type="text/css">
+<link rel="stylesheet" href="<c:url value='/css/Login.css' />" type="text/css">
 <script>
 function upperCase(obj) {
 	obj.value=obj.value.toUpperCase();
 }
 function checkOpener() {
 	if(window.name != 'SAIKEN'){
-		location.href = '../../../index.html';
+		location.href = '../index.html';
 	}
 }
 </script>
-</HEAD>				     
+</HEAD>
 <body id="login" onload="checkOpener();">
 <CENTER>
 
@@ -30,8 +30,8 @@ function checkOpener() {
 	</DIV>
 	<%-- ロゴ画像--%>
 	<DIV class="headL">
-		<IMG alt="Sojitz" src="../../../image/navi001.gif" class="IMG1">
-	 	<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="../image/<%=i18n.get(GL.IMG_TITLE)%>.gif" class="IMG2">
+		<IMG alt="Sojitz" src="<c:url value='/image/navi001.gif' />" class="IMG1">
+	 	<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="<%=contextPath%>/image/<%=i18n.get(GL.IMG_TITLE)%>.gif" class="IMG2">
 	</DIV>
 </DIV>
 
@@ -39,16 +39,17 @@ function checkOpener() {
 <%-- コンテンツ部分 --%>
 <DIV id="loginContents">
 <DIV id="loginList">
-<html:form action="<%=GS.A00_LOGIN%>" focus="userId">
-<html:hidden property="txtKbnLang"/>
+<form action="<c:url value='/login/login.do' />" focus="userId">
+<input type="hidden" name="txtKbnLang"/>
+<input type="hidden" name="event"/>
 	<table align="left">
 	<tr>
 		<td><%=i18n.get(GL.OS1101_USERID)%></td>
-		<td><html:text property="userId" onblur="upperCase(userId)" size="18" maxlength="8"/></td>
+		<td><input type="text" name="userId" onblur="upperCase(userId)" size="18" maxlength="8"/></td>
 	</tr>
 	<tr>
   		<td><%=i18n.get(GL.OS1101_PASSWORD)%></td>
- 		<td><html:password property="password" size="18" style="font-family:Arial; width:104px;" redisplay="false"/></td>
+ 		<td><input type="password" name="password" size="18" style="font-family:Arial; width:104px;" redisplay="false"/></td>
 	</tr>
 	<tr>
   		<td></td>
@@ -58,7 +59,7 @@ function checkOpener() {
   		</td>
 	</tr>
 	</table>
-</html:form>
+</form>
 </DIV>
 </DIV>
 </DIV>

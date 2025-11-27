@@ -17,7 +17,7 @@ import app.UserBean;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppPagerActionForm;
-import common.struts.adapter.action.ActionMapping;
+import config.adapter.struts.action.ActionMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.ArrayList;

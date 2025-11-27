@@ -47,6 +47,11 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>config.WebConfig</param-value>
         </init-param>
+        <multipart-config>
+            <max-file-size>104857600</max-file-size>        <!-- 100MB -->
+            <max-request-size>104857600</max-request-size>  <!-- 100MB -->
+            <file-size-threshold>0</file-size-threshold>
+        </multipart-config>
 
         <load-on-startup>0</load-on-startup>
     </servlet>

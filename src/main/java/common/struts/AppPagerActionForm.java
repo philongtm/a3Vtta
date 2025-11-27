@@ -7,7 +7,7 @@ No		“ú•t			C³Ò			C³“à—e
 package common.struts;
 
 import common.util.Pager;
-import common.struts.adapter.action.ActionForm;
+import config.adapter.struts.action.ActionForm;
 
 import java.util.List;
 

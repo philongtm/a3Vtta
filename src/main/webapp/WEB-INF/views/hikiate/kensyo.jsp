@@ -1,9 +1,9 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 <HTML>
 <HEAD>
-<%@ include file = "../../../include/jspHeader.jsp" %>
-<%@ include file = "../../../include/jspUtil.jsp" %>
+<%@ include file = "../include/jspHeader.jsp" %>
+<%@ include file = "../include/jspUtil.jsp" %>
 
 <bean:define id="HikiatekinKensyoForm" name="02HikiatekinKensyoForm" type="app.hikiate.form.KensyoForm" />
 
@@ -152,8 +152,8 @@
 <DIV id="main">
 
 <DIV id="head">
-	<IMG alt="Sojitz" src="../../../image/navi001.gif" width="89" height="52">
-	<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="../image/<%=i18n.get(GL.IMG_TITLE)%>.gif" height="54">
+	<IMG alt="Sojitz" src="<c:url value='/image/navi001.gif' />" width="89" height="52">
+	<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="<c:url value='/image/<%=i18n.get(GL.IMG_TITLE)%>.gif' />" height="54">
  	<%-- ヘルプリンク --%>
 	<a href="#" class="<%=helpStyle%>" onClick="doSubmitNonHelp('help_open');"><%=i18n.get(GL.LINK_HELP)%></a>
 </DIV>
@@ -888,7 +888,7 @@ if(request.getAttribute(GS.FOCUS_FIELD) == null || "".equals(request.getAttribut
 				<%-- 初回・中間月 End--%>
 
 				<TD style="border:0px;width:10%;" class="center">
-					<IMG src="../../../image/yajirushi.gif">
+					<IMG src="<c:url value='/image/yajirushi.gif' />">
 				</TD>
 				
 				<%-- 最終月Start --%>

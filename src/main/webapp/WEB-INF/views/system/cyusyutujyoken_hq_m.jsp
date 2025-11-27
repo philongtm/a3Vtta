@@ -1,5 +1,5 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 
 <HTML>
 <HEAD>
@@ -75,8 +75,8 @@ if(request.getAttribute(GS.FOCUS_FIELD) == null || "".equals(request.getAttribut
 <%--ヘッダ部分--%>
 <DIV id="main">
 <DIV id="head">
-	<IMG alt="Sojitz" src="../../../image/navi001.gif" width="89" height="52">
- 	<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="../image/<%=i18n.get(GL.IMG_TITLE)%>.gif" height="54">
+	<IMG alt="Sojitz" src="<c:url value='/image/navi001.gif' />" width="89" height="52">
+ 	<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="<c:url value='/image/<%=i18n.get(GL.IMG_TITLE)%>.gif' />" height="54">
  	<%-- ヘルプリンク --%>
 	<a href="#" class="<%=helpStyle%>" onClick="doSubmitNonHelp('help_open');"><%=i18n.get(GL.LINK_HELP)%></a>
 </DIV>
@@ -145,7 +145,7 @@ if(request.getAttribute(GS.FOCUS_FIELD) == null || "".equals(request.getAttribut
 			<%} else {%>
 			<DIV id="tab" style="font-size:8pt;"><a href="#" onClick="doSubmit('satei_joken')"><%=i18n.get(GL.LABEL_SATEI_TAISYOU)%><br><%=i18n.get(GL.LABEL_TAIRYU_J)%></a></DIV>
 			<%}%>
-			<iframe id="iframe" src="cyusyutujyoken_hq_m_kentou.jsp" width=100% height=700px></iframe>
+			<iframe id="iframe" src="../system/cyusyutujyoken_hq_m_kentou.jsp" width=100% height=700px></iframe>
 		</logic:equal>
 		<logic:equal name="CyusyutujyokenForm" property="jokenKbn" value="2">
 			<DIV id="tab"><a href="#" onClick="doSubmit('kentou_joken')"><%=i18n.get(GL.LABEL_KENTOU_J)%></a></DIV>
@@ -154,7 +154,7 @@ if(request.getAttribute(GS.FOCUS_FIELD) == null || "".equals(request.getAttribut
 			<%} else {%>
 			<DIV id="tab" style="font-size:8pt;"><span><%=i18n.get(GL.LABEL_SATEI_TAISYOU)%><br><%=i18n.get(GL.LABEL_TAIRYU_J)%></span></DIV>
 			<%}%>
-			<iframe id="iframe" src="cyusyutujyoken_hq_m_satei.jsp" width=100% height=500px></iframe>
+			<iframe id="iframe" src="../system/cyusyutujyoken_hq_m_satei.jsp" width=100% height=500px></iframe>
 		</logic:equal>
 
 	</DIV>

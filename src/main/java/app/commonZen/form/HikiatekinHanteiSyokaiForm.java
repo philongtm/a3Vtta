@@ -7,7 +7,7 @@ No		“ú•t			C³Ò			C³“à—e
 ******************************************************************************/
 package app.commonZen.form;
 
-import common.struts.adapter.action.ActionForm;
+import config.adapter.struts.action.ActionForm;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

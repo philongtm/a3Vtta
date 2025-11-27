@@ -1,4 +1,4 @@
-package common.struts.adapter.upload;
+package config.adapter.struts.upload;
 
 import org.springframework.web.multipart.MultipartFile;
 

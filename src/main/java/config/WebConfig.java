@@ -4,6 +4,8 @@ import config.interceptor.AppRequestInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -29,15 +31,25 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public InternalResourceViewResolver jspResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/views/");
-        resolver.setSuffix(".jsp");
+        resolver.setPrefix("/WEB-INF/views");
+//        resolver.setSuffix(".jsp");
         return resolver;
     }
 
     // Static resources (CSS, JS, images)
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**")
-                .addResourceLocations("/resources/");
+        registry.addResourceHandler("/css/**")
+                .addResourceLocations("/css/");
+        registry.addResourceHandler("/image/**")
+                .addResourceLocations("/image/");
+        registry.addResourceHandler("/help/**")
+                .addResourceLocations("/help/");
+    }
+
+    @Bean
+    public MultipartResolver multipartResolver() {
+        // setting get from <multipart-config> in web.xml
+        return new StandardServletMultipartResolver();
     }
 }

@@ -1,4 +1,4 @@
-package common.struts.adapter.action;
+package config.adapter.struts.action;
 
 import java.util.ArrayList;
 import java.util.List;

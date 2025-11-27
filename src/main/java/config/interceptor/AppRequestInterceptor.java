@@ -3,6 +3,8 @@ package config.interceptor;
 import common.AppContext;
 import common.db.PooledConnection;
 import common.global.GS;
+import config.adapter.struts.action.ActionMapping;
+import config.adapter.struts.action.StrutsConfigLoader;
 import common.util.Function;
 import common.util.Log;
 import jakarta.annotation.PostConstruct;
@@ -29,12 +31,32 @@ public class AppRequestInterceptor implements HandlerInterceptor {
     private final String PASSWORD = "password";
     private final String CLASSNAME = this.getClass().getName();
     private final Log log = new Log();
+    private final StrutsConfigLoader configLoader;
+
+    /**
+     * Constructor
+     *
+     * @param configLoader StrutsConfigLoader
+     */
+    public AppRequestInterceptor(StrutsConfigLoader configLoader) {
+        this.configLoader = configLoader;
+    }
 
     /**
      * preHandleÇÕAction.execute()ÇÃëOèàóùÇ…ëäìñ
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+        String uri = request.getRequestURI();        // /app/user/list.do
+        String ctx = request.getContextPath();       // /app
+        String path = uri.substring(ctx.length()).replaceAll(".do", "");   // /user/list
+
+        ActionMapping mapping = configLoader.getActionMapping(path);
+
+        if (mapping != null) {
+            request.setAttribute(GS.REQUEST_ATTRIBUTE_STRUST_ACTION_MAPPING, mapping);
+        }
+
         synchronized (request.getSession()) {
             AppContext appContext = (AppContext) request.getAttribute(GS.APPCONTEXT);
             if (appContext == null) {

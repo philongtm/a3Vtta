@@ -10,10 +10,10 @@ import common.AppContext;
 import common.global.GS;
 import common.util.Function;
 import common.util.InputCheck;
-import common.struts.adapter.action.ActionErrors;
-import common.struts.adapter.action.ActionForm;
-import common.struts.adapter.action.ActionMapping;
-import common.struts.adapter.action.ActionMessage;
+import config.adapter.struts.action.ActionErrors;
+import config.adapter.struts.action.ActionForm;
+import config.adapter.struts.action.ActionMapping;
+import config.adapter.struts.action.ActionMessage;
 
 import jakarta.servlet.ServletRequest;
 import jakarta.servlet.http.HttpServletRequest;

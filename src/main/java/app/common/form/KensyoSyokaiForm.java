@@ -8,7 +8,7 @@ No		“ú•t			C³Ò			C³“à—e
 ******************************************************************************/
 package app.common.form;
 
-import common.struts.adapter.action.ActionForm;
+import config.adapter.struts.action.ActionForm;
 
 import java.util.LinkedHashMap;
 

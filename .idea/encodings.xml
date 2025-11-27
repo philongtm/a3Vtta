@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" defaultCharsetForPropertiesFiles="windows-31j">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="windows-31j">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="windows-31j" />
-    <file url="file://$PROJECT_DIR$/src/main/java/common/struts/adapter/action/Action.java" charset="windows-31j" />
-    <file url="file://$PROJECT_DIR$/src/main/java/common/struts/adapter/action/ActionForm.java" charset="windows-31j" />
-    <file url="file://$PROJECT_DIR$/src/main/java/common/struts/adapter/action/ActionForward.java" charset="windows-31j" />
-    <file url="file://$PROJECT_DIR$/src/main/java/common/struts/adapter/action/ActionMapping.java" charset="windows-31j" />
-    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/application.properties" charset="windows-31j" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/message_en.properties" charset="windows-31j" />
-    <file url="file://$PROJECT_DIR$/src/main/resources/message_ja.properties" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/src/main/java/app/login/action/LoginAction.java" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/src/main/java/common/struts/BaseAppAction.java" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/src/main/java/common/util/InputCheck.java" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/src/main/java/config/AppExceptionHandler.java" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/include/servletException.jsp" charset="Shift_JIS" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/satei/syonin_syosai.jsp" charset="Shift_JIS" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/css/Login.css" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/css/ime_mode_en.css" charset="Shift_JIS" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/css/ime_mode_ja.css" charset="Shift_JIS" />
     <file url="PROJECT" charset="windows-31j" />
   </component>
 </project>

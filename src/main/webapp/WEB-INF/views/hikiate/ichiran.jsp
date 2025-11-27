@@ -1,5 +1,5 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 
 <HTML>
 <HEAD>
@@ -14,8 +14,8 @@
 <%--ヘッダ部分--%>
 <DIV id="main">
 	<DIV id="head">
-		<IMG alt="Sojitz" src="../../../image/navi001.gif" width="89" height="52">
- 		<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="../image/<%=i18n.get(GL.IMG_TITLE)%>.gif" height="54">
+		<IMG alt="Sojitz" src="<c:url value='/image/navi001.gif' />" width="89" height="52">
+ 		<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="<c:url value='/image/<%=i18n.get(GL.IMG_TITLE)%>.gif' />" height="54">
 		<%-- ヘルプリンク --%>
 		<a href="#" class="<%=helpStyle%>" onClick="doSubmitNonHelp('help_open');"><%=i18n.get(GL.LINK_HELP)%></a>
 	</DIV>
@@ -41,7 +41,7 @@
 			<input type="button" value="<%=i18n.get(GL.BTN_BACK)%>" onclick="doSubmit('menuLinkOS2101')">
 		</DIV>
 		<DIV id="list">
-			<html:form action="/hikiate/ichiran" >
+			<form action="/hikiate/ichiran" >
 				<input type="hidden" name="anken_no" value="">
 				<input type="hidden" name="id" value="0">
 				<input type="hidden" name="oldTanto" value="0">
@@ -52,9 +52,9 @@
 					<DIV class="CNDbox">
 						<%-- 査定期 --%>
 						<%=i18n.get(GL.COMMON_ASSESSING_PERIOD)%>&nbsp;
-						<html:select property="sateiki" onchange="doSubmit('sateiki')" style="width:80">
-							<html:optionsCollection name="IchiranForm" property="ar_sateiki" value="value" label="key" />
-						</html:select>
+						<select property="sateiki" onchange="doSubmit('sateiki')" style="width:80">
+							<optionsCollection name="IchiranForm" property="ar_sateiki" value="value" label="key" />
+						</select>
 					</DIV>
 			  	</DIV>
 			  
@@ -112,12 +112,12 @@
 			  	<DIV class="mainlist">
 					<TABLE style="border:0px;width:100%;">
 						<TR style="border:0px;">
-							<TD style="border:0px;width:2%;"><html:radio onclick="doSubmit('tanto')" property="tanto" value="1" /><BR>
+							<TD style="border:0px;width:2%;"><input type="radio" onclick="doSubmit('tanto')" property="tanto" value="1" /><BR>
 							</TD>
 							<%-- 自担当分 --%>
 							<TD style="border:0px;width:11%;"><%=i18n.get(GL.COMMON_MYTASKS)%><BR>
 							</TD>
-							<TD style="border:0px;width:2%;"><html:radio onclick="doSubmit('tanto')" property="tanto" value="2" /><BR>
+							<TD style="border:0px;width:2%;"><input type="radio" onclick="doSubmit('tanto')" property="tanto" value="2" /><BR>
 							</TD>
 							<%-- 汎用2 --%>
 							<TD style="border:0px;width:12%;"><%=SESSION_DATA_APP.getLbl_nm2()%><BR>
@@ -127,22 +127,22 @@
 							</TD>	
 							<%-- ソート項目 --%>
 							<TD style="border:0px;width:11%;">
-								<html:select property="sort_item" onchange="doSubmit('sort_item')" style="width:100">
-									<html:optionsCollection name="IchiranForm" property="ar_sort_item" value="value" label="key" />
-								</html:select>
+								<select property="sort_item" onchange="doSubmit('sort_item')" style="width:100">
+									<optionsCollection name="IchiranForm" property="ar_sort_item" value="value" label="key" />
+								</select>
 							</TD>
 							<%-- 整列方向 --%>
 							<TD align="right" style="border:0px;width:2%;">
-								<html:select property="sort_order" onchange="doSubmit('sort_order')" style="width:70">
-									<html:optionsCollection name="IchiranForm" property="ar_sort_order" value="value" label="key" />
-								</html:select>
+								<select property="sort_order" onchange="doSubmit('sort_order')" style="width:70">
+									<optionsCollection name="IchiranForm" property="ar_sort_order" value="value" label="key" />
+								</select>
 							</TD>
 							<%-- 表示件数セレクトボックス --%>
 							<TD align="right" style="border:0px;width:11%;"><%=i18n.get(GL.COMMON_SHOW)%><BR>
 							<TD style="border:0px;width:13%;">
-								<html:select property="view" onchange="doSubmit('show')" style="width:70">
-									<html:optionsCollection name="IchiranForm" property="ar_show" value="value" label="key" />
-								</html:select>
+								<select property="view" onchange="doSubmit('show')" style="width:70">
+									<optionsCollection name="IchiranForm" property="ar_show" value="value" label="key" />
+								</select>
 							</TD>
 							<%-- ←前のXX件 --%>
 							<TD style="border:0px;width:14%;">
@@ -217,7 +217,7 @@
 											<nested:equal property="link_flg" value="false">
 												<TD disabled colspan=1 rowspan=2 style="width:7%;border-bottom-color:#000000;border-right-color:#000000;text-align:center">
 											</nested:equal>
-												<html:multibox property="selectedMountains" ><nested:write property="id" /></html:multibox>
+												<input type="checkbox" property="selectedMountains" ><nested:write property="id" /></input type="checkbox">
 											</TD>
 										</TR>
 										<TR style='background-color:#CCFFFF'>
@@ -244,7 +244,7 @@
 											<nested:equal property="link_flg" value="false">
 												<TD disabled colspan=1 rowspan=2 style="width:7%;border-bottom-color:#000000;border-right-color:#000000;text-align:center">
 											</nested:equal>
-												<html:multibox property="selectedMountains" ><nested:write property="id" /></html:multibox>
+												<input type="checkbox" property="selectedMountains" ><nested:write property="id" /></input type="checkbox">
 											</TD>
 										</TR>
 										<TR >
@@ -260,7 +260,7 @@
 					</TABLE>
 				</DIV>
 			  	
-			</html:form>
+			</form>
 		</DIV>
 	</DIV>
 </DIV>

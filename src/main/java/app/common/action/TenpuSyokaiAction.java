@@ -17,7 +17,7 @@ import common.global.GS;
 import common.struts.AppDownloadAction;
 import common.struts.AppMenuAction;
 import common.util.TempFile;
-import common.struts.adapter.action.ActionMapping;
+import config.adapter.struts.action.ActionMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

@@ -1,11 +1,11 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 
 <HTML>
 <HEAD>
-<%@ include file = "../../../include/jspHeader.jsp" %>
-<%@ include file = "../../../include/jspUtil.jsp" %>
-<link rel="stylesheet" href="../../../css/Satei.css" type="text/css">
+<%@ include file = "../include/jspHeader.jsp" %>
+<%@ include file = "../include/jspUtil.jsp" %>
+<link rel="stylesheet" href="<c:url value='/css/Satei.css' />" type="text/css">
 <bean:define id="TorihikisakiBean" name="app.SessionData" property="tori_bean" type="app.TorihikisakiBean" />
 <bean:define id="TorihikisakiGaiyoSyokaiForm" name="TorihikisakiGaiyoSyokaiForm" type="app.common.form.TorihikisakiGaiyoSyokaiForm" />
 

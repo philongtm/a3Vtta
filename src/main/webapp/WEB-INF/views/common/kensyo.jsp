@@ -1,10 +1,10 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 
 <HTML>
 <HEAD>
-<%@ include file = "../../../include/jspHeader.jsp" %>
-<%@ include file = "../../../include/jspUtil.jsp" %>
+<%@ include file = "../include/jspHeader.jsp" %>
+<%@ include file = "../include/jspUtil.jsp" %>
 
 <bean:define id="HikiatekinKensyoSyokaiForm" name="HikiatekinKensyoSyokaiForm" type="app.common.form.KensyoSyokaiForm" />
 
@@ -375,7 +375,7 @@
 			</TABLE>
 		</TD>
 		<TD style="border:0px;width:9%;text-align:center;">
-			<img src="../image/yajirushi.gif">
+			<img src="<c:url value='/image/yajirushi.gif' />">
 		</TD>
 		<%-- 2008/06/12 新実 ラベルを用いてコロンを表示するように修正 --%>
 		<TD style="border:0px;width:44%;vertical-align:top;text-align:right;">

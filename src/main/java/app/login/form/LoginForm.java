@@ -9,7 +9,7 @@ package app.login.form;
 
 import common.global.GS;
 import common.struts.AppActionForm;
-import common.struts.adapter.action.ActionMapping;
+import config.adapter.struts.action.ActionMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
 

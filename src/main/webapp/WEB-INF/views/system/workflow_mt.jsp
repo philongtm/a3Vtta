@@ -1,5 +1,5 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 
 <HTML>
 <HEAD>
@@ -68,8 +68,8 @@
 <%--ヘッダ部分--%>
 <DIV id="main">
 	<DIV id="head">
-		<IMG alt="Sojitz" src="../image/navi001.gif" width="89" height="52">
- 		<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="../image/<%=i18n.get(GL.IMG_TITLE)%>.gif" height="54">
+		<IMG alt="Sojitz" src="<c:url value='/image/navi001.gif' />" width="89" height="52">
+ 		<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="<c:url value='/image/<%=i18n.get(GL.IMG_TITLE)%>.gif' />" height="54">
  		<%-- ヘルプリンク --%>
 		<a href="#" class="<%=helpStyle%>" onClick="doSubmitNonHelp('help_open');"><%=i18n.get(GL.LINK_HELP)%></a>
 	</DIV>
@@ -316,10 +316,10 @@
 								<TABLE class="none"border=0 cellSpacing=0 cellPadding=0 style="width:500px;">
 									<TR style="border:0px;">
 										<TD style="border:0px;" >
-											<IMG src="../image/yajirushi3.gif">
+											<IMG src="<c:url value='/image/yajirushi3.gif' />">
 										</TD>
 										<TD style="border:0px;">
-											<IMG src="../image/yajirushi2.gif">
+											<IMG src="<c:url value='/image/yajirushi2.gif' />">
 										</TD>
 										<TD style="border:0px;" >
 										<%=i18n.get(GL.OS7105_TAISHOU_SA)%>&nbsp;
@@ -477,9 +477,9 @@
 								<TABLE class="none"border=0 cellSpacing=0 cellPadding=0 style="width:500px">
 									<TR >
 										<TD >
-											<IMG src="../image/yajirushi3.gif">
+											<IMG src="<c:url value='/image/yajirushi3.gif' />">
 										</TD>
-										<TD ><IMG src="../image/yajirushi2.gif">
+										<TD ><IMG src="<c:url value='/image/yajirushi2.gif' />">
 										</TD>
 											<%-- 査定完了後の差戻を行う --%>
 											<TD ><%=i18n.get(GL.OS7105_SATEI_SA)%>&nbsp;

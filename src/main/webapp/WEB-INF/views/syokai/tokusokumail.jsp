@@ -1,5 +1,5 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 <HTML>
 <HEAD>
 <%@ include file = "../include/jspHeader.jsp" %>
@@ -59,8 +59,8 @@
 <%--ヘッダ部分--%>
 <DIV id="main">
 	<DIV id="head">
-		<IMG alt="Sojitz" src="../../../image/navi001.gif" width="89" height="52">
- 		<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="../image/<%=i18n.get(GL.IMG_TITLE)%>.gif" height="54">
+		<IMG alt="Sojitz" src="<c:url value='/image/navi001.gif' />" width="89" height="52">
+ 		<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="<c:url value='/image/<%=i18n.get(GL.IMG_TITLE)%>.gif' />" height="54">
 	</DIV>
 
 	<%--メニューリンク部分--%>
@@ -117,7 +117,7 @@
 							<%-- 実質滞留債権判定 --%>
 							<a href="#" onClick="doTairyu('1')"><%=i18n.get(GL.OS6105_ZISSHITUTAB)%></a>
 						</DIV><br>
-							<%@ include file = "tokusoku_satei_tab.jspf" %>
+							<%@ include file = "./tokusoku_satei_tab.jspf" %>
 					</nested:equal>
 					<nested:equal property="karento_tab" value="1">
 							<DIV id="tab" >
@@ -128,7 +128,7 @@
 								<%-- 実質滞留債権判定 --%>
 								<span><%=i18n.get(GL.OS6105_ZISSHITUTAB)%></a></span>
 						</DIV><br>
-							<%@ include file = "tokusoku_tairyu_tab.jspf" %>
+							<%@ include file = "./tokusoku_tairyu_tab.jspf" %>
 					</nested:equal>
 
 					<BR><BR>

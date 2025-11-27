@@ -19,7 +19,7 @@ import common.util.Function;
 import common.util.Log;
 import common.util.TempFile;
 import common.util.TempFileList;
-import common.struts.adapter.upload.FormFile;
+import config.adapter.struts.upload.FormFile;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

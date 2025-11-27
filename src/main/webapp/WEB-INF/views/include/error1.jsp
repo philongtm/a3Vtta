@@ -31,7 +31,7 @@ function closeWin() {
 <html>
 <%-- No.804 2008/06/10 新実 エラーメッセージが指定フォントで表示されるよう修正 --%>
 <head>
-<link rel="stylesheet" href="../../../css/CommonStyle.css" type="text/css">
+<link rel="stylesheet" href="<c:url value='/css/CommonStyle.css' />" type="text/css">
 </head>
 <body>
 <form>

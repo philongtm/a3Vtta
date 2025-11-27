@@ -16,10 +16,10 @@ import common.util.InputCheck;
 import common.util.Log;
 import common.util.SplitPath;
 import common.util.TempFile;
-import common.struts.adapter.action.Action;
-import common.struts.adapter.action.ActionForm;
-import common.struts.adapter.action.ActionForward;
-import common.struts.adapter.action.ActionMapping;
+import config.adapter.struts.action.Action;
+import config.adapter.struts.action.ActionForm;
+import config.adapter.struts.action.ActionForward;
+import config.adapter.struts.action.ActionMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

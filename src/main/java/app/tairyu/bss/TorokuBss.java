@@ -22,7 +22,7 @@ import common.global.GL;
 import common.global.GS;
 import common.util.InputCheck;
 import common.util.Log;
-import common.struts.adapter.upload.FormFile;
+import config.adapter.struts.upload.FormFile;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

@@ -6,7 +6,7 @@ No		ì˙ït			èCê≥é“			èCê≥ì‡óe
 ******************************************************************************/
 package app.common.form;
 
-import common.struts.adapter.action.ActionForm;
+import config.adapter.struts.action.ActionForm;
 
 public class SashimodoshiCommentForm extends ActionForm {
 

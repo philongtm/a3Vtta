@@ -18,6 +18,7 @@ import common.util.Profile;
  *
  */
 public interface GS {
+    public static final String REQUEST_ATTRIBUTE_STRUST_ACTION_MAPPING="stv-actionMapping";
 
 	/************************************************************************************
 	 * 1.5Ÿ”Å‹@”\‹zû—p’è”

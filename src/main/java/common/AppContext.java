@@ -22,7 +22,7 @@ import common.global.GS;
 import common.struts.AppLocale;
 import common.util.Function;
 import common.util.Log;
-import common.struts.adapter.action.ActionForm;
+import config.adapter.struts.action.ActionForm;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;

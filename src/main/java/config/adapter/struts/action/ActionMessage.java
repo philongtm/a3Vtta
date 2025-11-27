@@ -1,4 +1,4 @@
-package common.struts.adapter.action;
+package config.adapter.struts.action;
 
 // TODO: STV not yet implement
 public class ActionMessage {

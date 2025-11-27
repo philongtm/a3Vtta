@@ -1,10 +1,10 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 <HTML>
 <HEAD>
 <%@ include file = "../include/jspHeader.jsp" %>
 <%@ include file = "../include/jspUtil.jsp" %>
-<link rel="stylesheet" href="../../../css/Login.css" type="text/css">
+<link rel="stylesheet" href="<c:url value='/css/Login.css' />" type="text/css">
 <bean:define id="MenuForm" name="00MenuForm" type="app.login.form.MenuForm" />
 <script>
 	function setWorkFlow() {
@@ -29,8 +29,8 @@
 <%--ヘッダ部分--%>
 <DIV id="main">
 	<DIV id="head">
-		<IMG alt="Sojitz" src="../../../image/navi001.gif" width="89" height="52">
- 		<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="../image/<%=i18n.get(GL.IMG_TITLE)%>.gif" height="54">
+		<IMG alt="Sojitz" src="<c:url value='/image/navi001.gif' />" width="89" height="52">
+ 		<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="<c:url value='/image/<%=i18n.get(GL.IMG_TITLE)%>.gif' />" height="54">
 		<%-- ヘルプリンク --%>
 		<a href="#" class="<%=helpStyle%>" onClick="doSubmitNonHelp('help_open');"><%=i18n.get(GL.LINK_HELP)%></a>
 		

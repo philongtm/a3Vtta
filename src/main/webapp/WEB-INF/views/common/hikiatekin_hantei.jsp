@@ -1,5 +1,5 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 
 <HTML>
 <HEAD>
@@ -54,7 +54,7 @@
 <%--コンテンツ部分--%>
 <DIV id="tabcontents">
 
-<html:form action="/common/hikiatekin_hantei">
+<form action="/common/hikiatekin_hantei">
 
 <DIV id="list">
 <DIV class="mainlist">
@@ -492,7 +492,7 @@
 				<%}%>
 					<%=i18n.get(GL.OC1104_TASYA_RISUKU)%> </TD>
 					<TD style="border:0px;width:82%;"class="semaku">
-						<html:checkbox name="HikiatekinHanteiSyokaiForm" property="tasya_risuku" value="1" disabled="true" />
+						<input type="checkbox" name="HikiatekinHanteiSyokaiForm" property="tasya_risuku" value="1" disabled="true" />
 				</TD>
 			</TR>
 		</TABLE>
@@ -606,13 +606,13 @@
 	<TR style="border:0px;">
 		<TD style="border:0px;width:15%;"class="semaku"><DIV class="dottitle"><%=i18n.get(GL.OC1104_SIHANKI_FLG)%></DIV></TD>
 		<TD style="border:0px;width:6%;"class="semaku">
-			<html:checkbox name="HikiatekinHanteiSyokaiForm" property="sihanki_flg" value="1" disabled="true" />
+			<input type="checkbox" name="HikiatekinHanteiSyokaiForm" property="sihanki_flg" value="1" disabled="true" />
 			</TD>
 		<TD style="border:0px;width:11%;"class="semaku"><DIV class="dottitle"><%=i18n.get(GL.OC1104_FLG_KBN)%></DIV></TD>
 		<TD colspan=2 style="border:0px;width:70%;"class="semaku">
-			<html:select property="flg_kbn" disabled="true" style="width:40%;" >
-    		<html:optionsCollection name="HikiatekinHanteiSyokaiForm" property="ar_flg_kbn" value="key" label="value" />
-			</html:select>
+			<select property="flg_kbn" disabled="true" style="width:40%;" >
+    		<optionsCollection name="HikiatekinHanteiSyokaiForm" property="ar_flg_kbn" value="key" label="value" />
+			</select>
 		</TD>
 	
 	</TR>
@@ -636,7 +636,7 @@
 </TABLE>   
 </DIV>
 </DIV>
-</html:form>
+</form>
 </DIV>
 </BODY>
 </HTML>

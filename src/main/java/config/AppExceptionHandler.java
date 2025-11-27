@@ -5,6 +5,8 @@ import common.global.GS;
 import common.util.Log;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,14 +22,15 @@ import java.sql.SQLException;
  */
 @ControllerAdvice
 public class AppExceptionHandler {
+    private final Logger logger = LoggerFactory.getLogger(AppExceptionHandler.class);
 
     @ExceptionHandler(Exception.class)
     public ModelAndView handleException(Exception ex, HttpServletRequest request, HttpServletResponse response) throws Exception {
-
         AppContext app = AppContext.getInstance(request);
         Log appLog = app.getLog();
 
         String errJsp;
+        logger.error(ex.getMessage(), ex);
 
         if (ex instanceof SQLException) {
             // DB access error
@@ -42,8 +45,11 @@ public class AppExceptionHandler {
                 appLog.write(GS.LOG_ERR, "", "■ＤＢアクセスエラー発生");
                 Exception dbEx = app.getSqlExecuter().getConnectException();
                 appLog.write(GS.LOG_ERR, "", dbEx);
-                // recursively handle via Spring MVC
-                return handleException(dbEx, request, response);
+
+                // forward to error JSP
+                ModelAndView mav = new ModelAndView("/WEB-INF/views/" + errJsp);
+                mav.addObject("exception", ex);
+                return mav;
             }
             // System error
             errJsp = "error1.jsp";

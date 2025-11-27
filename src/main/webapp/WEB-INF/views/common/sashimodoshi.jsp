@@ -1,5 +1,5 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 
 <HTML>
 <HEAD>
@@ -101,8 +101,8 @@
 <%--ヘッダ部分--%>
 	<DIV id="main">
 		<DIV id="head">
-			<IMG alt="Sojitz" src="../image/navi001.gif" width="89" height="52">
- 			<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="../image/<%=i18n.get(GL.IMG_TITLE)%>.gif" height="54">
+			<IMG alt="Sojitz" src="<c:url value='/image/navi001.gif' />" width="89" height="52">
+ 			<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="<c:url value='/image/<%=i18n.get(GL.IMG_TITLE)%>.gif' />" height="54">
 			<%-- ヘルプリンク --%>
 			<a href="#" class="<%=helpStyle%>" onClick="doSubmitNonHelp('help_open');"><%=i18n.get(GL.LINK_HELP)%></a>
 		</DIV>
@@ -121,8 +121,8 @@
 			</DIV>
 
 			<DIV id="list">
-				<html:form action="/common/sashimodoshi" focus="<%=focus%>">
-					<html:hidden name="SashimodoshiForm" property="selectedTantoId"/>
+				<form action="/common/sashimodoshi" focus="<%=focus%>">
+					<input type="hidden" name="SashimodoshiForm" property="selectedTantoId"/>
 					<DIV class="headlist">
 						<%--勘定先ＣＤ--%>
 						<DIV class="dottitle" style="width:9%"><%=i18n.get(GL.OZ2101_KANJO_CD)%></DIV>
@@ -134,27 +134,27 @@
 						<br><br>
 						<%--滞留判定フェーズ差戻--%>
 						<% if(SashimodoshiForm.isTairyu_sashi_flg() || SashimodoshiForm.isTo_tairyu_sashi_flg()) {%>
-							<html:radio onclick="doSubmit('gamen_mode')" property="gamen_mode" value="1" /><span>&nbsp;<%=i18n.get(GL.OZ2101_TAIRYU_SASHI)%>&nbsp;</span>
+							<input type="radio" onclick="doSubmit('gamen_mode')" property="gamen_mode" value="1" /><span>&nbsp;<%=i18n.get(GL.OZ2101_TAIRYU_SASHI)%>&nbsp;</span>
 						<%} %>
 						<%--査定フェーズ差戻--%>
 						<% if(SashimodoshiForm.isSatei_sashi_flg()) {%>
-							<html:radio onclick="doSubmit('gamen_mode')" property="gamen_mode" value="2" /><span>&nbsp;<%=i18n.get(GL.OZ2101_SATEI_SASHI)%>&nbsp;</span>
+							<input type="radio" onclick="doSubmit('gamen_mode')" property="gamen_mode" value="2" /><span>&nbsp;<%=i18n.get(GL.OZ2101_SATEI_SASHI)%>&nbsp;</span>
 						<%} %>
 						<%--引当金確認フェーズ差戻--%>
 						<% if(SashimodoshiForm.isHikiate_sashi_flg()) {%>
-							<html:radio onclick="doSubmit('gamen_mode')" property="gamen_mode" value="3" /><span>&nbsp;<%=i18n.get(GL.OZ2101_HIKIATE_SASHI)%>&nbsp;</span>
+							<input type="radio" onclick="doSubmit('gamen_mode')" property="gamen_mode" value="3" /><span>&nbsp;<%=i18n.get(GL.OZ2101_HIKIATE_SASHI)%>&nbsp;</span>
 						<%} %>
 						<%--事務局差戻--%>
 						<% if(SashimodoshiForm.isJimu_sashi_flg()) {%>
-							<html:radio onclick="doSubmit('gamen_mode')" property="gamen_mode" value="4" /><span>&nbsp;<%=i18n.get(GL.OZ2101_JIMUKYOKU_SASHI)%>&nbsp;</span>
+							<input type="radio" onclick="doSubmit('gamen_mode')" property="gamen_mode" value="4" /><span>&nbsp;<%=i18n.get(GL.OZ2101_JIMUKYOKU_SASHI)%>&nbsp;</span>
 						<%} %>
 						<%--事務局差戻(仮基準日追加)--%>
 						<% if(SashimodoshiForm.isJimuSashiKariFlg()) {%>
-							<html:radio property="gamen_mode" value="6" /><span>&nbsp;<%=i18n.get(GL.OZ2101_JIMUKYOKU_SASHI)%>&nbsp;</span>
+							<input type="radio" property="gamen_mode" value="6" /><span>&nbsp;<%=i18n.get(GL.OZ2101_JIMUKYOKU_SASHI)%>&nbsp;</span>
 						<%} %>
 						<%--新規差戻先選択--%>
 						<% if(SashimodoshiForm.isSinki_sashi_flg()) {%>
-							<html:radio onclick="doSubmit('gamen_mode')" property="gamen_mode" value="5" /><span>&nbsp;<%=i18n.get(GL.OZ2101_SINKI_SASHI)%>&nbsp;</span>
+							<input type="radio" onclick="doSubmit('gamen_mode')" property="gamen_mode" value="5" /><span>&nbsp;<%=i18n.get(GL.OZ2101_SINKI_SASHI)%>&nbsp;</span>
 						<%} %>
 							<logic:equal name="SashimodoshiForm" property="gamen_mode" value="4">
 						<br><br>
@@ -164,9 +164,9 @@
 									<TD width="10%" style="border:0px;margin: 0 0 0 0;padding: 0px;"><DIV class="dottitle" style="margin-top:6px;"><%=i18n.get(GL.OZ2101_SASHI_KBN)%></DIV></TD>
 									<TD style="border:0px;margin: 0 0 0 0;padding: 0px;">
 									<DIV class="box" style="margin-left:5px;margin-bottom:2px;">
-									<html:select property="sashikbn">
-									<html:optionsCollection name="SashimodoshiForm" property="ar_Sashikbn" value="value" label="key" />
-									</html:select>
+									<select property="sashikbn">
+									<optionsCollection name="SashimodoshiForm" property="ar_Sashikbn" value="value" label="key" />
+									</select>
 									</DIV></TD>
 								</TR>
 							</TABLE>
@@ -179,9 +179,9 @@
 									<TD width="10%" style="border:0px;margin: 0 0 0 0;padding: 0px;"><DIV class="dottitle" style="margin-top:6px;"><%=i18n.get(GL.OZ2101_SASHI_KBN)%></DIV></TD>
 									<TD style="border:0px;margin: 0 0 0 0;padding: 0px;">
 									<DIV class="box" style="margin-left:5px;margin-bottom:2px;">
-									<html:select property="sashikbn">
-									<html:optionsCollection name="SashimodoshiForm" property="ar_Sashikbn" value="value" label="key" />
-									</html:select>
+									<select property="sashikbn">
+									<optionsCollection name="SashimodoshiForm" property="ar_Sashikbn" value="value" label="key" />
+									</select>
 									</DIV></TD>
 								</TR>
 							</TABLE>
@@ -193,9 +193,9 @@
 									<%--差戻フェーズセレクトボックス--%>
 									<TD width="10%" style="border:0px;margin: 0 0 0 0;padding: 0px;"><DIV class="dottitle" style="margin-top:6px;"><%=i18n.get(GL.OZ2101_SASHI_PHASE)%></DIV></TD>
 									<TD style="border:0px;margin: 0 0 0 0;padding: 0px;">
-										<DIV class="box" style="margin-left:5px;"><html:select property="sashiphase" onchange="doSubmit('sashi_phase')">
-										<html:optionsCollection name="SashimodoshiForm" property="ar_Sashiphase" value="value" label="key" />
- 											</html:select></DIV></TD>
+										<DIV class="box" style="margin-left:5px;"><select property="sashiphase" onchange="doSubmit('sashi_phase')">
+										<optionsCollection name="SashimodoshiForm" property="ar_Sashiphase" value="value" label="key" />
+ 											</select></DIV></TD>
 								</TR>
 								<TR>
 									<%--汎用２(左)--%>
@@ -204,16 +204,16 @@
 									<%--汎用３タイトル--%>
 									<DIV class="dottitle" style="margin-bottom:5px;">&nbsp;&nbsp;&nbsp;&nbsp;<%=SESSION_DATA_APP.getLbl_nm3()%></DIV>
 									<%--汎用２(右)セレクトボックス--%>
-									<DIV class="box" style="margin-bottom:2px;"><html:select property="hanyou2" onchange="doSubmit('hanyo2')">
-									<html:optionsCollection name="SashimodoshiForm" property="ar_Hanyou2" value="value" label="key" />
- 										</html:select></DIV>
+									<DIV class="box" style="margin-bottom:2px;"><select property="hanyou2" onchange="doSubmit('hanyo2')">
+									<optionsCollection name="SashimodoshiForm" property="ar_Hanyou2" value="value" label="key" />
+ 										</select></DIV>
 									<% if(Sateikaisya_cd.equals("SJ")){%>
 									<%--汎用４タイトル--%>
 									<DIV class="dottitle" style="margin-bottom:5px;">&nbsp;&nbsp;&nbsp;&nbsp;<%=SESSION_DATA_APP.getLbl_nm10()%></DIV>
 									<%--汎用３セレクトボックス--%>
-									<DIV class="box" style="margin-bottom:2px;"><html:select property="hanyou3" onchange="doSubmit('hanyo3')">
-									<html:optionsCollection name="SashimodoshiForm" property="ar_Hanyou3" value="value" label="key" />
- 										</html:select></DIV>
+									<DIV class="box" style="margin-bottom:2px;"><select property="hanyou3" onchange="doSubmit('hanyo3')">
+									<optionsCollection name="SashimodoshiForm" property="ar_Hanyou3" value="value" label="key" />
+ 										</select></DIV>
  									<%}%>
  										</TD>
 								</TR>
@@ -233,21 +233,21 @@
 									<TD>
 										<DIV style="float:left;margin-left:5px;width:35%;">
 											<DIV class="boxtitle"><%=i18n.get(GL.OZ2101_TANTO_ICHIRAN)%></DIV>
-											<html:select name="SashimodoshiForm" property="tanto" size="8" ondblclick="AddTanto()" style="width:100%;">
-												<html:optionsCollection name="SashimodoshiForm" property="ar_Tanto" value="togo_id" label="email_addr"/>
-											</html:select>
+											<select name="SashimodoshiForm" property="tanto" size="8" ondblclick="AddTanto()" style="width:100%;">
+												<optionsCollection name="SashimodoshiForm" property="ar_Tanto" value="togo_id" label="email_addr"/>
+											</select>
 											<logic:iterate id="tanto" name="SashimodoshiForm" property="ar_Tanto">
 												<input type="hidden" name="tantoV" value="<bean:write name='tanto' property='togo_id'/>"/>
 												<input type="hidden" name="tantoL" value="<bean:write name='tanto' property='email_addr'/>"/>
 											</logic:iterate>
 										</DIV> 
-										<html:button property="addTanto" style="float:left;background:#CCCCCC;margin:20px 10px;" onclick="AddTanto()">
+										<button type="submit" property="addTanto" style="float:left;background:#CCCCCC;margin:20px 10px;" onclick="AddTanto()">
 											&nbsp;&gt;&nbsp;
-										</html:button>
+										</button>
 										<%-- 担当者 --%>
 						  				<DIV style="float:left;width:35%;">
 						  					<DIV class="boxtitle"><%=i18n.get(GL.OZ2101_TANTO)%></DIV>
-						  					<html:text name="SashimodoshiForm" readonly="true" property="txtTanto" style="width:100%;background-color: #F8F8FF;border: solid 1px #AAA;" />
+						  					<input type="text" name="SashimodoshiForm" readonly="true" property="txtTanto" style="width:100%;background-color: #F8F8FF;border: solid 1px #AAA;" />
 				  						</DIV>
 						  			</TD>
 								</TR>
@@ -263,7 +263,7 @@
 								</TD>
 							</TR>
 							<TR style="width:100%;border:0px;margin: 0 0 0 0;padding: 0px;">
-								<TD style="width:100%;border:0px;margin: 0 0 0 0;padding: 0px;"><html:textarea property="sashi_comment" style="width:100%" rows="5" /></TD>
+								<TD style="width:100%;border:0px;margin: 0 0 0 0;padding: 0px;"><input type="text"area property="sashi_comment" style="width:100%" rows="5" /></TD>
 							</TR>
 						</TABLE>
 
@@ -378,7 +378,7 @@
 							</TABLE>
 						<%} %>
 					</DIV>
-				</html:form>
+				</form>
 			</DIV>
 		</DIV>
 	</DIV>

@@ -1,5 +1,5 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 
 <HTML>
 <HEAD>
@@ -90,11 +90,11 @@
 <DIV id="tagcontents">
 <DIV id="list">
 
-<html:form action="/system/cyusyutujyoken_hq" >
+<form action="/system/cyusyutujyoken_hq" >
 
-<html:hidden property="selectIdx" />
-<html:hidden property="focusEvent" /><%-- No554, 2008/06/06, SJA平林, エラー時のフォーカス制御のため処理追加 --%>
-<html:hidden property="focusId_satei" /><%-- No554, 2008/06/06, SJA平林, エラー時のフォーカス制御のため処理追加 --%>
+<input type="hidden" property="selectIdx" />
+<input type="hidden" property="focusEvent" /><%-- No554, 2008/06/06, SJA平林, エラー時のフォーカス制御のため処理追加 --%>
+<input type="hidden" property="focusId_satei" /><%-- No554, 2008/06/06, SJA平林, エラー時のフォーカス制御のため処理追加 --%>
 
 <%-- No535, 2008/06/04, SJA渡辺, 読み取り専用テキストのフォーカスを外す --%>
 <%
@@ -107,9 +107,9 @@ tabIndexValue = "-1";
 	<DIV class="headlist">
 		&nbsp;
 		<%-- 処理タイプ選択 ラジオボタン --%>
-		<html:radio onclick="doSubmit('type')" property="type" value="1" /><span><%=i18n.get(GL.LABEL_NEW_REGISTER)%>&nbsp;</span>
-		<html:radio onclick="doSubmit('type')" property="type" value="2" /><span><%=i18n.get(GL.LABEL_UPDATE)%>&nbsp;</span>
-		<html:radio onclick="doSubmit('type')" property="type" value="3" /><span><%=i18n.get(GL.LABEL_DELETE)%>&nbsp;</span>
+		<input type="radio" onclick="doSubmit('type')" property="type" value="1" /><span><%=i18n.get(GL.LABEL_NEW_REGISTER)%>&nbsp;</span>
+		<input type="radio" onclick="doSubmit('type')" property="type" value="2" /><span><%=i18n.get(GL.LABEL_UPDATE)%>&nbsp;</span>
+		<input type="radio" onclick="doSubmit('type')" property="type" value="3" /><span><%=i18n.get(GL.LABEL_DELETE)%>&nbsp;</span>
 		<BR>
 		<TABLE class="none" cellSpacing=0 cellPadding=0>
 		<TR>
@@ -120,16 +120,16 @@ tabIndexValue = "-1";
 					<%-- 抽出事由 --%>
 					<%-- No535, 2008/06/04, SJA渡辺, 読み取り専用テキストのフォーカスを外す --%>
 					<TD width="12%" style="word-break:break-all;"><%=i18n.get(GL.LABEL_REASON_I)%></TD>
-					<TD><html:text name="CyusyutujyokenForm" property="jiyuu_cd" maxlength="2" size="4" readonly="<%=readonlyFlg%>" tabindex="<%=tabIndexValue%>" /></TD>
+					<TD><input type="text" name="CyusyutujyokenForm" property="jiyuu_cd" maxlength="2" size="4" readonly="<%=readonlyFlg%>" tabindex="<%=tabIndexValue%>" /></TD>
 					<%-- 条件名称 --%>
 					<TD width="12%" style="word-break:break-all;"><%=i18n.get(GL.LABEL_JOKEN_NAME)%></TD>
-					<TD><html:text name="CyusyutujyokenForm" property="jiyuu_nm" maxlength="60" styleClass="doubleByte"/></TD>
+					<TD><input type="text" name="CyusyutujyokenForm" property="jiyuu_nm" maxlength="60" styleClass="doubleByte"/></TD>
 					<%-- 格付 selectbox --%>
 					<TD width="7%" style="word-break:break-all;"><%=i18n.get(GL.LABEL_KAKUTSUKE)%></TD>
 					<TD>
-						<html:select property="kakuzuke">
-				    		<html:optionsCollection name="CyusyutujyokenForm" property="kakutukeList" value="value" label="key" />
-				  	</html:select>
+						<select property="kakuzuke">
+				    		<optionsCollection name="CyusyutujyokenForm" property="kakutukeList" value="value" label="key" />
+				  	</select>
 					</TD>
 				</TR>
 				</TABLE>
@@ -138,21 +138,21 @@ tabIndexValue = "-1";
 				<TR>
 					<%-- 滞留期間 --%>
 					<TD style="word-break:break-all;"><%=i18n.get(GL.LABEL_TAIRYU_KIKAN)%></TD>
-					<TD><html:text name="CyusyutujyokenForm" property="tairyu_from" maxlength="3" size="2" style="text-align:right;padding-right:1px;" /></TD>
+					<TD><input type="text" name="CyusyutujyokenForm" property="tairyu_from" maxlength="3" size="2" style="text-align:right;padding-right:1px;" /></TD>
 					<TD style="word-break:break-all;"><%=i18n.get(GL.LABEL_MON)%></TD>
 					<%if(SESSION_DATA_APP.getComLangMode().equals("Ja")) {%>
 					<TD>～</TD>
 					<%} else {%>
 					<TD>-</TD>
 					<%}%>
-					<TD><html:text name="CyusyutujyokenForm" property="tairyu_to" maxlength="3" size="2" style="text-align:right;padding-right:1px;" /></TD>
+					<TD><input type="text" name="CyusyutujyokenForm" property="tairyu_to" maxlength="3" size="2" style="text-align:right;padding-right:1px;" /></TD>
 					<TD style="word-break:break-all;"><%=i18n.get(GL.LABEL_MON)%></TD>
 					<%-- 通貨 --%>
 					<TD style="word-break:break-all;"><%=i18n.get(GL.LABEL_TUUKA)%></TD>
-					<TD><html:text name="CyusyutujyokenForm" property="tuuka_kentou" maxlength="3" size="2" /></TD>
+					<TD><input type="text" name="CyusyutujyokenForm" property="tuuka_kentou" maxlength="3" size="2" /></TD>
 					<%-- 金額 --%>
 					<TD style="word-break:break-all;"><%=i18n.get(GL.LABEL_KINGAKU)%></TD>
-					<TD><html:text name="CyusyutujyokenForm" property="kingaku_kentou" style="text-align:right;padding-right:1px;" /></TD>
+					<TD><input type="text" name="CyusyutujyokenForm" property="kingaku_kentou" style="text-align:right;padding-right:1px;" /></TD>
 				</TR>
 				</TABLE>
 							
@@ -248,26 +248,26 @@ tabIndexValue = "-1";
 				<TR>
 					<%-- データ作成(債権フラグ設定) checkbox --%>
 					<TD style="word-break:break-all;"><%=i18n.get(GL.LABEL_DATA_S)%></TD>
-					<TD><p class="center"><html:multibox name="CyusyutujyokenForm" property="saiken_data_flg" value="1" /></p></TD>
-					<TD><p class="center"><html:multibox name="CyusyutujyokenForm" property="saiken_data_flg" value="2" /></p></TD>
-					<TD><p class="center"><html:multibox name="CyusyutujyokenForm" property="saiken_data_flg" value="3" /></p></TD>
-					<TD><p class="center"><html:multibox name="CyusyutujyokenForm" property="saiken_data_flg" value="9" /></p></TD>
+					<TD><p class="center"><input type="checkbox" name="CyusyutujyokenForm" property="saiken_data_flg" value="1" /></p></TD>
+					<TD><p class="center"><input type="checkbox" name="CyusyutujyokenForm" property="saiken_data_flg" value="2" /></p></TD>
+					<TD><p class="center"><input type="checkbox" name="CyusyutujyokenForm" property="saiken_data_flg" value="3" /></p></TD>
+					<TD><p class="center"><input type="checkbox" name="CyusyutujyokenForm" property="saiken_data_flg" value="9" /></p></TD>
 				</TR>
 				<TR>
 					<%-- 検討対象債権フラグ設定) checkbox --%>
 					<TD style="word-break:break-all;"><%=i18n.get(GL.LABEL_KENTOU_T)%></TD>
-					<TD><p class="center"><html:multibox name="CyusyutujyokenForm" property="saiken_kentou_flg" value="1" disabled="<%=kentouDisabled%>" /></p></TD>
-					<TD><p class="center"><html:multibox name="CyusyutujyokenForm" property="saiken_kentou_flg" value="2" disabled="<%=kentouDisabled%>" /></p></TD>
-					<TD><p class="center"><html:multibox name="CyusyutujyokenForm" property="saiken_kentou_flg" value="3" disabled="<%=kentouDisabled%>" /></p></TD>
-					<TD><p class="center"><html:multibox name="CyusyutujyokenForm" property="saiken_kentou_flg" value="9" disabled="<%=kentouDisabled%>" /></p></TD>
+					<TD><p class="center"><input type="checkbox" name="CyusyutujyokenForm" property="saiken_kentou_flg" value="1" disabled="<%=kentouDisabled%>" /></p></TD>
+					<TD><p class="center"><input type="checkbox" name="CyusyutujyokenForm" property="saiken_kentou_flg" value="2" disabled="<%=kentouDisabled%>" /></p></TD>
+					<TD><p class="center"><input type="checkbox" name="CyusyutujyokenForm" property="saiken_kentou_flg" value="3" disabled="<%=kentouDisabled%>" /></p></TD>
+					<TD><p class="center"><input type="checkbox" name="CyusyutujyokenForm" property="saiken_kentou_flg" value="9" disabled="<%=kentouDisabled%>" /></p></TD>
 				</TR>
 				<TR>
 					<%-- 滞留判定(債権フラグ設定) checkbox --%>
 					<TD style="word-break:break-all;"><%=i18n.get(GL.LABEL_TAIRYU)%></TD>
-					<TD><p class="center"><html:multibox name="CyusyutujyokenForm" property="saiken_tairyu_flg" value="1" disabled="<%=tairyuDisabled%>" /></p></TD>
-					<TD><p class="center"><html:multibox name="CyusyutujyokenForm" property="saiken_tairyu_flg" value="2" disabled="<%=tairyuDisabled%>" /></p></TD>
-					<TD><p class="center"><html:multibox name="CyusyutujyokenForm" property="saiken_tairyu_flg" value="3" disabled="<%=tairyuDisabled%>" /></p></TD>
-					<TD><p class="center"><html:multibox name="CyusyutujyokenForm" property="saiken_tairyu_flg" value="9" disabled="<%=tairyuDisabled%>" /></p></TD>
+					<TD><p class="center"><input type="checkbox" name="CyusyutujyokenForm" property="saiken_tairyu_flg" value="1" disabled="<%=tairyuDisabled%>" /></p></TD>
+					<TD><p class="center"><input type="checkbox" name="CyusyutujyokenForm" property="saiken_tairyu_flg" value="2" disabled="<%=tairyuDisabled%>" /></p></TD>
+					<TD><p class="center"><input type="checkbox" name="CyusyutujyokenForm" property="saiken_tairyu_flg" value="3" disabled="<%=tairyuDisabled%>" /></p></TD>
+					<TD><p class="center"><input type="checkbox" name="CyusyutujyokenForm" property="saiken_tairyu_flg" value="9" disabled="<%=tairyuDisabled%>" /></p></TD>
 				</TR>
 				</TABLE>
 			</TD>
@@ -279,17 +279,17 @@ tabIndexValue = "-1";
 				<TR>
 			   	<TD style="width:1%;"></TD>
 					<TD style="word-break:break-all;width:11%;" class="left"><%=i18n.get(GL.LABEL_KAKO_KTK_FLG)%></TD>
-					<TD style="word-break:break-all;width:4%;" class="left"><html:checkbox name="CyusyutujyokenForm" property="kakoKtkFlg" value="1" /></TD>
+					<TD style="word-break:break-all;width:4%;" class="left"><input type="checkbox" name="CyusyutujyokenForm" property="kakoKtkFlg" value="1" /></TD>
 					<TD style="word-break:break-all;width:10%;" class="right"><%=i18n.get(GL.LABEL_KAKO_KTK)%></TD>
-					<TD style="width:4%;" class="left"><html:text name="CyusyutujyokenForm" property="kakoKtkFrom" maxlength="1" size="1" style="text-align:right;padding-right:1px;" /></TD>
+					<TD style="width:4%;" class="left"><input type="text" name="CyusyutujyokenForm" property="kakoKtkFrom" maxlength="1" size="1" style="text-align:right;padding-right:1px;" /></TD>
 					<%if(SESSION_DATA_APP.getComLangMode().equals("Ja")) {%>
 					<TD colspan=2 style="width:4%;" class="center">～</TD>
 					<%} else {%>
 					<TD colspan=2 style="width:4%;" class="center">-</TD>
 					<%}%>
-					<TD style="width:4%;" class="left"><html:text name="CyusyutujyokenForm" property="kakoKtkTo" maxlength="1" size="1" style="text-align:right;padding-right:1px;" /></TD>
+					<TD style="width:4%;" class="left"><input type="text" name="CyusyutujyokenForm" property="kakoKtkTo" maxlength="1" size="1" style="text-align:right;padding-right:1px;" /></TD>
 					<TD style="word-break:break-all;width:17%;" class="right"><%=i18n.get(GL.LABEL_KAKO_KTK_SANSYO)%></TD>
-					<TD style="width:4%;" class="left"><html:text name="CyusyutujyokenForm" property="kakoKtkSansyo" maxlength="3" size="3" style="text-align:right;padding-right:1px;" /></TD>
+					<TD style="width:4%;" class="left"><input type="text" name="CyusyutujyokenForm" property="kakoKtkSansyo" maxlength="3" size="3" style="text-align:right;padding-right:1px;" /></TD>
 					<TD style="word-break:break-all;width:10%;" class="left"><%=i18n.get(GL.LABEL_KAGETUMAE)%></TD>
 					<TD style="width:25%;"></TD>
 				</TR>
@@ -298,25 +298,25 @@ tabIndexValue = "-1";
 				<TR>
 				  <TD style="width:1%;"></TD>
 					<TD style="word-break:break-all;width:8%;"><%=i18n.get(GL.LABEL_GENZAI_KOTEI_SAIKENGAKU)%></TD>
-					<TD style="width:10%;"><html:text name="CyusyutujyokenForm" property="genzaiKoteiSaikengakuKagen" maxlength="15" size="15" style="text-align:right;padding-right:1px;" /></TD>
+					<TD style="width:10%;"><input type="text" name="CyusyutujyokenForm" property="genzaiKoteiSaikengakuKagen" maxlength="15" size="15" style="text-align:right;padding-right:1px;" /></TD>
 					<%if(SESSION_DATA_APP.getComLangMode().equals("Ja")) {%>
 					<TD style="width:2%;" class="center">～</TD>
 					<%} else {%>
 					<TD style="width:2%;" class="center">-</TD>
 					<%}%>
-					<TD style="width:10%;"><html:text name="CyusyutujyokenForm" property="genzaiKoteiSaikengakuJyogen" maxlength="15" size="15" style="text-align:right;padding-right:1px;" /></TD>
+					<TD style="width:10%;"><input type="text" name="CyusyutujyokenForm" property="genzaiKoteiSaikengakuJyogen" maxlength="15" size="15" style="text-align:right;padding-right:1px;" /></TD>
 					<TD style="width:1%;"></TD>
 					<TD style="word-break:break-all;width:8%;"><%=i18n.get(GL.LABEL_KAKO_KOTEI_SAIKENGAKU)%></TD>
-					<TD style="width:10%;"><html:text name="CyusyutujyokenForm" property="kakoKoteiSaikengakuKagen" maxlength="15" size="15" style="text-align:right;padding-right:1px;" /></TD>
+					<TD style="width:10%;"><input type="text" name="CyusyutujyokenForm" property="kakoKoteiSaikengakuKagen" maxlength="15" size="15" style="text-align:right;padding-right:1px;" /></TD>
 					<%if(SESSION_DATA_APP.getComLangMode().equals("Ja")) {%>
 					<TD style="width:2%;" class="center">～</TD>
 					<%} else {%>
 					<TD style="width:2%;" class="center">-</TD>
 					<%}%>
-					<TD style="width:10%;"><html:text name="CyusyutujyokenForm" property="kakoKoteiSaikengakuJyogen" maxlength="15" size="15" style="text-align:right;padding-right:1px;" /></TD>
+					<TD style="width:10%;"><input type="text" name="CyusyutujyokenForm" property="kakoKoteiSaikengakuJyogen" maxlength="15" size="15" style="text-align:right;padding-right:1px;" /></TD>
 					<TD style="width:1%;"></TD>					
 					<TD style="word-break:break-all;width:8%;"><%=i18n.get(GL.LABEL_KOTEI_SAIKENGAKU_SANSYO)%></TD>
-					<TD style="width:4%;"><html:text name="CyusyutujyokenForm" property="koteiSaikengakuSansyo" maxlength="3" size="3" style="text-align:right;padding-right:1px;" /></TD>
+					<TD style="width:4%;"><input type="text" name="CyusyutujyokenForm" property="koteiSaikengakuSansyo" maxlength="3" size="3" style="text-align:right;padding-right:1px;" /></TD>
 					<TD style="word-break:break-all;width:6%;"><%=i18n.get(GL.LABEL_KAGETUMAE)%></TD>
 				</TR>
 				</TABLE>
@@ -324,7 +324,7 @@ tabIndexValue = "-1";
 				<TR>
 					<TD style="width:1%;"></TD>
 					<TD style="word-break:break-all;width:12%;"class="left"><%=i18n.get(GL.LABEL_FLGSAKI_FLG)%></TD>
-					<TD style="width:4%;" class="left"><html:checkbox name="CyusyutujyokenForm" property="flgsakiFlg" value="1" /></TD>
+					<TD style="width:4%;" class="left"><input type="checkbox" name="CyusyutujyokenForm" property="flgsakiFlg" value="1" /></TD>
 					<TD style="width:85%;"></TD>
 				</TR>
 				</TABLE>
@@ -408,15 +408,15 @@ tabIndexValue = "-1";
 			<TD colspan="2"><bean:write name="meisai" property="tairyu_to" />&nbsp;</TD>
 		</TR>
 		<TR>
-			<TD><p class="center"><html:checkbox name="meisai" property="kentou_flg" value="1" disabled="true" /></p></TD>
-			<TD colspan="2"><p class="center"><html:checkbox name="meisai" property="tairyu_flg" value="1" disabled="true" /></p></TD>
-			<TD><p class="center"><html:checkbox name="meisai" property="satei_flg" value="1" disabled="true" /></p></TD>
+			<TD><p class="center"><input type="checkbox" name="meisai" property="kentou_flg" value="1" disabled="true" /></p></TD>
+			<TD colspan="2"><p class="center"><input type="checkbox" name="meisai" property="tairyu_flg" value="1" disabled="true" /></p></TD>
+			<TD><p class="center"><input type="checkbox" name="meisai" property="satei_flg" value="1" disabled="true" /></p></TD>
 			<TD colspan="2"><p class="center"><bean:write name="meisai" property="saiken_data_flg" />&nbsp;</p></TD>
 			<TD colspan="2"><p class="center"><bean:write name="meisai" property="saiken_kentou_flg" />&nbsp;</p></TD>
 			<TD colspan="2"><p class="center"><bean:write name="meisai" property="saiken_tairyu_flg" />&nbsp;</p></TD>
-			<TD><p class="center"><html:checkbox name="meisai" property="saimutyouka_flg" value="1" disabled="true" /></p></TD>
-			<TD colspan="2"><p class="center"><html:checkbox name="meisai" property="akaji_flg" value="1" disabled="true" /></p></TD>
-			<TD><p class="center"><html:checkbox name="meisai" property="riki_flg" value="1" disabled="true" /></p></TD>
+			<TD><p class="center"><input type="checkbox" name="meisai" property="saimutyouka_flg" value="1" disabled="true" /></p></TD>
+			<TD colspan="2"><p class="center"><input type="checkbox" name="meisai" property="akaji_flg" value="1" disabled="true" /></p></TD>
+			<TD><p class="center"><input type="checkbox" name="meisai" property="riki_flg" value="1" disabled="true" /></p></TD>
 		</TR>
 		</logic:iterate>
 		<% } %>
@@ -425,7 +425,7 @@ tabIndexValue = "-1";
 		</TABLE>
 	
 	</DIV>
-</html:form>
+</form>
 </DIV>
 </DIV>
 </BODY>

@@ -1,11 +1,8 @@
 <%@ page pageEncoding="Windows-31J" %>
 
-<%@ taglib uri="/tags/struts-html" prefix="html" %>
-<%@ taglib uri="/tags/struts-bean" prefix="bean" %>
-<%@ taglib uri="/tags/struts-logic" prefix="logic" %>
-<%@ taglib uri="/tags/struts-tiles" prefix="tiles" %>
-<%@ taglib uri="/tags/struts-nested" prefix="nested" %>
-<%@ taglib uri="/tags/common" prefix="common" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <%@ page import="java.util.*" %>
 <%@ page import="common.*" %>
@@ -16,9 +13,9 @@
 <%@ page import="java.util.LinkedHashMap" %>
 
 <%-- セッションデータ定義 --%>
-<bean:define id="SESSION_DATA_APP" name="app.SessionData" type="app.SessionData" scope="session" />
-
 <%
+    app.SessionData SESSION_DATA_APP = (app.SessionData) session.getAttribute("app.SessionData");
+    String contextPath = request.getContextPath();
 	/* クライアント側fの「キャッシュ」を無効化 */
 	Calendar objCal1=Calendar.getInstance();
 	Calendar objCal2=Calendar.getInstance();
@@ -39,17 +36,17 @@
 %>
 
 <TITLE><%=i18n.get(GL.TITLE_SYSTEM)%></TITLE>
-<link rel="stylesheet" href="../../../css/CommonStyle.css" type="text/css">
+<link rel="stylesheet" href="<c:url value='/css/CommonStyle.css' />" type="text/css">
 
 <%-- No862, 2008/06/16, SJA渡辺, 言語モードによりIMEコントロールを切り替えるように修正 --%>
 <%if(SESSION_DATA_APP.getComLangMode().equals("Ja")) {%>
-<link rel="stylesheet" href="../../../css/ime_mode_ja.css" type="text/css">
+<link rel="stylesheet" href="<c:url value='/css/ime_mode_ja.css' />" type="text/css">
 <%} else {%>
-<link rel="stylesheet" href="../../../css/ime_mode_en.css" type="text/css">
+<link rel="stylesheet" href="<c:url value='/css/ime_mode_en.css' />" type="text/css">
 <%}%>
 
 <%--エラーメッセージの表示--%>
-<logic:present name="<%=GS.MESSAGECONTEXT%>">
+<c:if test="${ not empty MESSAGECONTEXT}">
 <script>
 	setTimeout("errMsg()",500);
 	function errMsg() {
@@ -61,12 +58,12 @@
 		<% request.removeAttribute(GS.MESSAGECONTEXT); %>
 	}
 </script>
-</logic:present>
+</c:if>
 
 <script>
 	var BLOCK = false;
 	var LOOKUP = false;
-	
+
 	<%--課題No.172--%>
 	<%--追加開始--%>
 	var winTori;
@@ -86,7 +83,7 @@
 		setBlockSubmit(true);
 		return true;
 	}
-	
+
 	function resetBlockSubmit() {
 		setBlockSubmit(false);
 	}
@@ -126,7 +123,7 @@
 	************************************************************/%>
 	function blockKeyDown(e) {
 		block = true;
-	
+
 		switch(event.keyCode){
 			case 0x1b:	<%-- ESC --%>
 			<%-- case 0x70: // F1 機能しない為削除 --%>
@@ -134,7 +131,7 @@
 			case 0x74:	<%-- F5 --%>
 			case 0x7a:	<%-- F11 --%>
 				break;
-				
+
 			<%-- case 0x24:// HOME 機能しない為削除--%>
 			case 0x25:	<%-- ← --%>
 			case 0x27:	<%-- → --%>
@@ -143,11 +140,11 @@
 				}
 				block = false;
 				break;
-	
+
 			case 0x52:	<%-- R --%>
 				block = event.ctrlKey; <%-- CTL --%>
 				break;
-	
+
 			case 0x08:	<%-- BS --%>
 				<%-- INPUTタグ(text,password)の場合は入力可 --%>
 				for (i = 0; i < document.all.tags("INPUT").length; i++) {
@@ -165,11 +162,11 @@
 					}
 				}
 				break;
-			
+
 			default:
-				block = false;				
+				block = false;
 		}
-	
+
 		if( block ) {
 			window.event.keyCode = 0;
 			window.event.cancelBubble = false;
@@ -179,7 +176,7 @@
 			return true;
 		}
 	}
-	
+
 	resetBlockSubmit();
 
 	window.document.onkeydown=blockKeyDown;
@@ -199,7 +196,7 @@
 			winDl.close();
 		}
 	}
-	
+
 	<%/***********************************************************
 		アップロードファイルの拡張子のチェック
 	************************************************************/%>
@@ -215,7 +212,7 @@
 			return true;
 		}
 	}
-	
+
 	<%/***********************************************************
 		Status画面表示
 	************************************************************/%>
@@ -242,6 +239,11 @@
 		action = form.action;
 		form.target = "_top";
 		form.action += "?<%=GS.EVENT%>=" + event;
+        // TODO: ch? th?m
+        var inputEvent = form.elements['event'];
+        if (inputEvent) {
+            inputEvent.value = event;
+        }
 		form.submit();
 	}
 	<%/************************************************************
@@ -296,7 +298,7 @@
 		<%--追加開始--%>
 		subClose();
 		<%--追加完了--%>
-		form = document.forms[0];	
+		form = document.forms[0];
 		form.elements["anken_no"].value = anken_no;
 		form.elements["id"].value = id;
 		action = form.action;
@@ -307,8 +309,8 @@
 	<%/************************************************************
 		onkeydown イベントハンドラ（引数あり/連打ブロックなし）
 	************************************************************/%>
-	function download(event,anken_no,id) {		
-		form = document.forms[0];	
+	function download(event,anken_no,id) {
+		form = document.forms[0];
 		form.elements["anken_no"].value = anken_no;
 		form.elements["id"].value = id;
 		action = form.action;
@@ -325,7 +327,7 @@
 		} else {
 			obj = tanto.split(" ").join("").split("　").join("");
 		}
-		
+
 		if (obj == null || obj == "" || obj.length == 0) {
 			if(window.confirm('<%=i18n.get(GL.CONFIRM_TAKE)%>')){
 				syosai(event,anken,id);
