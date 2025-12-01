@@ -1,10 +1,10 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
 
 <HTML>
 <HEAD>
-<%@ include file = "../include/jspHeader.jsp" %>
-<%@ include file = "../include/jspUtil.jsp" %>
+<%@ include file = "/include/jspHeader.jsp" %>
+<%@ include file = "/include/jspUtil.jsp" %>
 
 <bean:define id="CyusyutujyokenTorokuForm" name="11CyusyutujyokenTorokuForm" type="app.system.form.CyusyutujyokenTorokuForm" />
 <bean:define id="TyusyutuJokenBean" name="app.SessionData" property="joken_bean" type="app.TyusyutuJokenBean" />

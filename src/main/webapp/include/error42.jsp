@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=shift_jis"  isThreadSafe="true" %>
+<%@ page language="java" contentType="text/html; charset=shift_jis" %>
 <%@ page import="java.util.*" %>
 <%@ page import="common.struts.*" %>
 <%@ page import="common.global.*" %>
@@ -39,12 +39,7 @@ function closeWin() {
   <table width="100%" cellpadding="0" style="border:0px;">
     <tr style="border:0px;">
       <td align="center" style="border:0px;">
-		<%=i18n.get(GL.SYSTEM_DBACC)%>
-      </td>
-    </tr>
-    <tr style="border:0px;">
-      <td align="center" style="border:0px;">
-      	<%=i18n.get(GL.SYSTEM_CLOSE)%>
+	  <%=i18n.get(GL.SYSTEM_STOPTIME)%>
       </td>
     </tr>
   </table>

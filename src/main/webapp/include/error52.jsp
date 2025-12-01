@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=shift_jis"  isThreadSafe="true" %>
+<%@ page language="java" contentType="text/html; charset=shift_jis" %>
 <%@ page import="java.util.*" %>
 <%@ page import="common.struts.*" %>
 <%@ page import="common.global.*" %>

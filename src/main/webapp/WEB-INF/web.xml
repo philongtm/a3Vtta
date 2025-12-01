@@ -9,11 +9,11 @@
         <filter-name>AppFilter</filter-name>
         <filter-class>common.AppFilter</filter-class>
         <init-param>
-            <param-name>usefilter</param-name>
+            <param-name>useFilter</param-name>
             <param-value>true</param-value>
         </init-param>
         <init-param>
-            <param-name>encording</param-name>
+            <param-name>encoding</param-name>
             <param-value>Windows-31J</param-value>
             <!--<param-value>Shift_JIS</param-value>-->
         </init-param>

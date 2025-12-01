@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=Windows-31J" isErrorPage="true" isThreadSafe="true" %>
+<%@ page contentType="text/html;charset=Windows-31J" isErrorPage="true" %>
 <%@ page import="java.util.*" %>
 <%@ page import="common.*" %>
 <%@ page import="common.global.*" %>

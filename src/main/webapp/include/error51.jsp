@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=Windows-31J" isErrorPage="true" isThreadSafe="true" %>
+<%@ page contentType="text/html;charset=Windows-31J" isErrorPage="true" %>
 <%@ page import="java.util.*" %>
 <%@ page import="common.global.*" %>
 
@@ -15,8 +15,8 @@
 
 <script>
 	if(top.window.name=="SAIKEN"){
-		top.location.replace('<%=GS.WEB_INCLUDE+request.getAttribute("ERRJSP")%>');
+		top.location.replace('<%=GS.WEB_INCLUDE+"error52.jsp"%>');
 	} else {
-		location.replace('<%=GS.WEB_INCLUDE+request.getAttribute("ERRJSP")%>');
+		location.replace('<%=GS.WEB_INCLUDE+"error52.jsp"%>');
 	}
 </script>

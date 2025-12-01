@@ -1,13 +1,13 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
 
 <HTML>
 <HEAD>
 <%-- 再描画用 --%>
 <base target="_self"/>
 
-<%@ include file = "../include/jspHeader.jsp" %>
-<%@ include file = "../include/jspUtil.jsp" %>
+<%@ include file = "/include/jspHeader.jsp" %>
+<%@ include file = "/include/jspUtil.jsp" %>
 
 <bean:define id="MailSoushinSentakuForm" name="07MailSoushinSentakuForm" type="app.system.form.MailSoushinSentakuForm" />
 <script language="javascript">

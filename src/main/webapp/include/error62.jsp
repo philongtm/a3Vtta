@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=shift_jis"  isThreadSafe="true" %>
+<%@ page language="java" contentType="text/html; charset=shift_jis" %>
 <%@ page import="java.util.*" %>
 <%@ page import="common.struts.*" %>
 <%@ page import="common.global.*" %>
@@ -19,17 +19,12 @@
 %>
 
 <script>
-function jump() {
-		loginURL = '../login/login.do';
-		loginURL += '?event=login';
-		win = window.open(loginURL, 'SAIKEN',
-		'toolbar=no,status=yes,menubar=no,scrollbars=yes,resizable=yes,directories=no,location=no,width=1013,height=689,left=0,top=0');
-		window.opener=win;
-		window.open("", "_top"); // 対応策用の追加コード
-		if(window.name!="SAIKEN"){
-			win.focus();
-			window.close();
-		}
+function closeWin() {
+	window.returnValue="<%=GS.ERROR%>";
+	if(top.window.name!="SAIKEN"){
+		window.open('../close.jsp','SAIKEN','width=10,height=10,left=2000,top=2000');
+	}
+	window.close();
 }
 </script>
 
@@ -44,17 +39,18 @@ function jump() {
   <table width="100%" cellpadding="0" style="border:0px;">
     <tr style="border:0px;">
       <td align="center" style="border:0px;">
-		<%=i18n.get(GL.SYSTEM_TIMEOUT)%>
+		<%=i18n.get(GL.SYSTEM_STOPTIME3)%>
       </td>
     </tr>
   </table>
 <br><br>
 <center>
-	<input type="button" onclick="jump();" value="<%=i18n.get(GL.BTN_LOGIN)%>">
+	<input type="button" onclick="closeWin();" value="<%=i18n.get(GL.BTN_CLOSE)%>">
 </center>
 </form>
 </body>
 </html>
+
 <%
 	session.invalidate();
 %>

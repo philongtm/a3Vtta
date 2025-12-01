@@ -12,6 +12,7 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/css/Login.css" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/css/ime_mode_en.css" charset="Shift_JIS" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/css/ime_mode_ja.css" charset="Shift_JIS" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/include/servletException.jsp" charset="Shift_JIS" />
     <file url="PROJECT" charset="windows-31j" />
   </component>
 </project>
