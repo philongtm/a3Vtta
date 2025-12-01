@@ -111,7 +111,7 @@ public abstract class BaseAppAction<F extends ActionForm> {
      * @return ActionForwardオブジェクト
      */
     @RequestMapping
-    public final String execute(@ModelAttribute("00LoginForm") F form, HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+    public final String execute(@ModelAttribute F form, HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
         saveActionFormToSession(request, form);
         // アクションマッピングオブジェクト
         ActionMapping mapping = (ActionMapping) request.getAttribute(GS.REQUEST_ATTRIBUTE_STRUST_ACTION_MAPPING);

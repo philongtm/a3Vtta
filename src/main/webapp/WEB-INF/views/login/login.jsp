@@ -31,7 +31,7 @@ function checkOpener() {
 	<%-- ƒƒS‰æ‘œ--%>
 	<DIV class="headL">
 		<IMG alt="Sojitz" src="<c:url value='/image/navi001.gif' />" class="IMG1">
-	 	<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="<%=contextPath%>/image/<%=i18n.get(GL.IMG_TITLE)%>.gif" class="IMG2">
+	 	<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="<c:url value='/image/${i18n.get("img.title")}.gif' />" class="IMG2">
 	</DIV>
 </DIV>
 

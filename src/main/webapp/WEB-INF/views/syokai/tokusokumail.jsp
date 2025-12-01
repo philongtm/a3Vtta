@@ -60,7 +60,7 @@
 <DIV id="main">
 	<DIV id="head">
 		<IMG alt="Sojitz" src="<c:url value='/image/navi001.gif' />" width="89" height="52">
- 		<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="<c:url value='/image/<%=i18n.get(GL.IMG_TITLE)%>.gif' />" height="54">
+ 		<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="<c:url value='/image/${i18n.get("img.title")}.gif' />" height="54">
 	</DIV>
 
 	<%--ƒƒjƒ…[ƒŠƒ“ƒN•”•ª--%>

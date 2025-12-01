@@ -33,6 +33,7 @@
 	}
 	AppLocale.setDefault(request);
 	JspMessage i18n = new JspMessage(session);
+    request.setAttribute("i18n", i18n);
 %>
 
 <TITLE><%=i18n.get(GL.TITLE_SYSTEM)%></TITLE>
@@ -241,9 +242,13 @@
 		form.action += "?<%=GS.EVENT%>=" + event;
         // TODO: ch? th?m
         var inputEvent = form.elements['event'];
-        if (inputEvent) {
-            inputEvent.value = event;
+        if (!inputEvent) {
+            inputEvent = document.createElement('input');
+            inputEvent.type = 'hidden';
+            inputEvent.name = 'event';
+            form.appendChild(inputEvent);
         }
+        inputEvent.value = event;
 		form.submit();
 	}
 	<%/************************************************************

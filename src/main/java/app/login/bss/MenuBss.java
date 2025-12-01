@@ -110,7 +110,7 @@ public class MenuBss {
 		
 		// INパラメータを設定する
 		this.setInParameter();
-		// 業務フロー切替セレクトボックス 
+		// 業務フロー切替セレクトボックス
 		dbacc.getPatternName();
 		// 業務フロー切替セレクトボックスの表示制御
 		isPattern_hyoji();

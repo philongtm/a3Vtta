@@ -5,7 +5,7 @@
 <%@ include file = "/include/jspHeader.jsp" %>
 <%@ include file = "/include/jspUtil.jsp" %>
 <link rel="stylesheet" href="<c:url value='/css/Login.css' />" type="text/css">
-<bean:define id="MenuForm" name="00MenuForm" type="app.login.form.MenuForm" />
+<c:set var="MenuForm" value="${sessionScope['00MenuForm']}" />
 <script>
 	function setWorkFlow() {
 		form = document.forms[0];
@@ -30,7 +30,7 @@
 <DIV id="main">
 	<DIV id="head">
 		<IMG alt="Sojitz" src="<c:url value='/image/navi001.gif' />" width="89" height="52">
- 		<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="<c:url value='/image/<%=i18n.get(GL.IMG_TITLE)%>.gif' />" height="54">
+ 		<IMG alt="<%=i18n.get(GL.TITLE_SYSTEM)%>" src="<c:url value='/image/${i18n.get("img.title")}.gif' />" height="54">
 		<%-- ヘルプリンク --%>
 		<a href="#" class="<%=helpStyle%>" onClick="doSubmitNonHelp('help_open');"><%=i18n.get(GL.LINK_HELP)%></a>
 		
@@ -43,15 +43,15 @@
 	<%--コンテンツ部分--%>
 	<DIV id="contents">
 
-		<html:form action="/login/menu" >
-			<html:hidden name="MenuForm" property="pattern_id"/>
-			<html:hidden name="MenuForm" property="pattern_system_kbn"/>
-			<html:hidden name="MenuForm" property="pattern_sateikaisya_cd"/>
-			<html:hidden name="MenuForm" property="temp_daiko"/>
+		<form action="<c:url value='/login/menu.do' />" >
+			<input type="hidden" name="pattern_id" value="${MenuForm.pattern_id}"/>
+			<input type="hidden" name="pattern_system_kbn" value="${MenuForm.pattern_system_kbn}"/>
+			<input type="hidden" name="pattern_sateikaisya_cd" value="${MenuForm.pattern_sateikaisya_cd}"/>
+			<input type="hidden" name="temp_daiko" value="${MenuForm.temp_daiko}"/>
 			<DIV id="list">
 
 				<DIV class="headerlist">
-					<logic:equal name="MenuForm" property="pattern_flg" value="true">
+					<c:if test="MenuForm.pattern_flg">
 						<TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
 							<%-- 業務フロー切替 --%>
 							<TR>
@@ -61,15 +61,17 @@
 								<%-- <TD class="" style="border:0px;width:25%;float:left;">
 									<html:select property="pattern" onchange="setWorkFlow()" style="border:0px;width:100%;float:left;"> --%>
 								<TD class="" style="border:0px;float:left;">
-									<html:select property="pattern" onchange="setWorkFlow()" style="border:0px;float:left;">
+									<select name="pattern" onchange="setWorkFlow()" style="border:0px;float:left;">
 								<%-- 修正完了 --%>
-											<html:optionsCollection name="MenuForm" property="ar_pattern" value="id" label="pattern_name" />
-									</html:select>
-									<logic:iterate id="workFlow" name="MenuForm" property="ar_pattern">
-										<input type="hidden" name="tmp_pattern_id" value="<bean:write name='workFlow' property='pattern_id'/>"/>
-										<input type="hidden" name="tmp_pattern_system_kbn" value="<bean:write name='workFlow' property='system_kbn'/>"/>
-										<input type="hidden" name="tmp_pattern_sateikaisya_cd" value="<bean:write name='workFlow' property='sateikaisya_cd'/>"/>
-									</logic:iterate>
+                                        <c:forEach var="item" items="${MenuForm.ar_pattern}">
+                                            <option value="${item.id}" <c:if test="item.id == MenuForm.pattern" >selected</c:if>>${item.id}</option>
+                                        </c:forEach>
+									</select>
+                                    <c:forEach var="workFlow" items="${MenuForm.ar_pattern}">
+										<input type="hidden" name="tmp_pattern_id" value="<c:out value="${workFlow.pattern_id}/>"/>
+										<input type="hidden" name="tmp_pattern_system_kbn" value="<c:out value="${workFlow.system_kbn} />"/>
+										<input type="hidden" name="tmp_pattern_sateikaisya_cd" value="<c:out value="${workFlow.sateikaisya_cd}/>"/>
+                                    </c:forEach>
 								</TD>
 								<%-- 課題No.55 プルダウン幅調整 --%>
 								<%-- 削除開始 --%>
@@ -81,8 +83,8 @@
 								<%-- 削除完了 --%>
 							</TR>
 						</TABLE><BR>
-					</logic:equal>
-					<logic:equal name="MenuForm" property="pattern_flg" value="false">
+					</c:if>
+                    <c:if test="!MenuForm.pattern_flg">
 						<TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
 							<%-- 業務フロー切替なし --%>
 							<TR>
@@ -95,7 +97,7 @@
 								</TD>
 							</TR>
 						</TABLE><BR>
-					</logic:equal>
+                    </c:if>
 
 					<H1 class="title01"><%=i18n.get(GL.OS2101_TITLE_STATUS)%></H1>
 
@@ -104,23 +106,29 @@
 							<%-- 査定期 --%>
 							<TD style="border:0px;width:14%;" class="none_b"><%=i18n.get(GL.OS2101_SATEI_KI)%></TD>
 							<TD colspan="3" width="15%" class="none_b">
-								<html:select property="satei_ki" onchange="doSubmit('satei')" style="width:80">
-										<html:optionsCollection name="MenuForm" property="ar_satei_ki" value="value" label="key" />
-								</html:select>
+								<select name="satei_ki" onchange="doSubmit('satei')" style="width:80">
+                                    <c:forEach var="item" items="${MenuForm.ar_satei_ki}">
+                                        <option value="${item.value}" <c:if test="item.value == MenuForm.satei_ki" >selected</c:if>>${item.key}</option>
+                                    </c:forEach>
+								</select>
 							</TD>
 							<%-- 対象年月 --%>							
 							<TD style="border:0px;width:10%;"><%=i18n.get(GL.OS2101_YM)%></TD>
 							<TD colspan="3" width="31%" class="none_b">
-								<html:select property="ym" onchange="doSubmit('taishou_ym')" style="width:80">
-										<html:optionsCollection name="MenuForm" property="ar_ym" value="value" label="key" />
-								</html:select>
+                                <select name="ym" onchange="doSubmit('taishou_ym')" style="width:80">
+                                    <c:forEach var="item" items="${MenuForm.ar_ym}">
+                                        <option value="${item.value}" <c:if test="item.value == MenuForm.ym" >selected</c:if>>${item.key}</option>
+                                    </c:forEach>
+                                </select>
 							</TD>
 							<%-- 代行画面切替 --%>	
 							<TD class="right" style="border:0px;width:18%;"><%=i18n.get(GL.OS2101_DAIKO_GAMEN)%>&nbsp;</TD>
 							<TD colspan="3" width="27%" class="none_b">
-								<html:select property="daiko" onfocus="setTempDaiko(this)" onchange="doSubmit('daiko')" style="width:200;float:right;">
-										<html:optionsCollection name="MenuForm" property="ar_daiko" value="key" label="value" />
-								</html:select>
+                                <select name="daiko" onfocus="setTempDaiko(this)" onchange="doSubmit('daiko')" style="width:200;float:right;">
+                                    <c:forEach var="item" items="${MenuForm.ar_daiko}">
+                                        <option value="${item.key}" <c:if test="item.key == MenuForm.ym" >selected</c:if>>${item.value}</option>
+                                    </c:forEach>
+                                </select>
 							</TD>			
 						</TR>
 					</TABLE>
@@ -183,46 +191,48 @@
 								<TH width="5%" ><p class="center"><%=i18n.get(GL.OS2101_SATEI_NI)%></p></TH>
 							</TR>		
 						</THEAD>
-						<TBODY>		
-							<% if(MenuForm.getAr_status() != null) { %>	
-								<nested:iterate name="MenuForm" property="ar_status" indexId="idx">
-									<nested:equal property="niju_jushin_flg" value="1">
-										<TR style="background-color:#FFC1E0">
-									</nested:equal>
-									<nested:notEqual property="niju_jushin_flg" value="1">
-										<TR>
-									</nested:notEqual>
+						<c>
+                            <c:if test="${not empty MenuForm.ar_status}">
+                                <c:forEach var="item" items="${MenuForm.ar_status}" varStatus="status">
+                                    <c:choose>
+                                        <c:when test="${item.niju_jushin_flg == 1}">
+                                            <tr style="background-color:#FFC1E0">
+                                        </c:when>
+                                        <c:otherwise>
+                                            <tr>
+                                        </c:otherwise>
+                                    </c:choose>
 										<%-- 汎用１ --%>
-										<TD class="tdlb"><nested:write property="sateikaisya_cd" /></TD>
+										<TD class="tdlb"><c:out value="${item.sateikaisya_cd}" /></TD>
 										<%-- 汎用２ --%>
-										<TD style="word-break: normal;"><nested:write property="soshiki" />&nbsp;</TD>
+										<TD style="word-break: normal;"><c:out value="${item.soshiki}" />&nbsp;</TD>
 										<%-- 対象年月 --%>
-										<TD><nested:write property="ym" />&nbsp;</TD>
+										<TD><c:out value="${item.ym}" />&nbsp;</TD>
 										<%-- 受信日 --%>
-										<TD><nested:write property="jushin_bi_hyoji" />&nbsp;</TD>
+										<TD><c:out value="${item.jushin_bi_hyoji}" />&nbsp;</TD>
 										<%-- 実質滞留債権判定.未処理 --%>
-										<TD class="right"><nested:write property="tairyuu_mi_shori" />&nbsp;</TD>
+										<TD class="right"><c:out value="${item.tairyuu_mi_shori}" />&nbsp;</TD>
 										<%-- 実質滞留債権判定.処理中 --%>
-										<TD class="right"><nested:write property="tairyuu_shori" />&nbsp;</TD>
+										<TD class="right"><c:out value="${item.tairyuu_shori}" />&nbsp;</TD>
 										<%-- 実質滞留債権判定.済み --%>
-										<TD class="right"><nested:write property="tairyuu_zumi" />&nbsp;</TD>
+										<TD class="right"><c:out value="${item.tairyuu_zumi}" />&nbsp;</TD>
 										<%-- 査定.未処理 --%>
-										<TD class="right"><nested:write property="satei_mi_shori" />&nbsp;</TD>
+										<TD class="right"><c:out value="${item.satei_mi_shori}" />&nbsp;</TD>
 										<%-- 査定.一次査定中 --%>
-										<TD class="right"><nested:write property="satei_ichi" />&nbsp;</TD>
+										<TD class="right"><c:out value="${item.satei_ichi}" />&nbsp;</TD>
 										<%-- 査定.二次査定中 --%>
-										<TD class="right"><nested:write property="satei_ni" />&nbsp;</TD>
+										<TD class="right"><c:out value="${item.satei_ni}" />&nbsp;</TD>
 										<%-- 査定.済み --%>
-										<TD class="right"><nested:write property="satei_zumi" />&nbsp;</TD>
+										<TD class="right"><c:out value="${item.satei_zumi}" />&nbsp;</TD>
 										<%-- 汎用３.未処理 --%>
-										<TD class="right"><nested:write property="hanyou_mi_syori" />&nbsp;</TD>
+										<TD class="right"><c:out value="${item.hanyou_mi_syori}" />&nbsp;</TD>
 										<%-- 汎用３.処理中 --%>
-										<TD class="right"><nested:write property="hanyou_syori" />&nbsp;</TD>
+										<TD class="right"><c:out value="${item.hanyou_syori}" />&nbsp;</TD>
 										<%-- 汎用３.済み --%>
-										<TD class="right"><nested:write property="hanyou_zumi" />&nbsp;</TD>				
+										<TD class="right"><c:out value="${item.hanyou_zumi}" />&nbsp;</TD>				
 									</TR>
-								</nested:iterate>
-							<% } %>
+                                </c:forEach>
+                            </c:if>
 						</TBODY>
 					
 					</TABLE>
@@ -249,59 +259,59 @@
 								<TH class="thlb" width=11%><p class="center"><%=SESSION_DATA_APP.getLbl_nm1()%></p></TH>
 								<%-- 汎用２ --%>
 								<TH><p class="center"><%=SESSION_DATA_APP.getLbl_nm7()%></p></TH>
-								<logic:empty name="MenuForm" property="middle_ym_list">
+                                <c:if test="empty MenuForm.middle_ym_list">
 									<%-- 貸倒懸念・破産更生債権判定先件数（基準月（最終月））タイトル --%>
-									<TH width=12%><p class="center"><bean:write name="MenuForm" property="last_ym_hy"/></p></TH>
+									<TH width=12%><p class="center"><c:out value="${MenuForm.last_ym_hy}" /></p></TH>
 									<bean:define id="middle_ym" name="MenuForm" property="middle_ym_list"/>
 									<%-- 貸倒懸念・破産更生債権判定先件数（仮基準月（中間月））タイトル(改行し2段で表示する) --%>
-									<TH width=12%><p class="center"><bean:write name="MenuForm" property="first_ym_hy"/></p></TH>
+									<TH width=12%><p class="center"><c:out value="${MenuForm.first_ym_hy}" /></p></TH>
 									<%-- 中間月は空欄となります --%>
 									<TH width=12%><p class="center">&nbsp;</p></TH>									
-								</logic:empty>
-								<logic:notEmpty name="MenuForm" property="middle_ym_list">
+                                </c:if>
+                                <c:if test="not empty MenuForm.middle_ym_list">
 									<%-- 貸倒懸念・破産更生債権判定先件数（基準月（最終月））タイトル --%>
-									<TH width=12%><p class="center"><bean:write name="MenuForm" property="last_ym_hy"/></p></TH>
+									<TH width=12%><p class="center"><c:out value="${MenuForm.last_ym_hy}" /></p></TH>
 									<bean:define id="middle_ym" name="MenuForm" property="middle_ym_list"/>
 									<%-- 貸倒懸念・破産更生債権判定先件数（仮基準月（中間月））タイトル(改行し2段で表示する) --%>
-									<TH width=12%><p class="center"><%=middle_ym%></p></TH>
+									<TH width=12%><p class="center"><c:out value="MenuForm.middle_ym_list" /></p></TH>
 									<%-- 貸倒懸念・破産更生債権判定先件数（仮基準月（初回月））タイトル --%>
-									<TH width=12%><p class="center"><bean:write name="MenuForm" property="first_ym_hy"/></p></TH>									
-								</logic:notEmpty>
+									<TH width=12%><p class="center"><c:out value="${MenuForm.first_ym_hy}" /></p></TH>									
+                                </c:if>
 
 							</TR>
 						</THEAD>
 						<TBODY>
-							<% if(MenuForm.getAr_satei_resualt() != null) { %>	
-								<nested:iterate name="MenuForm" property="ar_satei_resualt" indexId="idx">
+                            <c:if test="${not empty MenuForm.ar_satei_resualt}">
+                                <c:forEach var="item" items="${MenuForm.ar_satei_resualt}" varStatus="status">
 									<TR>
 										<%-- 汎用１ --%>
-										<TD class="tdlb"><nested:write property="satei_kaisha_cd" /></TD>
+										<TD class="tdlb"><c:out value="${item.satei_kaisha_cd}" /></TD>
 										<%-- 汎用２ --%>
-										<TD><nested:write property="soshiki" /></TD>
-										<nested:empty name="MenuForm" property="middle_ym_list">
+										<TD><c:out value="${item.soshiki}" /></TD>
+										<c:if test="empty MenuForm.middle_ym_list">
 											<%-- 貸倒懸念・破産更生債権判定先件数（基準月（最終月）） --%>
-											<TD class="right">&nbsp;<nested:write property="hasan_num_last" />&nbsp;<nested:write property="hasan_num_last_kakko" /></TD>
+											<TD class="right">&nbsp;<c:out value="${item.hasan_num_last}" />&nbsp;<c:out value="${item.hasan_num_last_kakko}" /></TD>
 											<%-- 貸倒懸念・破産更生債権判定先件数（仮基準月（初回月）） --%>
-											<TD class="right">&nbsp;<nested:write property="hasan_num_first" />&nbsp;<nested:write property="hasan_num_first_kakko" /></TD>
+											<TD class="right">&nbsp;<c:out value="${item.hasan_num_first}" />&nbsp;<c:out value="${item.hasan_num_first_kakko}" /></TD>
 											<%-- 中間月は空欄となります --%>
 											<TD class="right">&nbsp;</TD>								
-										</nested:empty>
-										<nested:notEmpty name="MenuForm" property="middle_ym_list">
+										</c:if>
+                                        <c:if test="not empty MenuForm.middle_ym_list">
 											<%-- 貸倒懸念・破産更生債権判定先件数（基準月（最終月）） --%>
-											<TD class="right">&nbsp;<nested:write property="hasan_num_last" />&nbsp;<nested:write property="hasan_num_last_kakko" /></TD>
+											<TD class="right">&nbsp;<c:out value="${item.hasan_num_last}" />&nbsp;<c:out value="${item.hasan_num_last_kakko}" /></TD>
 											<%-- 貸倒懸念・破産更生債権判定先件数（仮基準月（中間月） --%>
-											<TD class="right">&nbsp;<nested:write property="hasan_num_middle" />&nbsp;<nested:write property="hasan_num_middle_kakko" /></TD>
+											<TD class="right">&nbsp;<c:out value="${item.hasan_num_middle}" />&nbsp;<c:out value="${item.hasan_num_middle_kakko}" /></TD>
 											<%-- 貸倒懸念・破産更生債権判定先件数（仮基準月（初回月）） --%>
-											<TD class="right">&nbsp;<nested:write property="hasan_num_first" />&nbsp;<nested:write property="hasan_num_first_kakko" /></TD>								
-										</nested:notEmpty>
+											<TD class="right">&nbsp;<c:out value="${item.hasan_num_first}" />&nbsp;<c:out value="${item.hasan_num_first_kakko}" /></TD>								
+										</c:if>
 									</TR>
-								</nested:iterate>
-							<% } %>
+                                </c:forEach>
+                            </c:if>
 						</TBODY>
 					</TABLE>
 				</DIV>
 			</DIV>
-		</html:form>
+		</form>
 	</DIV>
 </DIV>
 </CENTER>
