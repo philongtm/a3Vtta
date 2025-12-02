@@ -84,7 +84,7 @@ public class AppActionFilter implements Filter {
                 appContext = null;
             }
         } catch (Exception e) {
-            logger.error("filter occurs exception", e);
+            logger.error("AppActionFilter occurs exception", e);
             throw e;
         }
     }

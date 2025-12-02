@@ -17,9 +17,7 @@
     function jump() {
 // 		loginURL = 'login/login.jsp';
         loginURL = 'login/login.do';
-        // TODO: fix ?? show l?n m?n h?nh login
-        //loginURL += '?event=login';
-        loginURL += '?event=';
+        loginURL += '?event=login';
         win = window.open(loginURL, 'SAIKEN',
             'toolbar=no,status=yes,menubar=no,scrollbars=yes,resizable=yes,directories=no,location=no,width=1013,height=689,left=0,top=0');
         window.opener = win;

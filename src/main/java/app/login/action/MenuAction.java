@@ -14,7 +14,7 @@ import app.login.form.MenuForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppLocale;
-import common.struts.BaseAppMenuAction;
+import common.struts.AppMenuAction;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -25,16 +25,9 @@ import java.util.HashMap;
  */
 @Controller
 @RequestMapping("/login/menu.do")
-public class MenuAction extends BaseAppMenuAction<MenuForm> {
+public class MenuAction extends AppMenuAction {
 
     private static final String MENUFORM = "00MenuForm";
-
-    /**
-     * Constructor
-     */
-    public MenuAction() {
-        super(MenuForm.class, MENUFORM);
-    }
 
     /**
      * ディスパッチマップ作成

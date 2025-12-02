@@ -240,15 +240,6 @@
 		action = form.action;
 		form.target = "_top";
 		form.action += "?<%=GS.EVENT%>=" + event;
-        // TODO: ch? th?m
-        var inputEvent = form.elements['event'];
-        if (!inputEvent) {
-            inputEvent = document.createElement('input');
-            inputEvent.type = 'hidden';
-            inputEvent.name = 'event';
-            form.appendChild(inputEvent);
-        }
-        inputEvent.value = event;
 		form.submit();
 	}
 	<%/************************************************************
@@ -437,3 +428,37 @@
 	}
 </script>
 <% request.removeAttribute(GS.MERGEDXLS); } %>
+
+<script>
+    // focus input in form
+    console.log('xxxxxxxxxxxxxxxxxxxxxxx0');
+    (function () {
+        console.log('xxxxxxxxxxxxxxxxxxxxxxx1');
+        var forms = document.forms;
+        if (!forms) return;
+        console.log('xxxxxxxxxxxxxxxxxxxxxxx2', forms.length);
+
+        for (var i = 0; i < forms.length; i++) {
+            var form = forms[i];
+
+            var focusName = form.getAttribute("focus");
+            if (!focusName) continue;
+
+            var focusControl = form.elements[focusName];
+            if (!focusControl) continue;
+
+            if (focusControl.length && focusControl[0]) {
+                focusControl = focusControl[0];
+            }
+
+            if (focusControl != null &&
+                focusControl.type != "hidden" &&
+                !focusControl.disabled &&
+                focusControl.style.display != "none") {
+
+                focusControl.focus();
+                return;
+            }
+        }
+    })();
+</script>

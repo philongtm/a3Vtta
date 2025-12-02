@@ -27,6 +27,9 @@ import common.util.HikiatekinExcel;
 import common.util.InputCheck;
 
 import jakarta.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +38,8 @@ import java.util.List;
 /**
  * 引当金検証画面アクションクラス
  */
+@Controller
+@RequestMapping("/hikiate/kensyo.do")
 public class KensyoAction extends AppMenuAction {
 
 	//////////////////////////////////////////////////////

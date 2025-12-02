@@ -14,6 +14,8 @@ import app.system.form.CyusyutujyokenForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +24,8 @@ import java.util.List;
 /**
  * OS7110_抽出条件メンテナンス_一覧 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/system/cyusyutujyoken.do")
 public class CyusyutujyokenAction extends AppMenuAction {
 
 	private static final String CYUSYUTUJYOKENFORM = "10CyusyutujyokenForm"; // 抽出条件メンテナンス_一覧のフォーム

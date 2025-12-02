@@ -16,12 +16,16 @@ import app.syokai.form.SincyokuForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS6103_進捗状況照会 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/syokai/sincyoku.do")
 public class SincyokuAction extends AppMenuAction {
 	
 	private static final String SINCYOKUFORM = "03SincyokuForm";

@@ -12,12 +12,16 @@ import app.common.bss.HikiatekinHanteiSyokaiBss;
 import app.common.form.HikiatekinHanteiSyokaiForm;
 import common.AppContext;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OZ6104_引当金判定照会タブ  アクションクラス
  */
+@Controller
+@RequestMapping("/common/hikiatekin_hantei.do")
 public class HikiatekinHanteiSyokaiAction extends AppMenuAction {
 
 	private static final String HIKIATEKINHANTEISYOKAIFORM = "HikiatekinHanteiSyokaiForm";

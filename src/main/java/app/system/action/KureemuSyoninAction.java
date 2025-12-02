@@ -14,12 +14,16 @@ import app.system.form.KureemuSyoninForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS3104_クレーム債権再設定_承認一覧 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/system/kureemusyonin.do")
 public class KureemuSyoninAction extends AppMenuAction {
 
 	private static final String KUREEMUSYONINFORM = "04KureemuSyoninForm";

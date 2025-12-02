@@ -1,11 +1,12 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 
 <HTML>
 <HEAD>
-<%@ include file = "/include/jspHeader.jsp" %>
-<%@ include file = "/include/jspUtil.jsp" %>
+<%@ include file="../include/jspHeader.jsp" %>
+<%@ include file="../include/jspUtil.jsp" %>
 <link rel="stylesheet" href="<c:url value='/css/Login.css' />" type="text/css">
+<c:set var="LoginForm" value="${sessionScope['00LoginForm']}" />
 <script>
 function upperCase(obj) {
 	obj.value=obj.value.toUpperCase();
@@ -39,13 +40,13 @@ function checkOpener() {
 <%-- コンテンツ部分 --%>
 <DIV id="loginContents">
 <DIV id="loginList">
-<form action="<c:url value='/login/login.do' />" focus="userId">
-<input type="hidden" name="txtKbnLang"/>
+<form action="<c:url value='/login/login.do' />" method="post" focus="userId">
+<input type="hidden" name="txtKbnLang" value="${LoginForm.txtKbnLang}" />
 <input type="hidden" name="event"/>
 	<table align="left">
 	<tr>
 		<td><%=i18n.get(GL.OS1101_USERID)%></td>
-		<td><input type="text" name="userId" onblur="upperCase(userId)" size="18" maxlength="8"/></td>
+		<td><input type="text" name="userId" value="${LoginForm.userId}" onblur="upperCase(userId)" size="18" maxlength="8"/></td>
 	</tr>
 	<tr>
   		<td><%=i18n.get(GL.OS1101_PASSWORD)%></td>

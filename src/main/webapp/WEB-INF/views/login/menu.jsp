@@ -1,9 +1,9 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 <HTML>
 <HEAD>
-<%@ include file = "/include/jspHeader.jsp" %>
-<%@ include file = "/include/jspUtil.jsp" %>
+<%@ include file="../include/jspHeader.jsp" %>
+<%@ include file="../include/jspUtil.jsp" %>
 <link rel="stylesheet" href="<c:url value='/css/Login.css' />" type="text/css">
 <c:set var="MenuForm" value="${sessionScope['00MenuForm']}" />
 <script>
@@ -43,7 +43,7 @@
 	<%--コンテンツ部分--%>
 	<DIV id="contents">
 
-		<form action="<c:url value='/login/menu.do' />" >
+		<form action="<c:url value='/login/menu.do' />" method="post">
 			<input type="hidden" name="pattern_id" value="${MenuForm.pattern_id}"/>
 			<input type="hidden" name="pattern_system_kbn" value="${MenuForm.pattern_system_kbn}"/>
 			<input type="hidden" name="pattern_sateikaisya_cd" value="${MenuForm.pattern_sateikaisya_cd}"/>
@@ -51,7 +51,7 @@
 			<DIV id="list">
 
 				<DIV class="headerlist">
-					<c:if test="MenuForm.pattern_flg">
+					<c:if test="${MenuForm.pattern_flg}">
 						<TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
 							<%-- 業務フロー切替 --%>
 							<TR>
@@ -84,7 +84,7 @@
 							</TR>
 						</TABLE><BR>
 					</c:if>
-                    <c:if test="!MenuForm.pattern_flg">
+                    <c:if test="${!MenuForm.pattern_flg}">
 						<TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
 							<%-- 業務フロー切替なし --%>
 							<TR>
@@ -108,7 +108,7 @@
 							<TD colspan="3" width="15%" class="none_b">
 								<select name="satei_ki" onchange="doSubmit('satei')" style="width:80">
                                     <c:forEach var="item" items="${MenuForm.ar_satei_ki}">
-                                        <option value="${item.value}" <c:if test="item.value == MenuForm.satei_ki" >selected</c:if>>${item.key}</option>
+                                        <option value="${item.value}" <c:if test="${item.value == MenuForm.satei_ki}" >selected</c:if>>${item.key}</option>
                                     </c:forEach>
 								</select>
 							</TD>
@@ -117,7 +117,7 @@
 							<TD colspan="3" width="31%" class="none_b">
                                 <select name="ym" onchange="doSubmit('taishou_ym')" style="width:80">
                                     <c:forEach var="item" items="${MenuForm.ar_ym}">
-                                        <option value="${item.value}" <c:if test="item.value == MenuForm.ym" >selected</c:if>>${item.key}</option>
+                                        <option value="${item.value}" <c:if test="${item.value == MenuForm.ym}" >selected</c:if>>${item.key}</option>
                                     </c:forEach>
                                 </select>
 							</TD>
@@ -126,7 +126,7 @@
 							<TD colspan="3" width="27%" class="none_b">
                                 <select name="daiko" onfocus="setTempDaiko(this)" onchange="doSubmit('daiko')" style="width:200;float:right;">
                                     <c:forEach var="item" items="${MenuForm.ar_daiko}">
-                                        <option value="${item.key}" <c:if test="item.key == MenuForm.ym" >selected</c:if>>${item.value}</option>
+                                        <option value="${item.key}" <c:if test="${item.key == MenuForm.daiko}" >selected</c:if>>${item.value}</option>
                                     </c:forEach>
                                 </select>
 							</TD>			
@@ -259,21 +259,19 @@
 								<TH class="thlb" width=11%><p class="center"><%=SESSION_DATA_APP.getLbl_nm1()%></p></TH>
 								<%-- 汎用２ --%>
 								<TH><p class="center"><%=SESSION_DATA_APP.getLbl_nm7()%></p></TH>
-                                <c:if test="empty MenuForm.middle_ym_list">
+                                <c:if test="${empty MenuForm.middle_ym_list}">
 									<%-- 貸倒懸念・破産更生債権判定先件数（基準月（最終月））タイトル --%>
 									<TH width=12%><p class="center"><c:out value="${MenuForm.last_ym_hy}" /></p></TH>
-									<bean:define id="middle_ym" name="MenuForm" property="middle_ym_list"/>
 									<%-- 貸倒懸念・破産更生債権判定先件数（仮基準月（中間月））タイトル(改行し2段で表示する) --%>
 									<TH width=12%><p class="center"><c:out value="${MenuForm.first_ym_hy}" /></p></TH>
 									<%-- 中間月は空欄となります --%>
 									<TH width=12%><p class="center">&nbsp;</p></TH>									
                                 </c:if>
-                                <c:if test="not empty MenuForm.middle_ym_list">
+                                <c:if test="${not empty MenuForm.middle_ym_list}">
 									<%-- 貸倒懸念・破産更生債権判定先件数（基準月（最終月））タイトル --%>
 									<TH width=12%><p class="center"><c:out value="${MenuForm.last_ym_hy}" /></p></TH>
-									<bean:define id="middle_ym" name="MenuForm" property="middle_ym_list"/>
 									<%-- 貸倒懸念・破産更生債権判定先件数（仮基準月（中間月））タイトル(改行し2段で表示する) --%>
-									<TH width=12%><p class="center"><c:out value="MenuForm.middle_ym_list" /></p></TH>
+									<TH width=12%><p class="center"><c:out value="${MenuForm.middle_ym_list}" escapeXml="false" /></p></TH>
 									<%-- 貸倒懸念・破産更生債権判定先件数（仮基準月（初回月））タイトル --%>
 									<TH width=12%><p class="center"><c:out value="${MenuForm.first_ym_hy}" /></p></TH>									
                                 </c:if>
@@ -288,7 +286,7 @@
 										<TD class="tdlb"><c:out value="${item.satei_kaisha_cd}" /></TD>
 										<%-- 汎用２ --%>
 										<TD><c:out value="${item.soshiki}" /></TD>
-										<c:if test="empty MenuForm.middle_ym_list">
+										<c:if test="${empty MenuForm.middle_ym_list}">
 											<%-- 貸倒懸念・破産更生債権判定先件数（基準月（最終月）） --%>
 											<TD class="right">&nbsp;<c:out value="${item.hasan_num_last}" />&nbsp;<c:out value="${item.hasan_num_last_kakko}" /></TD>
 											<%-- 貸倒懸念・破産更生債権判定先件数（仮基準月（初回月）） --%>
@@ -296,7 +294,7 @@
 											<%-- 中間月は空欄となります --%>
 											<TD class="right">&nbsp;</TD>								
 										</c:if>
-                                        <c:if test="not empty MenuForm.middle_ym_list">
+                                        <c:if test="${not empty MenuForm.middle_ym_list}">
 											<%-- 貸倒懸念・破産更生債権判定先件数（基準月（最終月）） --%>
 											<TD class="right">&nbsp;<c:out value="${item.hasan_num_last}" />&nbsp;<c:out value="${item.hasan_num_last_kakko}" /></TD>
 											<%-- 貸倒懸念・破産更生債権判定先件数（仮基準月（中間月） --%>

@@ -14,12 +14,16 @@ import app.common.form.SaikenMeisaiSyokaiForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OZ6105_債権明細照会タブ  アクションフォームクラス
  */
+@Controller
+@RequestMapping("/common/saiken_meisai.do")
 public class SaikenMeisaiSyokaiAction extends AppMenuAction {
 
 	private static final String SAIKENMEISAIFORM = "SaikenMeisaiSyokaiForm";

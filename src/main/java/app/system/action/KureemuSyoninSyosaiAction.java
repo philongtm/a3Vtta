@@ -16,12 +16,16 @@ import app.system.bss.KureemuSyoninSyosaiBss;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS3105_クレーム債権再設定_承認 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/system/kureemusyoninSyosai.do")
 public class KureemuSyoninSyosaiAction extends AppMenuAction {
 	
 	/**

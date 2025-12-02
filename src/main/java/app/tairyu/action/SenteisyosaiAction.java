@@ -15,12 +15,16 @@ import app.tairyu.form.SenteisyosaiForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OB2102_対象先選定_選定先詳細 アクションクラス
  */
+@Controller
+@RequestMapping("/tairyu/senteisyosai.do")
 public class SenteisyosaiAction extends AppMenuAction {
 
 	private static final String SENTEISYOSAIFORM = "01SenteisyosaiForm";

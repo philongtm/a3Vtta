@@ -15,12 +15,16 @@ import app.system.form.WorkFlowIchiranForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  *  OS7104　業務フローパターンメンテナンス_一覧 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/system/workflowichiran.do")
 public class WorkFlowIchiranAction extends AppMenuAction {
 	
 	private static final String WORKFLOWICHIRANFORM = "04WorkFlowIchiranForm";

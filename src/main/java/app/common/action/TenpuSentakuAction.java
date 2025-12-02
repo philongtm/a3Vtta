@@ -33,12 +33,17 @@ import common.struts.AppMenuAction;
 import common.util.InputCheck;
 
 import jakarta.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * 共通_滞留債権明細照会タブ アクションクラス
  */
+@Controller
+@RequestMapping("/common/tenpu_sentaku.do")
 public class TenpuSentakuAction extends AppMenuAction {
 	
 	// クラス名

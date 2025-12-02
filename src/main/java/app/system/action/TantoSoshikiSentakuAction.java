@@ -14,12 +14,16 @@ import app.system.form.TantoSoshikiSentakuForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS7116_担当組織選択 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/system/tantososhiki_sentaku.do")
 public class TantoSoshikiSentakuAction extends AppMenuAction  {
 
 	private static final String TANTOSOSHIKIFORM = "07TantoSoshikiSentakuForm";

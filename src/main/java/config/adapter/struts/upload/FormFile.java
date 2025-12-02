@@ -4,7 +4,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;
 
-// TODO: STV not yet implement
 public class FormFile {
 
     private final MultipartFile file;

@@ -15,12 +15,16 @@ import app.tairyu.action.SenteisyosaiAction;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS4101_ゴルフ会員権一覧 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/system/golf.do")
 public class GolfAction extends AppMenuAction {
 
 	private static final String GOLFFORM = "04GolfForm"; // ゴルフ会員権のフォーム

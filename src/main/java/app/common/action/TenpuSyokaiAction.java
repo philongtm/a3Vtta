@@ -22,11 +22,16 @@ import config.adapter.struts.action.ActionMapping;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.HashMap;
 
 /**
  * 添付内容照会画面アクションクラス
  */
+@Controller
+@RequestMapping("/common/tenpu_syokai.do")
 public class TenpuSyokaiAction extends AppMenuAction {
 
 	private String CLASSNAME = getClass().getName(); // クラス名

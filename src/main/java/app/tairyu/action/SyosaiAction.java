@@ -14,12 +14,16 @@ import app.tairyu.form.SyosaiForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OB1103_実質滞留債権判定_明細詳細 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/tairyu/syosai.do")
 public class SyosaiAction extends AppMenuAction {
 
 	private static final String SYOSAIFORM = "01SyosaiForm"; // 実質滞留債権判定_明細一覧のフォーム

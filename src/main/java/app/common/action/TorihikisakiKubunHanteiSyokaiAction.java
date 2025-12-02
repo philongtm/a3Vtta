@@ -12,12 +12,16 @@ import app.common.bss.TorihikisakiKubunHanteiSyokaiBss;
 import app.common.form.TorihikisakiKubunHanteiSyokaiForm;
 import common.AppContext;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OZ6103_取引先区分判定照会タブ  アクションクラス
  */
+@Controller
+@RequestMapping("/common/torihikisaki_kubun_hantei.do")
 public class TorihikisakiKubunHanteiSyokaiAction extends AppMenuAction {
 
 	private static final String TORIHIKISAKIKUBUNHANTEISYOKAIFORM = "TorihikisakiKubunHanteiSyokaiForm";

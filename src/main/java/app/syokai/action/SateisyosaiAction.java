@@ -43,12 +43,16 @@ import common.util.SaikenExcel;
 import common.util.SateiSyosaiExcel;
 import common.util.TairyuExcel;
 import org.apache.commons.beanutils.BeanUtils;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS6102_査定内容詳細 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/syokai/sateisyosai.do")
 public class SateisyosaiAction extends AppMenuAction {
 
 	private static final String SATEISYOSAIFORM = "03SateisyosaiForm"; // フォーム名

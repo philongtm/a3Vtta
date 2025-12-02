@@ -10,6 +10,8 @@ import common.AppContext;
 import common.global.GS;
 import common.util.Log;
 import common.util.TempFile;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.File;
 import java.util.HashMap;
@@ -18,6 +20,8 @@ import java.util.HashMap;
  * 拡張アクションクラス
  * 
  */
+@Controller
+@RequestMapping("/excel.do")
 public class AppExcelAction extends AppAction {
 
 	private String CLASSNAME = getClass().getName();

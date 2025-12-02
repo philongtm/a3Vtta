@@ -13,12 +13,16 @@ import app.system.form.SateikaisyaTorokuForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS7103_査定会社メンテナンス_登録 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/system/sateikaisyatoroku.do")
 public class SateikaisyaTorokuAction extends AppMenuAction {
 
 	private static final String MODE_REGIST = "1"; // 遷移モード：登録

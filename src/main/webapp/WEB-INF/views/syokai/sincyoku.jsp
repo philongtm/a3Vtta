@@ -1,10 +1,10 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 <%@ page import="app.TorihikisakiBean" %>
 <HTML>
 <HEAD>
-<%@ include file = "/include/jspHeader.jsp" %>
-<%@ include file = "/include/jspUtil.jsp" %>
+<%@ include file="../include/jspHeader.jsp" %>
+<%@ include file="../include/jspUtil.jsp" %>
 
 <bean:define id="SincyokuForm" name="03SincyokuForm" type="app.syokai.form.SincyokuForm" />
 <% Pager pager = SincyokuForm.getPager(); %>

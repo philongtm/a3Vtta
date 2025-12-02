@@ -15,12 +15,16 @@ import app.system.form.KanjyoTorokuForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS7109 勘定科目マスタメンテナンス_登録 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/system/kanjyotoroku.do")
 public class KanjyoTorokuAction extends AppMenuAction {
 
 	private static final String KANJYOTOROKUFORM 	= "09KanjyoTorokuForm";

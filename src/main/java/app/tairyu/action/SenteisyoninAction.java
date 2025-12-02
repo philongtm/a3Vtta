@@ -14,12 +14,16 @@ import app.tairyu.form.SenteisyoninForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OB2104_対象先選定_承認一覧 アクションクラス
  */
+@Controller
+@RequestMapping("/tairyu/senteisyonin.do")
 public class SenteisyoninAction extends AppMenuAction {
 
 	private static final String SENTEISYONINFORM = "01SenteisyoninForm";

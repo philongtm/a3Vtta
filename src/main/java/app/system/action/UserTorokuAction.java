@@ -20,12 +20,16 @@ import app.system.form.UserTorokuForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS7107　ユーザマスタメンテナンス_登録 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/system/usertoroku.do")
 public class UserTorokuAction extends AppMenuAction {
 
 	private static final String USERTOROKUFORM 	= "07UserTorokuForm";

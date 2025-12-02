@@ -15,12 +15,16 @@ import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
 import common.util.Function;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OZ6110_実質滞留債権判定進捗照会タブ アクションクラス <br>
  */
+@Controller
+@RequestMapping("/common/tairyu_sincyoku.do")
 public class TairyuSincyokuAction extends AppMenuAction {
 
 	private static final String TAIRYUSINCYOKUFORM = "05tairyuSincyokuForm";

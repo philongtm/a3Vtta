@@ -15,12 +15,16 @@ import app.system.form.WorkFlowTorokuForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS7105　業務フローパターンメンテナンス_登録 <br>
  */
+@Controller
+@RequestMapping("/system/workflowtoroku.do")
 public class WorkFlowTorokuAction extends AppMenuAction {
 	
 	private static final String WORKFLOWICHIRANFORM = "04WorkFlowIchiranForm";

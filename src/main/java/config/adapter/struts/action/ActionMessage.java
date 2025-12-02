@@ -1,6 +1,5 @@
 package config.adapter.struts.action;
 
-// TODO: STV not yet implement
 public class ActionMessage {
     private final String key;
     private final Object[] args;

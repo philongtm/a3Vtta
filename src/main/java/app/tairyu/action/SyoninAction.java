@@ -14,12 +14,16 @@ import app.tairyu.form.SyoninForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OB1104_実質滞留債権判定_承認一覧 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/tairyu/syonin.do")
 public class SyoninAction extends AppMenuAction {
 
 	private static final String SYONINFORM = "01SyoninForm";

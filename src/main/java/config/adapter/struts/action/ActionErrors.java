@@ -3,7 +3,6 @@ package config.adapter.struts.action;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO: STV not yet implement
 public class ActionErrors {
     private final List<ActionMessage> messages = new ArrayList<>();
 

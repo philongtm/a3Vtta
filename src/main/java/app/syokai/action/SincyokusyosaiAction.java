@@ -17,12 +17,16 @@ import app.syokai.form.SincyokusyosaiForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS6104_進捗状況詳細 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/syokai/sincyokusyosai.do")
 public class SincyokusyosaiAction extends AppMenuAction {
 
 	private static final String SINCYOKUSYOSAIFORM = "03SincyokusyosaiForm";

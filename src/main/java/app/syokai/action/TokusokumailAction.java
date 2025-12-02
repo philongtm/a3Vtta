@@ -15,6 +15,8 @@ import app.syokai.form.TokusokumailForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +24,8 @@ import java.util.List;
 /**
  * OS6105_督促メール送信選択 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/syokai/tokusokumail.do")
 public class TokusokumailAction extends AppMenuAction {
 
 	private static final String TOKUSOKUMAILFORM = "03TokusokumailForm";

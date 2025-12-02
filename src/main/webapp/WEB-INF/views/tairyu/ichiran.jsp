@@ -1,10 +1,10 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 
 <HTML>
 <HEAD>
-    <%@ include file="/include/jspHeader.jsp" %>
-    <%@ include file="/include/jspUtil.jsp" %>
+    <%@ include file="../include/jspHeader.jsp" %>
+    <%@ include file="../include/jspUtil.jsp" %>
 
     <c:set var="IchiranForm" value="${sessionScope['01IchiranForm']}"/>
     <c:set var="pager" value="${IchiranForm.getPager()}"/>
@@ -37,7 +37,7 @@
             </DIV>
 
             <DIV id="list">
-                <form action="<c:url value='/tairyu/ichiran.do' />">
+                <form action="<c:url value='/tairyu/ichiran.do' />" method="post">
 
                     <%-- 勘定先リンククリック時の引数 --%>
                     <input type="hidden" value="${IchiranForm.anken_no}"/>

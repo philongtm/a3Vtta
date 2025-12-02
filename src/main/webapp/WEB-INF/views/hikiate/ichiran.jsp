@@ -1,5 +1,5 @@
 <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=SHIFT_JIS">
-<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="/include/jspException.jsp" %>
+<%@ page language="java" contentType="text/html; charset=Windows-31J" errorPage="../include/jspException.jsp" %>
 
 <HTML>
 <HEAD>
@@ -41,7 +41,7 @@
 			<input type="button" value="<%=i18n.get(GL.BTN_BACK)%>" onclick="doSubmit('menuLinkOS2101')">
 		</DIV>
 		<DIV id="list">
-			<form action="/hikiate/ichiran" >
+			<form action="/hikiate/ichiran" method="post">
 				<input type="hidden" name="anken_no" value="">
 				<input type="hidden" name="id" value="0">
 				<input type="hidden" name="oldTanto" value="0">
