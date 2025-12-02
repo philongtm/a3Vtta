@@ -14,12 +14,16 @@ import app.tairyu.form.SenteiForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OB2101_対象先選定_選定実行 アクションクラス
  */
+@Controller
+@RequestMapping("/tairyu/sentei.do")
 public class SenteiAction extends AppMenuAction {
 
 	private static final String SENTEIFORM = "01SenteiForm";

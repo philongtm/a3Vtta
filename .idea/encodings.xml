@@ -3,7 +3,7 @@
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="windows-31j">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/src/main/java/app/login/action/LoginAction.java" charset="windows-31j" />
-    <file url="file://$PROJECT_DIR$/src/main/java/common/struts/BaseAppAction.java" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/src/main/java/common/struts/AppAction.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/src/main/java/common/util/InputCheck.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/src/main/java/config/AppExceptionHandler.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="windows-31j" />

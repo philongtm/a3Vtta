@@ -14,12 +14,16 @@ import app.system.form.KureemuForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS3101 クレーム債権再設定_対象先一覧 アクションクラス
  */
+@Controller
+@RequestMapping("/system/kureemu.do")
 public class KureemuAction extends AppMenuAction {
 
 	private static final String KUREEMUFORM = "04KureemuForm";

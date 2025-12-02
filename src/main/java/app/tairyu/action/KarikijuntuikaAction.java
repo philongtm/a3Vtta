@@ -15,12 +15,16 @@ import app.tairyu.form.KarikijuntuikaForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OB2105_対象先選定_仮基準査定選択 アクションクラス
  */
+@Controller
+@RequestMapping("/tairyu/karikijuntuika.do")
 public class KarikijuntuikaAction extends AppMenuAction {
 
 	private static final String KARIKIJUNTUIKAFORM = "01KarikijuntuikaForm";

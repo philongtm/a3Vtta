@@ -19,12 +19,16 @@ import app.satei.form.SyoninSyosaiForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OC1107_査定_承認 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/satei/syonin_syosai.do")
 public class SyoninSyosaiAction extends AppMenuAction {
 
 	private static final String SYONINSYOSAIFORM		= "02SyoninSyosaiForm";

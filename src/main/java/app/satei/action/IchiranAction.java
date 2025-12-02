@@ -15,12 +15,16 @@ import common.AppContext;
 import common.global.GL;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OC1101_査定_対象先一覧 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/satei/ichiran.do")
 public class IchiranAction extends AppMenuAction {
 
 	private static final String ICHIRANFORM			= "02IchiranForm";

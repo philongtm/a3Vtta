@@ -15,12 +15,17 @@ import common.struts.AppMenuAction;
 import common.util.InputCheck;
 
 import jakarta.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.HashMap;
 
 
 /**
  * 連結区分マスタUPLOAD画面アクションクラス
  */
+@Controller
+@RequestMapping("/system/renketu.do")
 public class RenketuAction extends AppMenuAction {
 
 	private String CLASSNAME = getClass().getName(); // クラス名

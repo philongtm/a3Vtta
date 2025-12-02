@@ -13,12 +13,16 @@ import app.system.form.KanjyoForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS7108_勘定科目マスタメンテナンス_一覧・登録 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/system/kanjyo.do")
 public class KanjyoAction extends AppMenuAction {
 
 	private static final String KANJYOFORM = "08KanjyoForm";

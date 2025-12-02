@@ -12,12 +12,16 @@ import app.satei.form.RyuhosaimuForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OC1105_査定_留保債務登録 アクションクラス<br>
  */
+@Controller
+@RequestMapping("/satei/ryuhosaimu.do")
 public class RyuhosaimuAction extends AppMenuAction {
 
 	private static final String RYUHOSAIMUFORM		= "02RyuhosaimuForm";

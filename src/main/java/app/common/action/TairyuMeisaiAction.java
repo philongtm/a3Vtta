@@ -14,12 +14,16 @@ import app.common.form.TairyuMeisaiForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OZ6101_滞留債権明細照会タブ  アクションクラス
  */
+@Controller
+@RequestMapping("/common/tairyu_meisai.do")
 public class TairyuMeisaiAction extends AppMenuAction {
 
 	private static final String TAIRYUMEISAIFORM = "05TairyuMeisaiForm";

@@ -14,7 +14,6 @@ import app.tairyu.form.IchiranForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
-import common.struts.BaseAppMenuAction;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -25,13 +24,9 @@ import java.util.HashMap;
  */
 @Controller
 @RequestMapping("/tairyu/ichiran.do")
-public class IchiranAction extends BaseAppMenuAction<IchiranForm> {
+public class IchiranAction extends AppMenuAction {
 
     private static final String ICHIRANFORM = "01IchiranForm";
-
-    public IchiranAction() {
-        super(IchiranForm.class, ICHIRANFORM);
-    }
 
     /**
      * ディスパッチマップ作成

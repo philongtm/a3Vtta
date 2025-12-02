@@ -12,12 +12,16 @@ import app.system.form.DaikoForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS7101_代行設定 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/system/daiko.do")
 public class DaikoAction extends AppMenuAction {
 
 	private static final String DAIKOFORM = "04DaikoForm"; // 代行設定のフォーム

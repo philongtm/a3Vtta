@@ -20,12 +20,16 @@ import common.global.GS;
 import common.struts.AppMenuAction;
 import common.struts.AppPagerActionForm;
 import common.util.SateiSyosaiExcel;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OC1104_査定_引当金判定 アクションクラス<br>
  */
+@Controller
+@RequestMapping("/satei/hikiate.do")
 public class HikiateAction extends AppMenuAction {
 
 	private static final String HIKIATEFORM			= "02HikiateForm";

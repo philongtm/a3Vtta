@@ -16,12 +16,16 @@ import app.tairyu.form.SyoninsyosaiForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OB1105_実質滞留債権判定_承認 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/tairyu/syoninsyosai.do")
 public class SyoninsyosaiAction extends AppMenuAction {
 
 	private static final String SYONINSYOSAIFORM = "01SyoninsyosaiForm";

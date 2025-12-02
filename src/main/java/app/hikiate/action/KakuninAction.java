@@ -20,12 +20,16 @@ import app.syokai.action.SateisyosaiAction;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  *  OD1102_引当金確認<br>
  */
+@Controller
+@RequestMapping("/hikiate/kakunin.do")
 public class KakuninAction extends AppMenuAction {
 
 	private static final String KAKUNINFORM = "06KakuninForm"; // 引当金確認のフォーム

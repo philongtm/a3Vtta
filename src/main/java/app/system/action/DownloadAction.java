@@ -16,12 +16,16 @@ import app.system.form.DownloadForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS8101_帳票ダウンロード アクションクラス
  */
+@Controller
+@RequestMapping("/system/download.do")
 public class DownloadAction extends AppMenuAction {
 
 	private static final String DOWNLOADFORM = "04DownloadForm";

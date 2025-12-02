@@ -4,6 +4,7 @@ import config.interceptor.AppRequestInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FullyQualifiedAnnotationBeanNameGenerator;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -14,7 +15,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({"config", "common", "app"})
+@ComponentScan(basePackages = {"config", "common", "app"}, nameGenerator = FullyQualifiedAnnotationBeanNameGenerator.class)
 public class WebConfig implements WebMvcConfigurer {
     private final AppRequestInterceptor interceptor;
 
@@ -39,12 +40,9 @@ public class WebConfig implements WebMvcConfigurer {
     // Static resources (CSS, JS, images)
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/css/**")
-                .addResourceLocations("/css/");
-        registry.addResourceHandler("/image/**")
-                .addResourceLocations("/image/");
-        registry.addResourceHandler("/help/**")
-                .addResourceLocations("/help/");
+        registry.addResourceHandler("/css/**").addResourceLocations("/css/");
+        registry.addResourceHandler("/image/**").addResourceLocations("/image/");
+        registry.addResourceHandler("/help/**").addResourceLocations("/help/");
     }
 
     @Bean

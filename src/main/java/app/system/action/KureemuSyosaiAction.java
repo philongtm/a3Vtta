@@ -12,12 +12,16 @@ import app.system.form.KureemuSyosaiForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS3103_クレーム債権_明細詳細 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/kureemu/KureemuSyosai.do")
 public class KureemuSyosaiAction extends AppMenuAction {
 
 	private static final String KUREEMSYOSAIFORM = "04KureemSyosai";

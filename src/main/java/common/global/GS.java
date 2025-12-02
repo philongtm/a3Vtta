@@ -18,7 +18,8 @@ import common.util.Profile;
  *
  */
 public interface GS {
-    public static final String REQUEST_ATTRIBUTE_STRUST_ACTION_MAPPING="stv-actionMapping";
+    public static final String REQUEST_ATTRIBUTE_STRUST_ACTION_MAPPING = "stv-actionMapping";
+    public static final String REQUEST_ATTRIBUTE_STRUST_FORM_BEAN = "stv-formBean";
 
 	/************************************************************************************
 	 * 1.5éüî≈ã@î\ãzé˚ópíËêî

@@ -12,6 +12,8 @@ import app.common.bss.TorihikisakiGaiyoSyokaiBss;
 import app.common.form.TorihikisakiGaiyoSyokaiForm;
 import common.AppContext;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
@@ -19,6 +21,8 @@ import java.util.HashMap;
 /**
  * OZ6102_取引先概要照会タブ アクションクラス
  */
+@Controller
+@RequestMapping("/common/torihikisaki_gaiyo.do")
 public class TorihikisakiGaiyoSyokaiAction extends AppMenuAction {
 
 	private static final String TORIHIKISAKIGAIYOSYOKAIFORM = "TorihikisakiGaiyoSyokaiForm";

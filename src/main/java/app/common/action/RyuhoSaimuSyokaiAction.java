@@ -12,12 +12,16 @@ import app.common.bss.RyuhoSaimuSyokaiBss;
 import app.common.form.RyuhoSaimuSyokaiForm;
 import common.AppContext;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OZ6107_債務明細照会タブ  アクションフォームクラス
  */
+@Controller
+@RequestMapping("/common/ryuho_saimu.do")
 public class RyuhoSaimuSyokaiAction extends AppMenuAction {
 
 	private static final String RYUHOSAIMUSYOKAIFORM = "RyuhoSaimuSyokaiForm";

@@ -16,12 +16,16 @@ import app.syokai.form.SateiForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS6101_査定内容照会 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/syokai/satei.do")
 public class SateiAction extends AppMenuAction {
 
 	private static final String SATEIFORM = "03SateiForm";

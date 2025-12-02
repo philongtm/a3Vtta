@@ -12,12 +12,16 @@ import app.common.bss.KakuninSyokaiBss;
 import app.common.form.KakuninSyokaiForm;
 import common.AppContext;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OZ6106_引当金確認照会タブ  アクションクラス
  */
+@Controller
+@RequestMapping("/common/kakunin.do")
 public class KakuninSyokaiAction extends AppMenuAction {
 
 	private static final String KAKUNINSYOKAIFORM = "KakuninSyokaiForm";

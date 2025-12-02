@@ -16,12 +16,16 @@ import app.hikiate.form.HikiateSyoninForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  *  OD1103_引当金確認_承認一覧 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/hikiate/syonin_ichiran.do")
 public class HikiateSyoninAction extends AppMenuAction {
 
 	private static final String HIKIATESYONINFORM = "06HikiateSyoninForm";

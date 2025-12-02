@@ -18,12 +18,17 @@ import common.global.GS;
 import common.struts.AppMenuAction;
 
 import jakarta.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.HashMap;
 
 
 /**
  * チャンピオン部メンテナンス画面アクションクラス
  */
+@Controller
+@RequestMapping("/system/champion.do")
 public class ChampionAction extends AppMenuAction {
 
 	private String CLASSNAME = getClass().getName(); // クラス名

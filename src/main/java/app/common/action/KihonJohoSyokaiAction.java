@@ -12,12 +12,16 @@ import app.common.bss.KihonJohoSyokaiBss;
 import app.common.form.KihonJohoSyokaiForm;
 import common.AppContext;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OZ6108_基本情報照会タブ アクションクラス
  */
+@Controller
+@RequestMapping("/common/kihon_joho.do")
 public class KihonJohoSyokaiAction extends AppMenuAction {
 
 	private static final String KIHONJOHOSYOKAIFORM = "KihonJohoSyokaiForm";

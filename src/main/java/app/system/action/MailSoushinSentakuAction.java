@@ -15,12 +15,16 @@ import app.system.form.MailSoushinSentakuForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS7115_メール送信先選択 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/system/mailsoushin_sentaku.do")
 public class MailSoushinSentakuAction extends AppMenuAction {
 
 	private static final String MAILSOUSHINFORM = "07MailSoushinSentakuForm";

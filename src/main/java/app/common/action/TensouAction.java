@@ -14,12 +14,16 @@ import app.common.form.TensouForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OZ3101_転送先選択 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/common/tensou.do")
 public class TensouAction extends AppMenuAction {
 
 	private static final String TENSOUFORM = "05TensouForm";

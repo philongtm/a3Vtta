@@ -14,7 +14,7 @@ import app.login.form.LoginForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppLocale;
-import common.struts.BaseAppAction;
+import common.struts.AppAction;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -25,7 +25,7 @@ import java.util.HashMap;
  */
 @Controller
 @RequestMapping("/login/login.do")
-public class LoginAction extends BaseAppAction<LoginForm> {
+public class LoginAction extends AppAction {
 
     //ディスパッチマップキー名・アクションメソッド名
     private static final String LOGIN_ACTION = "login";
@@ -34,13 +34,6 @@ public class LoginAction extends BaseAppAction<LoginForm> {
     private static final String LANG_EN_ACTION = "langEn";
 
     private SessionData cmnData = null;
-
-    /**
-     * Constructor
-     */
-    public LoginAction() {
-        super(LoginForm.class, "00LoginForm");
-    }
 
     /**
      * ディスパッチマップ作成

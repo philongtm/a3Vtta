@@ -14,6 +14,9 @@ import common.global.GS;
 import common.struts.AppMenuAction;
 
 import jakarta.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +25,8 @@ import java.util.List;
 /**
  * 抽出条件メンテナンス画面アクションクラス
  */
+@Controller
+@RequestMapping("/system/cyusyutujyoken_hq.do")
 public class CyusyutujyokenHqAction extends AppMenuAction {
 
 	private String CLASSNAME = getClass().getName(); // クラス名

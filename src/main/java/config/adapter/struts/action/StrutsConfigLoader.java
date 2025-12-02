@@ -2,6 +2,7 @@ package config.adapter.struts.action;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.ServletContext;
+import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,6 +16,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Component
 public class StrutsConfigLoader {
@@ -23,8 +25,12 @@ public class StrutsConfigLoader {
     @Value("${struts.config.path:WEB-INF/struts-config}")
     private String configPath;
 
+    @Value("${struts.extensionMapping:.do}")
+    private String extensionMapping;
+
     private final Map<String, ActionMapping> actionMappings = new HashMap<>();
     private final Map<String, ActionForward> globalForwards = new HashMap<>();
+    private final Map<String, FormBean> formBeans = new HashMap<>();
 
     private final ServletContext servletContext;
 
@@ -34,7 +40,7 @@ public class StrutsConfigLoader {
 
     @PostConstruct
     public void load() throws Exception {
-
+// TODO: xem l?i c?u h?nh config path
         if (configPath.startsWith("classpath:")) {
             String path = configPath.substring("classpath:".length());
             PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
@@ -64,6 +70,27 @@ public class StrutsConfigLoader {
         );
 
         logger.info("Loaded Struts configs from {}, total mappings: {}", configPath, actionMappings.size());
+    }
+
+    public String getActionPath(String path) {
+        return Optional.ofNullable(path)
+                .filter(p -> extensionMapping != null && p.endsWith(extensionMapping))
+                .map(p -> p.substring(0, p.length() - extensionMapping.length()))
+                .orElse(path);
+    }
+
+    public String getActionPath(HttpServletRequest request) {
+        String uri = request.getRequestURI();        // /app/user/list.do
+        String ctx = request.getContextPath();       // /app
+        return getActionPath(uri.substring(ctx.length())); // /user/list
+    }
+
+    public ActionMapping getActionMapping(HttpServletRequest request) {
+        return actionMappings.get(getActionPath(request));
+    }
+
+    public FormBean getFormBean(String beanName) {
+        return formBeans.get(beanName);
     }
 
     private void loadConfig(File xmlFile) throws Exception {
@@ -108,10 +135,25 @@ public class StrutsConfigLoader {
 
             actionMappings.put(mapping.getPath(), mapping);
         }
-    }
 
-    public ActionMapping getActionMapping(String requestPath) {
-        return actionMappings.get(requestPath);
+        // Load form-beans
+        var formBeansNodes = doc.getElementsByTagName("form-beans");
+        for (int i = 0; i < formBeansNodes.getLength(); i++) {
+            org.w3c.dom.Element fbContainer = (org.w3c.dom.Element) formBeansNodes.item(i);
+            var fbNodes = fbContainer.getElementsByTagName("form-bean");
+            for (int j = 0; j < fbNodes.getLength(); j++) {
+                org.w3c.dom.Element f = (org.w3c.dom.Element) fbNodes.item(j);
+                String name = f.getAttribute("name");
+                String type = f.getAttribute("type");
+
+                FormBean bean = new FormBean();
+                bean.setName(name);
+                bean.setType(type);
+
+                formBeans.put(name, bean);
+            }
+        }
+
     }
 }
 

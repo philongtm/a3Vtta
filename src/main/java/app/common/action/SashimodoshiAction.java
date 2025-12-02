@@ -16,12 +16,16 @@ import app.common.form.SashimodoshiForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OZ2101_差戻先選択 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/common/sashimodoshi.do")
 public class SashimodoshiAction extends AppMenuAction {
 
 	private static final String SASHIMODOSHIFORM = "05SashimodoshiForm";

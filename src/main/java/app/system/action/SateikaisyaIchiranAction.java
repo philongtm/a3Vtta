@@ -14,6 +14,8 @@ import app.system.form.SateikaisyaIchiranForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +24,8 @@ import java.util.List;
 /**
  * OS7102_査定会社メンテナンス_一覧 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/system/sateikaisyaichiran.do")
 public class SateikaisyaIchiranAction extends AppMenuAction {
 
 	private static final String SATEIKAISYAICHIRANFORM = "02SateikaisyaIchiranForm"; // 査定会社メンテナンス_一覧のフォーム

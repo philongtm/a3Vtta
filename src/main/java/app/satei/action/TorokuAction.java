@@ -15,12 +15,16 @@ import app.satei.form.TorokuForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OC1102_査定_取引先概要 アクションクラス<br>
  */
+@Controller
+@RequestMapping("/satei/toroku.do")
 public class TorokuAction extends AppMenuAction {
 
 	private static final String TOROKUFORM			= "02TorokuForm";

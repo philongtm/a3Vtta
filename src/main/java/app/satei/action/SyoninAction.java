@@ -15,12 +15,16 @@ import common.AppContext;
 import common.global.GL;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OC1104_査定_承認一覧 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/satei/syonin.do")
 public class SyoninAction extends AppMenuAction {
 
 	private static final String SYONINFORM		= "02SyoninForm";

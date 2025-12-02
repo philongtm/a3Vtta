@@ -14,12 +14,16 @@ import app.tairyu.form.SenteituikaForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OB2103_対象先選定_追加対象先選択 アクションクラス
  */
+@Controller
+@RequestMapping("/tairyu/senteituika.do")
 public class SenteituikaAction extends AppMenuAction {
 
 	private static final String SENTEITUIKAFORM = "01SenteituikaForm";

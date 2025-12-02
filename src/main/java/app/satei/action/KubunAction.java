@@ -15,12 +15,16 @@ import app.satei.form.KubunForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OC1103_査定_取引先区分 アクションクラス<br>
  */
+@Controller
+@RequestMapping("/satei/kubun.do")
 public class KubunAction extends AppMenuAction {
 
 	private static final String KUBUNFORM				= "02KubunForm";

@@ -20,12 +20,16 @@ import app.hikiate.form.HikiateSyoninSyosaiForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OD1104 引当金確認_承認 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/hikiate/hikiate_syonin_syosai.do")
 public class HikiateSyoninSyosaiAction extends AppMenuAction {
 	
 	private static final String HIKIATESYONINSYOSAIFORM = "06HikiateSyoninSyosaiForm"; // 引当金確認_承認のフォーム

@@ -21,12 +21,16 @@ import common.global.GS;
 import common.struts.AppMenuAction;
 import common.struts.AppPagerActionForm;
 import common.util.TairyuExcel;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OB1102_実質滞留債権判定_明細一覧 アクションクラス
  */
+@Controller
+@RequestMapping("/tairyu/toroku.do")
 public class TorokuAction extends AppMenuAction {
 
 	private static final String TOROKUFORM = "01TorokuForm"; // 実質滞留債権判定_明細一覧のフォーム

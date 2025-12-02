@@ -16,11 +16,16 @@ import common.global.GS;
 import common.struts.AppMenuAction;
 
 import jakarta.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.HashMap;
 
 /**
  * 引当金検証タブアクションクラス
  */
+@Controller
+@RequestMapping("/common/kensyo.do")
 public class KensyoSyokaiAction extends AppMenuAction {
 
 	// クラス名

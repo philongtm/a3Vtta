@@ -14,12 +14,16 @@ import app.system.form.UserIchiranForm;
 import common.AppContext;
 import common.global.GS;
 import common.struts.AppMenuAction;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 
 /**
  * OS7106_ユーザマスタメンテナンス_一覧 アクションクラス <br>
  */
+@Controller
+@RequestMapping("/system/userIchiran.do")
 public class UserIchiranAction extends AppMenuAction {
 
 	private static final String USERICHIRANFORM = "06UserIchiranForm";

@@ -16,11 +16,16 @@ import common.global.GS;
 import common.struts.AppMenuAction;
 
 import jakarta.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import java.util.HashMap;
 
 /**
  * OD1101_引当金確認_対象先一覧 アクションクラス
  */
+@Controller
+@RequestMapping("/hikiate/ichiran.do")
 public class IchiranAction extends AppMenuAction {
 
     private static final String ICHIRANFORM = "06IchiranForm";
